@@ -1,4 +1,4 @@
-package com.repset.app.core.theme
+package com.nndiph.liftverse.core.theme
 
 import androidx.compose.material3.darkColorScheme
 import androidx.compose.material3.lightColorScheme

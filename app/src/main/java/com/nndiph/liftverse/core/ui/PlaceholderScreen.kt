@@ -1,4 +1,4 @@
-package com.repset.app.core.ui
+package com.nndiph.liftverse.core.ui
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column

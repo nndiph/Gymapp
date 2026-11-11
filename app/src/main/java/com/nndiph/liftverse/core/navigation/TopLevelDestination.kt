@@ -1,8 +1,8 @@
-package com.repset.app.core.navigation
+package com.nndiph.liftverse.core.navigation
 
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
-import com.repset.app.R
+import com.nndiph.liftverse.R
 
 /**
  * The three bottom-navigation tabs. Order here is the order in the bar.

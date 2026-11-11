@@ -9,13 +9,12 @@ plugins {
 }
 
 android {
-    // TODO(M0): placeholder package. The final applicationId must be decided before the
-    // Firebase Android app is registered and before the first Play Console upload.
-    namespace = "com.repset.app"
+    // applicationId is permanent after the first Play Console upload. Do not change it.
+    namespace = "com.nndiph.liftverse"
     compileSdk = 37
 
     defaultConfig {
-        applicationId = "com.repset.app"
+        applicationId = "com.nndiph.liftverse"
         minSdk = 26
         targetSdk = 37
         versionCode = 1

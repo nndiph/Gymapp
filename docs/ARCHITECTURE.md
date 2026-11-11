@@ -1,4 +1,4 @@
-# ARCHITECTURE — Repset (working title)
+# ARCHITECTURE — Liftverse
 
 Versi: 0.1 · Terakhir diperbarui: 2026-11-10
 

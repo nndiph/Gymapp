@@ -1,10 +1,10 @@
-package com.repset.app.feature.profile
+package com.nndiph.liftverse.feature.profile
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
-import com.repset.app.R
-import com.repset.app.core.ui.PlaceholderScreen
+import com.nndiph.liftverse.R
+import com.nndiph.liftverse.core.ui.PlaceholderScreen
 
 /** M4 fills this with the profile header, heatmap, progress and routine "playlist". */
 @Composable

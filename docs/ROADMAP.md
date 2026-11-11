@@ -1,4 +1,4 @@
-# ROADMAP — Repset (working title)
+# ROADMAP — Liftverse
 
 Versi: 0.2 · Terakhir diperbarui: 2026-11-11
 
@@ -21,7 +21,7 @@ Setiap butir bisa langsung dijadikan GitHub Issue (lihat `GITHUB_SETUP.md`). Sat
 
 Status per 2026-11-11: kode fondasi selesai dan terverifikasi lokal. Sisa butir menunggu keputusan atau akun pemilik proyek.
 
-- [ ] Putuskan nama working title → `applicationId` (lihat CLAUDE.md, Pertanyaan Terbuka). *Sementara memakai placeholder `com.repset.app`.*
+- [x] Putuskan nama → `applicationId`: **Liftverse**, `com.nndiph.liftverse` (2026-11-11)
 - [ ] Buat repo, ikuti `GITHUB_SETUP.md` (label, milestone, ruleset, CI). *Repo lokal + file `.github/` siap; menunggu `gh auth login` dan nama akun/repo.*
 - [x] Proyek Android baru: Kotlin, Compose, Material 3, minSdk 26
 - [x] Cek dan tetapkan versi terbaru (AGP, Kotlin, Compose BOM, Firebase BoM, Hilt) dari dokumentasi resmi → tabel di `ARCHITECTURE.md` §10

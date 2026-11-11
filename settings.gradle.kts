@@ -20,5 +20,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Repset"
+rootProject.name = "Liftverse"
 include(":app")
