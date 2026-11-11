@@ -1,0 +1,37 @@
+# Gradle
+.gradle/
+build/
+.kotlin/
+!gradle/wrapper/gradle-wrapper.jar
+
+# Android Studio / IntelliJ
+.idea/
+*.iml
+captures/
+.externalNativeBuild/
+.cxx/
+output-metadata.json
+
+# Local SDK path
+local.properties
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# secrets & konfigurasi lokal
+app/google-services.json
+keystore.properties
+*.jks
+*.keystore
+*service-account*.json
+.env
+
+# Firebase emulator
+firebase-debug.log
+firestore-debug.log
+ui-debug.log
+.firebase/
