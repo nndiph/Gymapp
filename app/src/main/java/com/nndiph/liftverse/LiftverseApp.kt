@@ -1,4 +1,4 @@
-package com.repset.app
+package com.nndiph.liftverse
 
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Icon
@@ -15,24 +15,24 @@ import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
-import com.repset.app.core.navigation.RepsetNavHost
-import com.repset.app.core.navigation.TopLevelDestination
+import com.nndiph.liftverse.core.navigation.LiftverseNavHost
+import com.nndiph.liftverse.core.navigation.TopLevelDestination
 
 /** Root of the UI: bottom navigation (Dashboard · Catat · Profil) hosting the nav graph. */
 @Composable
-fun RepsetApp(navController: NavHostController = rememberNavController()) {
+fun LiftverseApp(navController: NavHostController = rememberNavController()) {
     val backStackEntry by navController.currentBackStackEntryAsState()
     val currentDestination = TopLevelDestination.fromRoute(backStackEntry?.destination?.route)
 
     Scaffold(
         bottomBar = {
-            RepsetBottomBar(
+            LiftverseBottomBar(
                 current = currentDestination,
                 onNavigate = { destination -> navController.navigateTopLevel(destination) }
             )
         }
     ) { innerPadding ->
-        RepsetNavHost(
+        LiftverseNavHost(
             navController = navController,
             modifier = Modifier.padding(innerPadding)
         )
@@ -40,7 +40,7 @@ fun RepsetApp(navController: NavHostController = rememberNavController()) {
 }
 
 @Composable
-private fun RepsetBottomBar(current: TopLevelDestination?, onNavigate: (TopLevelDestination) -> Unit) {
+private fun LiftverseBottomBar(current: TopLevelDestination?, onNavigate: (TopLevelDestination) -> Unit) {
     NavigationBar {
         TopLevelDestination.entries.forEach { destination ->
             val selected = destination == current

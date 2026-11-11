@@ -1,10 +1,10 @@
-package com.repset.app.feature.logger
+package com.nndiph.liftverse.feature.logger
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
-import com.repset.app.R
-import com.repset.app.core.ui.PlaceholderScreen
+import com.nndiph.liftverse.R
+import com.nndiph.liftverse.core.ui.PlaceholderScreen
 
 /** M3 turns this into the workout logger (start session, pick exercise, log sets). */
 @Composable

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Repset</string>
+    <string name="app_name">Liftverse</string>
 
     <!-- Bottom navigation -->
     <string name="nav_dashboard">Dashboard</string>

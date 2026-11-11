@@ -1,10 +1,10 @@
-package com.repset.app.feature.dashboard
+package com.nndiph.liftverse.feature.dashboard
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
-import com.repset.app.R
-import com.repset.app.core.ui.PlaceholderScreen
+import com.nndiph.liftverse.R
+import com.nndiph.liftverse.core.ui.PlaceholderScreen
 
 /** M5 fills this with "today's workout", streak and weekly summary. */
 @Composable

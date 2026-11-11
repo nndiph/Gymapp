@@ -1,4 +1,4 @@
-package com.repset.app
+package com.nndiph.liftverse
 
 import android.app.Application
 import dagger.hilt.android.HiltAndroidApp
@@ -8,4 +8,4 @@ import dagger.hilt.android.HiltAndroidApp
  * Firebase initialises itself through the google-services plugin; nothing to do manually.
  */
 @HiltAndroidApp
-class RepsetApplication : Application()
+class LiftverseApplication : Application()

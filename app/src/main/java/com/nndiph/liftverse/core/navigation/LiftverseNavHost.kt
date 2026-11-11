@@ -1,17 +1,17 @@
-package com.repset.app.core.navigation
+package com.nndiph.liftverse.core.navigation
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import com.repset.app.feature.dashboard.DashboardScreen
-import com.repset.app.feature.logger.LoggerScreen
-import com.repset.app.feature.profile.ProfileScreen
+import com.nndiph.liftverse.feature.dashboard.DashboardScreen
+import com.nndiph.liftverse.feature.logger.LoggerScreen
+import com.nndiph.liftverse.feature.profile.ProfileScreen
 
 /** Navigation graph. Feature screens are placeholders until their milestones (M3–M5). */
 @Composable
-fun RepsetNavHost(navController: NavHostController, modifier: Modifier = Modifier) {
+fun LiftverseNavHost(navController: NavHostController, modifier: Modifier = Modifier) {
     NavHost(
         navController = navController,
         startDestination = TopLevelDestination.START.route,

@@ -6,7 +6,7 @@
 
 Aplikasi Android **gym tracker + media sosial** — "GitHub-nya gym": setiap sesi latihan menjadi riwayat yang bisa dilihat orang lain (heatmap konsistensi, progress per gerakan, routine sebagai "playlist" di profil).
 
-- **Working title:** `Repset` (belum final — lihat Pertanyaan Terbuka)
+- **Nama app:** `Liftverse` (diputuskan 2026-11-11). `applicationId`: `com.nndiph.liftverse`. Repo: `nndiph/Gymapp`.
 - **Pemilik:** Proyek portofolio yang akan diseriusi sampai rilis di Play Store.
 - **Platform:** Android dulu. iOS/web di luar scope.
 - **Masalah utama yang diselesaikan:** app gym lain tidak menyediakan gerakan yang dipakai user. Library gerakan harus lengkap **dan** user bisa membuat gerakan custom sendiri.
@@ -40,8 +40,8 @@ Alasan memilih Firebase dibanding Supabase ada di `docs/ARCHITECTURE.md` (ringka
 
 ## Pertanyaan terbuka — TANYAKAN ke pemilik proyek, jangan menebak
 
-1. **Nama final app** dan `applicationId` (mis. `com.<namaakun>.<namaapp>`). `applicationId` **tidak bisa diganti** setelah upload pertama ke Play Console, jadi putuskan sebelum upload.
-2. **Nama akun/organisasi GitHub** dan nama repo final.
+1. ~~Nama final app dan `applicationId`~~ — **terjawab 2026-11-11:** Liftverse, `com.nndiph.liftverse`. `applicationId` tidak bisa diganti setelah upload pertama ke Play Console.
+2. ~~Nama akun/organisasi GitHub dan nama repo~~ — **terjawab 2026-11-11:** `nndiph/Gymapp`.
 3. **Lisensi dataset gerakan seed.** Kandidat: `free-exercise-db` dan `wger`. Verifikasi lisensi sebenarnya di repo/situs resminya sebelum mengimpor; jangan berasumsi.
 4. **Region Firestore** (disarankan region Asia terdekat; tidak bisa diganti setelah dibuat).
 5. Apakah kamu punya kartu untuk paket Blaze (dibutuhkan saat rilis). Jika belum, MVP tetap bisa jalan di Spark.

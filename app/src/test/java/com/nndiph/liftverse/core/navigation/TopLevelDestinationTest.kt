@@ -1,4 +1,4 @@
-package com.repset.app.core.navigation
+package com.nndiph.liftverse.core.navigation
 
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertNull

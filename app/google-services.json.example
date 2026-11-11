@@ -1,15 +1,15 @@
 {
   "project_info": {
     "project_number": "000000000000",
-    "project_id": "repset-placeholder",
-    "storage_bucket": "repset-placeholder.appspot.com"
+    "project_id": "liftverse-placeholder",
+    "storage_bucket": "liftverse-placeholder.appspot.com"
   },
   "client": [
     {
       "client_info": {
         "mobilesdk_app_id": "1:000000000000:android:0000000000000000000000",
         "android_client_info": {
-          "package_name": "com.repset.app"
+          "package_name": "com.nndiph.liftverse"
         }
       },
       "oauth_client": [],

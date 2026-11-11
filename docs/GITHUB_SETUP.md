@@ -1,6 +1,6 @@
-# GITHUB_SETUP — Repset (working title)
+# GITHUB_SETUP — Liftverse
 
-Panduan menyiapkan repo, alur kerja, CI, dan proyek Firebase. Ganti `<user>` dengan nama akun GitHub dan `<repo>` dengan nama repo (mis. `repset`). Claude Code membantu menjalankan; **aksi yang mengubah akun GitHub/Firebase dikonfirmasi dulu ke pemilik proyek.**
+Panduan menyiapkan repo, alur kerja, CI, dan proyek Firebase. Ganti `<user>` dengan nama akun GitHub dan `<repo>` dengan nama repo. Untuk proyek ini: `nndiph/Gymapp`. Claude Code membantu menjalankan; **aksi yang mengubah akun GitHub/Firebase dikonfirmasi dulu ke pemilik proyek.**
 
 ## 0. Prasyarat
 
@@ -13,7 +13,7 @@ Panduan menyiapkan repo, alur kerja, CI, dan proyek Firebase. Ganti `<user>` den
 | Hal | Usulan |
 |---|---|
 | Visibilitas | **Public** (portofolio; juga membuat branch protection/ruleset gratis) |
-| Nama repo | working title `repset` — final setelah nama app diputuskan |
+| Nama repo | `Gymapp` di akun `nndiph` (diputuskan 2026-11-11). Nama app: Liftverse |
 | Lisensi | MIT (kode). Dataset gerakan seed punya lisensi sendiri → lihat `DATA_MODEL.md` |
 | Alur kerja | Trunk-based: `main` selalu hijau, branch pendek `feat/*`, `fix/*`, `docs/*`, `chore/*` |
 
