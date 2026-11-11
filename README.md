@@ -1,4 +1,4 @@
-# Repset *(working title)*
+# Liftverse
 
 > Gym tracker + media sosial untuk Android. Catat latihan, buat gerakan sendiri, dan tunjukkan progress-mu — seperti GitHub, tapi untuk gym.
 
@@ -6,7 +6,7 @@
 
 ## Kenapa dibuat
 
-Banyak app gym tracker tidak menyediakan gerakan yang benar-benar kita lakukan. Repset menyediakan library gerakan yang lengkap **dan** memungkinkan setiap user membuat gerakan custom sendiri. Di atasnya ada lapisan sosial ringan: profil dengan heatmap konsistensi dan progress per gerakan yang bisa dilihat orang lain.
+Banyak app gym tracker tidak menyediakan gerakan yang benar-benar kita lakukan. Liftverse menyediakan library gerakan yang lengkap **dan** memungkinkan setiap user membuat gerakan custom sendiri. Di atasnya ada lapisan sosial ringan: profil dengan heatmap konsistensi dan progress per gerakan yang bisa dilihat orang lain.
 
 ## Fitur MVP
 
@@ -53,14 +53,14 @@ Pertimbangan keandalan dan alasan pemilihan stack ada di [`docs/ARCHITECTURE.md`
    firebase emulators:start           # UI di http://localhost:4000
    ```
 
-   Tanpa login pun bisa: `.firebaserc` menunjuk ke proyek demo `demo-repset` yang hanya hidup di emulator. `firebase-tools` versi 15 menolak Java di bawah 21, sedangkan Gradle memakai JDK 17. Di PowerShell, arahkan `JAVA_HOME` ke JBR Android Studio hanya untuk sesi emulator:
+   Tanpa login pun bisa: `.firebaserc` menunjuk ke proyek demo `demo-liftverse` yang hanya hidup di emulator. `firebase-tools` versi 15 menolak Java di bawah 21, sedangkan Gradle memakai JDK 17. Di PowerShell, arahkan `JAVA_HOME` ke JBR Android Studio hanya untuk sesi emulator:
 
    ```powershell
    $env:JAVA_HOME = "C:\Program Files\Android\Android Studio\jbr"; $env:Path = "$env:JAVA_HOME\bin;" + $env:Path
    firebase emulators:start
    ```
 
-> `applicationId` saat ini `com.repset.app` adalah **placeholder** sampai nama final diputuskan (lihat `CLAUDE.md` → Pertanyaan terbuka). Ganti di `app/build.gradle.kts`, nama paket di `app/src/main/java/`, dan `app/google-services.json.example` sebelum mendaftarkan app di Firebase.
+> `applicationId`: `com.nndiph.liftverse`. Pakai ID ini persis saat mendaftarkan app Android di Firebase Console. ID ini tidak bisa diganti setelah upload pertama ke Play Console.
 
 ## Lisensi
 

@@ -1,4 +1,4 @@
-# PRD — Repset (working title)
+# PRD — Liftverse
 
 Versi: 0.1 (draf perencanaan) · Terakhir diperbarui: 2026-11-10
 

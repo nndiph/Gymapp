@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Liftverse</string>
+
+    <!-- Bottom navigation -->
+    <string name="nav_dashboard">Dashboard</string>
+    <string name="nav_logger">Catat</string>
+    <string name="nav_profile">Profil</string>
+
+    <!-- M0 placeholder screens -->
+    <string name="placeholder_dashboard">Latihan hari ini akan muncul di sini.</string>
+    <string name="placeholder_logger">Mulai mencatat sesi latihan dari sini.</string>
+    <string name="placeholder_profile">Heatmap dan progress-mu akan muncul di sini.</string>
+</resources>

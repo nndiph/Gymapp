@@ -1,4 +1,4 @@
-# DATA_MODEL — Repset (working title)
+# DATA_MODEL — Liftverse
 
 Versi: 0.1 (draf) · Terakhir diperbarui: 2026-11-10
 
