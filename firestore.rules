@@ -1,0 +1,12 @@
+rules_version = '2';
+
+// M0: deny everything. Rules are opened per collection starting in M1,
+// each change tested against the Firebase Emulator before deploy.
+// Target shape is drafted in docs/DATA_MODEL.md section 8.
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
