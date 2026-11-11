@@ -19,10 +19,10 @@ Setiap butir bisa langsung dijadikan GitHub Issue (lihat `GITHUB_SETUP.md`). Sat
 
 ## M0 — Fondasi (M)
 
-Status per 2026-11-11: kode fondasi selesai dan terverifikasi lokal. Sisa butir menunggu keputusan atau akun pemilik proyek.
+Status per 2026-11-11: kode fondasi selesai, CI hijau di PR #1. Sisa: proyek Firebase sungguhan.
 
 - [x] Putuskan nama → `applicationId`: **Liftverse**, `com.nndiph.liftverse` (2026-11-11)
-- [ ] Buat repo, ikuti `GITHUB_SETUP.md` (label, milestone, ruleset, CI). *Repo lokal + file `.github/` siap; menunggu `gh auth login` dan nama akun/repo.*
+- [x] Buat repo, ikuti `GITHUB_SETUP.md` (label, milestone, ruleset, CI). *Repo `nndiph/Gymapp`; project board belum (butuh `gh auth refresh -s project`).*
 - [x] Proyek Android baru: Kotlin, Compose, Material 3, minSdk 26
 - [x] Cek dan tetapkan versi terbaru (AGP, Kotlin, Compose BOM, Firebase BoM, Hilt) dari dokumentasi resmi → tabel di `ARCHITECTURE.md` §10
 - [x] Hilt, Navigation Compose, tema (light/dark), kerangka bottom navigation (Dashboard · Catat · Profil). *Palet biru masih usulan sampai desain final ada.*
