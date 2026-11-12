@@ -99,7 +99,9 @@ fun ActiveSetPanel(
             DeleteSetButton(set = set, onDelete = onDelete)
             WarmupToggle(isWarmup = set.isWarmup, onToggle = onToggleWarmup)
             PrimaryFillButton(
-                text = stringResource(if (set.isCompleted) R.string.action_save_changes else R.string.action_complete_set),
+                text = stringResource(
+                    if (set.isCompleted) R.string.action_save_changes else R.string.action_complete_set
+                ),
                 onClick = onPrimaryAction,
                 icon = R.drawable.ic_check,
                 modifier = Modifier.weight(1f).height(56.dp)
@@ -215,7 +217,11 @@ private fun WarmupToggle(isWarmup: Boolean, onToggle: () -> Unit) {
             modifier = Modifier.size(20.dp)
         )
         Spacer(Modifier.width(6.dp))
-        Text(text = stringResource(R.string.action_warmup), style = MaterialTheme.typography.titleSmall, color = content)
+        Text(
+            text = stringResource(R.string.action_warmup),
+            style = MaterialTheme.typography.titleSmall,
+            color = content
+        )
     }
 }
 

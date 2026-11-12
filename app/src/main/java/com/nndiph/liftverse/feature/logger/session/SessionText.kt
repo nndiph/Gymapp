@@ -158,7 +158,13 @@ internal fun fieldCaption(field: SetField, trackingType: TrackingType, values: S
         }
         SetField.REPS -> stringResource(R.string.caption_reps)
         SetField.DURATION -> stringResource(
-            if (trackingType == TrackingType.DISTANCE_DURATION) R.string.caption_cardio_duration else R.string.caption_duration,
+            if (trackingType ==
+                TrackingType.DISTANCE_DURATION
+            ) {
+                R.string.caption_cardio_duration
+            } else {
+                R.string.caption_duration
+            },
             durationStepSec(trackingType)
         )
         SetField.DISTANCE -> stringResource(

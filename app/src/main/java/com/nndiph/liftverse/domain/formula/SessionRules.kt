@@ -12,8 +12,7 @@ fun weightStepKg(equipment: Equipment?): Double = if (equipment == Equipment.DUM
 const val REPS_STEP = 1
 
 /** 15 s for timed exercises; 30 s for the time of distance exercises ("durasi kardio" in SPEC). */
-fun durationStepSec(trackingType: TrackingType): Int =
-    if (trackingType == TrackingType.DISTANCE_DURATION) 30 else 15
+fun durationStepSec(trackingType: TrackingType): Int = if (trackingType == TrackingType.DISTANCE_DURATION) 30 else 15
 
 /** 0,1 km. */
 const val DISTANCE_STEP_M = 100

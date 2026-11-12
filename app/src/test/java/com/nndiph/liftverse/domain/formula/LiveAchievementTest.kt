@@ -40,7 +40,8 @@ class LiveAchievementTest {
 
     @Test
     fun `a record candidate replaces the improvement chip`() {
-        val achievement = liveAchievement(TrackingType.WEIGHT_REPS, SetValues(26.0, 9), false, SetValues(24.0, 10), 32.0)
+        val achievement =
+            liveAchievement(TrackingType.WEIGHT_REPS, SetValues(26.0, 9), false, SetValues(24.0, 10), 32.0)
         // 26 × (1 + 9/30) = 33,8 beats 32
         assertEquals(LiveAchievement.PrCandidate(26.0 * (1 + 9 / 30.0), 32.0), achievement)
     }

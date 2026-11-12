@@ -69,9 +69,14 @@ class ActiveSessionViewModel @Inject constructor(
     ) { load, contexts, selected, expanded, pending ->
         when (load) {
             SessionLoad.Loading -> ActiveSessionUiState.Loading
-            is SessionLoad.Loaded -> load.session
-                ?.let { ActiveSessionUiState.Running(buildActiveSessionUi(it.withValues(pending), contexts, selected, expanded)) }
-                ?: ActiveSessionUiState.NoSession
+            is SessionLoad.Loaded ->
+                load.session
+                    ?.let {
+                        ActiveSessionUiState.Running(
+                            buildActiveSessionUi(it.withValues(pending), contexts, selected, expanded)
+                        )
+                    }
+                    ?: ActiveSessionUiState.NoSession
         }
     }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(STOP_TIMEOUT_MS), ActiveSessionUiState.Loading)
 
@@ -135,7 +140,9 @@ class ActiveSessionViewModel @Inject constructor(
 
     override fun onDeleteExercise(exerciseId: String) {
         val name = currentUi()?.exercises?.firstOrNull { it.id == exerciseId }?.name ?: return
-        write { sessions.removeExercise(exerciseId)?.let { messageChannel.send(SessionMessage.ExerciseRemoved(name, it)) } }
+        write {
+            sessions.removeExercise(exerciseId)?.let { messageChannel.send(SessionMessage.ExerciseRemoved(name, it)) }
+        }
     }
 
     override fun onAdjustRest(deltaSec: Int) {

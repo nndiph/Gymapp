@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
@@ -50,7 +51,6 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.draw.rotate
 import androidx.compose.ui.layout.onSizeChanged
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.platform.LocalResources
@@ -86,10 +86,14 @@ fun ActiveSessionRoute(session: ActiveSessionUi, viewModel: ActiveSessionViewMod
         // A newer deletion replaces the snackbar of an older one, as in the prototype.
         viewModel.messages.collectLatest { message ->
             val text = when (message) {
-                is SessionMessage.SetRemoved -> message.setNumber
-                    ?.let { resources.getString(R.string.deleted_set, it) }
-                    ?: resources.getString(R.string.deleted_warmup_set)
-                is SessionMessage.ExerciseRemoved -> resources.getString(R.string.deleted_exercise, message.exerciseName)
+                is SessionMessage.SetRemoved ->
+                    message.setNumber
+                        ?.let { resources.getString(R.string.deleted_set, it) }
+                        ?: resources.getString(R.string.deleted_warmup_set)
+                is SessionMessage.ExerciseRemoved -> resources.getString(
+                    R.string.deleted_exercise,
+                    message.exerciseName
+                )
             }
             val result = withTimeoutOrNull(UNDO_WINDOW_MS) {
                 snackbarHostState.showSnackbar(
@@ -107,7 +111,9 @@ fun ActiveSessionRoute(session: ActiveSessionUi, viewModel: ActiveSessionViewMod
         actions = viewModel,
         onAddExercise = {
             // The exercise picker is the next screen in the handoff order; until then say so.
-            scope.launch { snackbarHostState.showSnackbar(resources.getString(R.string.session_add_exercise_unavailable)) }
+            scope.launch {
+                snackbarHostState.showSnackbar(resources.getString(R.string.session_add_exercise_unavailable))
+            }
         },
         snackbarHostState = snackbarHostState,
         modifier = modifier
@@ -284,7 +290,11 @@ private fun ExerciseCard(
 @Composable
 private fun ExerciseHeader(exercise: ExerciseUi, onDelete: () -> Unit, onToggle: () -> Unit) {
     Row(
-        modifier = Modifier.fillMaxWidth().padding(start = 16.dp, end = 4.dp, top = 18.dp, bottom = 18.dp),
+        // 76 dp like the design cards; taller only when a "Custom" tag adds a line.
+        modifier = Modifier
+            .fillMaxWidth()
+            .heightIn(min = 76.dp)
+            .padding(start = 16.dp, end = 4.dp, top = 8.dp, bottom = 8.dp),
         verticalAlignment = Alignment.CenterVertically
     ) {
         Column(modifier = Modifier.weight(1f)) {
@@ -319,7 +329,9 @@ private fun ExerciseHeader(exercise: ExerciseUi, onDelete: () -> Unit, onToggle:
         }
         IconButton(onClick = onToggle) {
             Icon(
-                painter = painterResource(if (exercise.isExpanded) R.drawable.ic_expand_less else R.drawable.ic_expand_more),
+                painter = painterResource(
+                    if (exercise.isExpanded) R.drawable.ic_expand_less else R.drawable.ic_expand_more
+                ),
                 contentDescription = stringResource(
                     if (exercise.isExpanded) R.string.action_collapse_exercise else R.string.action_expand_exercise,
                     exercise.name
@@ -349,13 +361,17 @@ private fun EmptySessionState(modifier: Modifier = Modifier) {
                 painter = painterResource(R.drawable.ic_fitness_center),
                 contentDescription = null,
                 tint = MaterialTheme.colorScheme.onSurface,
-                modifier = Modifier.size(32.dp).rotate(45f)
+                modifier = Modifier.size(32.dp)
             )
         }
         Spacer(Modifier.height(16.dp))
         Text(
             text = stringResource(R.string.empty_session_title),
-            style = MaterialTheme.typography.titleMedium.copy(fontSize = 18.sp, lineHeight = 24.sp, fontWeight = FontWeight.Bold),
+            style = MaterialTheme.typography.titleMedium.copy(
+                fontSize = 18.sp,
+                lineHeight = 24.sp,
+                fontWeight = FontWeight.Bold
+            ),
             color = MaterialTheme.colorScheme.onSurface,
             textAlign = TextAlign.Center
         )
@@ -404,7 +420,10 @@ private fun SessionBottomBar(
                 ) {
                     Icon(painterResource(R.drawable.ic_add), contentDescription = null, modifier = Modifier.size(20.dp))
                     Spacer(Modifier.width(8.dp))
-                    Text(text = stringResource(R.string.action_add_exercise), style = MaterialTheme.typography.titleSmall)
+                    Text(
+                        text = stringResource(R.string.action_add_exercise),
+                        style = MaterialTheme.typography.titleSmall
+                    )
                 }
                 Button(
                     onClick = onFinish,
@@ -416,7 +435,11 @@ private fun SessionBottomBar(
                     ),
                     contentPadding = PaddingValues(horizontal = 12.dp)
                 ) {
-                    Icon(painterResource(R.drawable.ic_flag), contentDescription = null, modifier = Modifier.size(20.dp))
+                    Icon(
+                        painterResource(R.drawable.ic_flag),
+                        contentDescription = null,
+                        modifier = Modifier.size(20.dp)
+                    )
                     Spacer(Modifier.width(8.dp))
                     Text(text = stringResource(R.string.action_finish), style = MaterialTheme.typography.titleSmall)
                 }
@@ -426,7 +449,12 @@ private fun SessionBottomBar(
 }
 
 @Composable
-private fun SessionNumpad(session: ActiveSessionUi, request: NumpadRequest, onSave: (Double) -> Unit, onDismiss: () -> Unit) {
+private fun SessionNumpad(
+    session: ActiveSessionUi,
+    request: NumpadRequest,
+    onSave: (Double) -> Unit,
+    onDismiss: () -> Unit
+) {
     val match = session.exercises.firstNotNullOfOrNull { exercise ->
         exercise.sets.firstOrNull { it.id == request.setId }?.let { exercise to it }
     }
@@ -437,7 +465,11 @@ private fun SessionNumpad(session: ActiveSessionUi, request: NumpadRequest, onSa
     }
     val (exercise, set) = match
     NumpadSheet(
-        title = stringResource(R.string.numpad_title, numpadFieldTitle(request.field, exercise.trackingType), exercise.name),
+        title = stringResource(
+            R.string.numpad_title,
+            numpadFieldTitle(request.field, exercise.trackingType),
+            exercise.name
+        ),
         previousLabel = previousLabel(exercise.trackingType, set.previous),
         unit = numpadUnit(request.field),
         initialValue = set.values.valueOf(request.field),

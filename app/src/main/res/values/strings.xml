@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<!-- Default strings are Indonesian, which has no plural forms ("1 set", "2 set"), so PluralsCandidate does not apply.
+     Add <plurals> when another language is added. -->
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="PluralsCandidate">
     <string name="app_name">Liftverse</string>
 
     <!-- Bottom navigation -->

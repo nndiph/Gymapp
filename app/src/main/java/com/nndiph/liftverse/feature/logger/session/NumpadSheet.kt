@@ -131,11 +131,16 @@ fun NumpadContent(
         Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
             KeyRow {
                 listOf(1, 2, 3).forEach { DigitKey(it) { buffer = buffer.digit(it) } }
-                SideKey(stringResource(R.string.numpad_step_minus, stepText)) { buffer = buffer.step(-step, allowDecimal) }
+                SideKey(stringResource(R.string.numpad_step_minus, stepText)) {
+                    buffer =
+                        buffer.step(-step, allowDecimal)
+                }
             }
             KeyRow {
                 listOf(4, 5, 6).forEach { DigitKey(it) { buffer = buffer.digit(it) } }
-                SideKey(stringResource(R.string.numpad_step_plus, stepText)) { buffer = buffer.step(step, allowDecimal) }
+                SideKey(stringResource(R.string.numpad_step_plus, stepText)) {
+                    buffer = buffer.step(step, allowDecimal)
+                }
             }
             KeyRow {
                 listOf(7, 8, 9).forEach { DigitKey(it) { buffer = buffer.digit(it) } }
@@ -145,6 +150,7 @@ fun NumpadContent(
                 Key(
                     label = stringResource(R.string.numpad_decimal),
                     container = MaterialTheme.colorScheme.surface,
+                    style = LiftverseTheme.numbers.setRow,
                     enabled = allowDecimal,
                     modifier = Modifier.weight(1f)
                 ) { buffer = buffer.comma() }
@@ -176,7 +182,12 @@ private fun NumpadDisplay(text: String, unit: String) {
     ) {
         Text(
             text = text,
-            style = MaterialTheme.typography.displayMedium.copy(fontWeight = FontWeight.ExtraBold),
+            // About 40 sp Archivo 800 on the design screenshot (light/05).
+            style = MaterialTheme.typography.displayMedium.copy(
+                fontWeight = FontWeight.ExtraBold,
+                fontSize = 40.sp,
+                lineHeight = 44.sp
+            ),
             color = MaterialTheme.colorScheme.onSurface,
             maxLines = 1
         )
@@ -188,7 +199,11 @@ private fun NumpadDisplay(text: String, unit: String) {
                 .height(36.dp)
                 .background(MaterialTheme.colorScheme.primary)
         )
-        Text(text = unit, style = MaterialTheme.typography.bodyLarge, color = MaterialTheme.colorScheme.onSurfaceVariant)
+        Text(
+            text = unit,
+            style = MaterialTheme.typography.bodyLarge,
+            color = MaterialTheme.colorScheme.onSurfaceVariant
+        )
     }
 }
 
@@ -202,7 +217,7 @@ private fun RowScope.DigitKey(digit: Int, onClick: () -> Unit) {
     Key(
         label = digit.toString(),
         container = MaterialTheme.colorScheme.surface,
-        style = MaterialTheme.typography.titleLarge.copy(fontWeight = FontWeight.SemiBold),
+        style = LiftverseTheme.numbers.setRow,
         modifier = Modifier.weight(1f),
         onClick = onClick
     )
@@ -231,7 +246,11 @@ private fun RowScope.DeleteKey(onClick: () -> Unit) {
             .semantics { contentDescription = description },
         contentAlignment = Alignment.Center
     ) {
-        Icon(painterResource(R.drawable.ic_backspace), contentDescription = null, tint = MaterialTheme.colorScheme.onSurface)
+        Icon(
+            painterResource(R.drawable.ic_backspace),
+            contentDescription = null,
+            tint = MaterialTheme.colorScheme.onSurface
+        )
     }
 }
 

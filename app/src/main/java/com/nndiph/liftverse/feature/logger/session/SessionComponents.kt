@@ -137,8 +137,16 @@ internal fun SetTagChip(tag: SetTag, modifier: Modifier = Modifier) {
         ) {
             Text(stringResource(R.string.achievement_up, improvementText(tag.improvement)), style = tagTextStyle())
         }
-        SetTag.Pr -> Tag(container = LiftverseTheme.colors.brass, content = LiftverseTheme.colors.onBrass, modifier = modifier) {
-            Icon(painterResource(R.drawable.ic_trophy_filled), contentDescription = null, modifier = Modifier.size(12.dp))
+        SetTag.Pr -> Tag(
+            container = LiftverseTheme.colors.brass,
+            content = LiftverseTheme.colors.onBrass,
+            modifier = modifier
+        ) {
+            Icon(
+                painterResource(R.drawable.ic_trophy_filled),
+                contentDescription = null,
+                modifier = Modifier.size(12.dp)
+            )
             Text(stringResource(R.string.tag_pr), style = tagTextStyle())
         }
     }
@@ -170,7 +178,12 @@ internal fun CustomTag(modifier: Modifier = Modifier) {
 }
 
 @Composable
-private fun Tag(container: Color, content: Color, modifier: Modifier = Modifier, body: @Composable RowScope.() -> Unit) {
+private fun Tag(
+    container: Color,
+    content: Color,
+    modifier: Modifier = Modifier,
+    body: @Composable RowScope.() -> Unit
+) {
     CompositionLocalProvider(LocalContentColor provides content) {
         Row(
             modifier = modifier
@@ -225,9 +238,16 @@ internal fun AchievementChip(achievement: LiveAchievement, modifier: Modifier = 
         ) {
             val textStyle = MaterialTheme.typography.labelMedium.copy(fontWeight = FontWeight.Bold)
             if (achievement is LiveAchievement.Improved) {
-                Text(stringResource(R.string.achievement_up, improvementText(achievement.improvement)), style = textStyle)
+                Text(
+                    stringResource(R.string.achievement_up, improvementText(achievement.improvement)),
+                    style = textStyle
+                )
             } else {
-                Icon(painterResource(R.drawable.ic_trophy_filled), contentDescription = null, modifier = Modifier.size(16.dp))
+                Icon(
+                    painterResource(R.drawable.ic_trophy_filled),
+                    contentDescription = null,
+                    modifier = Modifier.size(16.dp)
+                )
                 Text(stringResource(R.string.achievement_pr), style = textStyle)
             }
         }

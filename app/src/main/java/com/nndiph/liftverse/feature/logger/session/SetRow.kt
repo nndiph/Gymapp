@@ -51,19 +51,18 @@ fun SetRow(
     ) {
         SetBadge(number = set.number)
         Spacer(Modifier.width(12.dp))
-        SetValuesText(
-            trackingType = trackingType,
-            values = set.values,
-            emphasized = set.isCompleted,
-            modifier = Modifier.weight(1f)
-        )
-        if (set.isWarmup) {
-            Text(
-                text = stringResource(R.string.set_warmup_label),
-                style = MaterialTheme.typography.bodySmall,
-                color = MaterialTheme.colorScheme.onSurfaceVariant,
-                modifier = Modifier.padding(end = 8.dp)
-            )
+        Row(modifier = Modifier.weight(1f), verticalAlignment = Alignment.CenterVertically) {
+            SetValuesText(trackingType = trackingType, values = set.values, emphasized = set.isCompleted)
+            // Right after the values, as in the design (light/04), not pushed to the tick.
+            if (set.isWarmup) {
+                Text(
+                    text = stringResource(R.string.set_warmup_label),
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    maxLines = 1,
+                    modifier = Modifier.padding(start = 16.dp)
+                )
+            }
         }
         SetTagChip(tag = set.tag, modifier = Modifier.padding(end = 4.dp))
         SetCheckButton(done = set.isCompleted, onToggle = onToggleDone)
@@ -72,21 +71,26 @@ fun SetRow(
 
 /**
  * Values of a compact row in Archivo with small units: "80 kg  8 reps", "12 reps  +5 kg", "1:00", "2 km  15:00".
- * Done sets use onSurface, planned ones onSurfaceVariant. The first value has a fixed width so columns line up.
+ * Done sets use onSurface, planned ones onSurfaceVariant. Values keep their natural width with an 18 dp gap, as in the design.
  */
 @Composable
-private fun SetValuesText(trackingType: TrackingType, values: SetValues, emphasized: Boolean, modifier: Modifier) {
+private fun SetValuesText(
+    trackingType: TrackingType,
+    values: SetValues,
+    emphasized: Boolean,
+    modifier: Modifier = Modifier
+) {
     val color = if (emphasized) MaterialTheme.colorScheme.onSurface else MaterialTheme.colorScheme.onSurfaceVariant
     val kg = stringResource(R.string.unit_kg)
     val reps = stringResource(R.string.unit_reps)
     Row(modifier = modifier, verticalAlignment = Alignment.CenterVertically) {
         when (trackingType) {
             TrackingType.WEIGHT_REPS -> {
-                ValueWithUnit(formatDecimal(values.weightKg ?: 0.0), kg, color, Modifier.width(FIRST_VALUE_WIDTH))
+                ValueWithUnit(formatDecimal(values.weightKg ?: 0.0), kg, color, Modifier.padding(end = VALUE_GAP))
                 ValueWithUnit((values.reps ?: 0).toString(), reps, color)
             }
             TrackingType.BODYWEIGHT_REPS -> {
-                ValueWithUnit((values.reps ?: 0).toString(), reps, color, Modifier.width(FIRST_VALUE_WIDTH))
+                ValueWithUnit((values.reps ?: 0).toString(), reps, color, Modifier.padding(end = VALUE_GAP))
                 val added = values.weightKg ?: 0.0
                 if (added > 0.0) {
                     ValueWithUnit(stringResource(R.string.value_added_weight, formatDecimal(added)), kg, color)
@@ -101,7 +105,7 @@ private fun SetValuesText(trackingType: TrackingType, values: SetValues, emphasi
                     formatKilometres(values.distanceM ?: 0),
                     stringResource(R.string.unit_km),
                     color,
-                    Modifier.width(FIRST_VALUE_WIDTH)
+                    Modifier.padding(end = VALUE_GAP)
                 )
                 ValueWithUnit(formatClock((values.durationSec ?: 0).toLong()), unit = null, color = color)
             }
@@ -132,7 +136,8 @@ private fun ValueWithUnit(value: String, unit: String?, color: Color, modifier: 
     }
 }
 
-private val FIRST_VALUE_WIDTH = 62.dp
+// Gap after the first value, measured on the design: "80 kg" and "82,5 kg" are both followed by 18 dp.
+private val VALUE_GAP = 18.dp
 
 @ThemePreviews
 @Composable

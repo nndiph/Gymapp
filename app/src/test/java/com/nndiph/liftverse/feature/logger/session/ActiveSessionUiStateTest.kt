@@ -24,7 +24,8 @@ class ActiveSessionUiStateTest {
             entry("s1", 80.0, 8, done = true, restSec = 120),
             entry("s2", 80.0, 8)
         )
-        val ui = buildActiveSessionUi(session(bench, exercise("ohp", entry("o1", 40.0, 8))), emptyMap(), null, emptyMap())
+        val ui =
+            buildActiveSessionUi(session(bench, exercise("ohp", entry("o1", 40.0, 8))), emptyMap(), null, emptyMap())
 
         assertEquals("s2", ui.activeSetId)
         assertEquals(listOf(null, 1, 2), ui.exercises[0].sets.map { it.number })
@@ -67,6 +68,7 @@ class ActiveSessionUiStateTest {
             previousSets = listOf(entry("p1", 90.0, 5, done = true), entry("p2", 90.0, 5, done = true)),
             recordKg = 100.0
         )
+
         // Done today: 95 × 5 → 110,8. Active: 97,5 × 5 → 113,8 beats it; 92,5 × 5 → 107,9 does not.
         fun active(kg: Double) = buildActiveSessionUi(
             session(exercise("bench", entry("s1", 95.0, 5, done = true), entry("s2", kg, 5))),

@@ -61,8 +61,12 @@ fun liveAchievement(
     if (isWarmup || previous == null) return LiveAchievement.None
     val weight = current.weightKg
     val reps = current.reps
-    if (trackingType == TrackingType.WEIGHT_REPS && recordKg != null && weight != null && reps != null &&
-        weight > 0.0 && reps > 0
+    if (trackingType == TrackingType.WEIGHT_REPS &&
+        recordKg != null &&
+        weight != null &&
+        reps != null &&
+        weight > 0.0 &&
+        reps > 0
     ) {
         val estimate = estimatedOneRepMaxKg(weight, reps)
         if (estimate > recordKg + RECORD_TOLERANCE_KG) return LiveAchievement.PrCandidate(estimate, recordKg)
