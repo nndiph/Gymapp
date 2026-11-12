@@ -25,7 +25,7 @@ Status per 2026-11-11: kode fondasi selesai, CI hijau di PR #1. Sisa: proyek Fir
 - [x] Buat repo, ikuti `GITHUB_SETUP.md` (label, milestone, ruleset, CI). *Repo `nndiph/Gymapp`; project board belum (butuh `gh auth refresh -s project`).*
 - [x] Proyek Android baru: Kotlin, Compose, Material 3, minSdk 26
 - [x] Cek dan tetapkan versi terbaru (AGP, Kotlin, Compose BOM, Firebase BoM, Hilt) dari dokumentasi resmi → tabel di `ARCHITECTURE.md` §10
-- [x] Hilt, Navigation Compose, tema (light/dark), kerangka bottom navigation (Dashboard · Catat · Profil). *Palet biru masih usulan sampai desain final ada.*
+- [x] Hilt, Navigation Compose, tema (light/dark), kerangka bottom navigation (Dashboard · Catat · Profil). *Tema final dari `design_handoff_liftverse/theme` (grafit + volt, Archivo + Plus Jakarta Sans) terpasang di `core/theme` pada 2026-11-12.*
 - [ ] Proyek Firebase: Auth, Firestore (mode produksi, region Asia), Crashlytics; `google-services.json` lokal + `.example`. *SDK + `.example` sudah terpasang; proyek di Firebase Console belum dibuat.*
 - [x] Firebase Emulator Suite berjalan lokal; `firestore.rules` awal "tolak semua" (diuji: baca & tulis tanpa login → 403)
 - [x] ktlint + CI (ktlint, lint, test, assembleDebug). *detekt ditunda: versi 2.x masih alpha per 2026-11-10.*

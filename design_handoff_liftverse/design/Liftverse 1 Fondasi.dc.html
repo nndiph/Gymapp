@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&amp;family=Plus+Jakarta+Sans:wght@400..800&amp;display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&amp;display=block">
+<style>
+:root,[data-theme="light"]{--primary:#536B00;--onPrimary:#FFFFFF;--primaryFill:#1A1F14;--onPrimaryFill:#CDEB3B;--primaryContainer:#ECF5C4;--onPrimaryContainer:#2E3B05;--secondary:#4D5754;--onSecondary:#FFFFFF;--secondaryContainer:#E2E7E5;--onSecondaryContainer:#1A211E;--tertiary:#8A5A00;--onTertiary:#FFFFFF;--tertiaryContainer:#FBEBCB;--onTertiaryContainer:#5A3A00;--brass:#E9A93C;--onBrass:#2B1C00;--accent:#CDEB3B;--onAccent:#1C2400;--accentText:#536B00;--accentContainer:#F0F8CF;--onAccentContainer:#34430A;--markEdge:#1C2400;--error:#A63D32;--onError:#FFFFFF;--errorContainer:#F8E4E1;--onErrorContainer:#6E1F17;--success:#2E7652;--onSuccess:#FFFFFF;--successContainer:#E0F0E7;--onSuccessContainer:#134330;--background:#F5F7F6;--onBackground:#111614;--surface:#FFFFFF;--onSurface:#111614;--onSurfaceVariant:#49514E;--surfaceContainerLowest:#FFFFFF;--surfaceContainerLow:#F0F2F1;--surfaceContainer:#EAEDEC;--surfaceContainerHigh:#E2E6E4;--surfaceContainerHighest:#D9DEDC;--outline:#78807D;--outlineVariant:#D5DBD8;--inverseSurface:#1E2422;--inverseOnSurface:#EDF1EF;--inversePrimary:#CDEB3B;--scrim:rgba(5,8,16,.45);--hm0:#E6EAE7;--hm1:#CCE277;--hm2:#A2C22E;--hm3:#6E8C10;--hm4:#3F5206}
+[data-theme="dark"]{--primary:#CDEB3B;--onPrimary:#1C2400;--primaryFill:#CDEB3B;--onPrimaryFill:#1C2400;--primaryContainer:#2A3510;--onPrimaryContainer:#E3F59A;--secondary:#B3BCB8;--onSecondary:#1F2624;--secondaryContainer:#283030;--onSecondaryContainer:#D7DEDB;--tertiary:#E9A93C;--onTertiary:#2B1C00;--tertiaryContainer:#3A2A10;--onTertiaryContainer:#F5CB80;--brass:#E9A93C;--onBrass:#2B1C00;--accent:#CDEB3B;--onAccent:#1C2400;--accentText:#CDEB3B;--accentContainer:#263010;--onAccentContainer:#E3F59A;--markEdge:transparent;--error:#EFA59A;--onError:#3B0E09;--errorContainer:#47201B;--onErrorContainer:#F8D6D0;--success:#7DC6A0;--onSuccess:#0B2A1C;--successContainer:#15352A;--onSuccessContainer:#CBEBD9;--background:#0B0D0D;--onBackground:#EDF1EF;--surface:#131716;--onSurface:#EDF1EF;--onSurfaceVariant:#A7B0AC;--surfaceContainerLowest:#0E1110;--surfaceContainerLow:#171B1A;--surfaceContainer:#1B201F;--surfaceContainerHigh:#222827;--surfaceContainerHighest:#2A302F;--outline:#6F7875;--outlineVariant:#2A3130;--inverseSurface:#EDF1EF;--inverseOnSurface:#1E2422;--inversePrimary:#536B00;--scrim:rgba(0,0,0,.6);--hm0:#1A1F1E;--hm1:#344516;--hm2:#557220;--hm3:#93B92C;--hm4:#D4F04A}
+body{margin:0;background:#E3E7ED}
+a{color:#536B00;text-decoration:none}a:hover{color:#0D1424;text-decoration:underline}
+</style>
+</helmet>
+<div style="min-height:100vh;background:#E3E7ED;color:#0D1424;font-family:'Plus Jakarta Sans',system-ui,sans-serif;font-variant-numeric:tabular-nums;padding:32px 40px 80px;box-sizing:border-box">
+  <div style="max-width:1240px;margin:0 auto;display:flex;flex-direction:column;gap:48px">
+
+    <header style="display:flex;flex-direction:column;gap:16px">
+      <nav style="display:flex;flex-wrap:wrap;gap:6px 16px;font-size:13px;font-weight:600;white-space:nowrap">
+        <a href="Liftverse%201%20Fondasi.dc.html" style="color:#0D1424">1 Fondasi</a>
+        <a href="Liftverse%202%20Baris%20Set.dc.html">2 Baris set</a>
+        <a href="Liftverse%203%20Layar%20Kunci.dc.html">3 Layar kunci</a>
+        <a href="Liftverse%204%20Layar%20Lain.dc.html">4 Layar lain</a>
+        <a href="Liftverse%205%20Kondisi%20Khusus.dc.html">5 Kondisi khusus</a>
+        <a href="Liftverse%206%20Prototype.dc.html">6 Prototype</a>
+        <a href="Liftverse%207%20Handoff.dc.html">7 Handoff</a>
+        <a href="Liftverse%208%20Warna%20Ketiga.dc.html">8 Warna ketiga</a>
+        <a href="Liftverse%209%20Ikon%20dan%20Splash.dc.html">9 Ikon dan splash</a>
+      </nav>
+      <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap">
+        <div>
+          <div style="font-family:Archivo;font-stretch:112.5%;font-weight:800;font-size:44px;line-height:1.05;letter-spacing:-.01em">Liftverse · fondasi desain</div>
+          <div style="font-size:15px;color:#475066;margin-top:8px;max-width:640px;text-wrap:pretty">Grafit + volt: netral grafit yang hampir tanpa warna, dengan volt dan hijau zaitun untuk aksi, state aktif, dan data. Volt untuk identitas, streak, dan sesi berjalan. Kuningan hanya untuk PR. Material 3, dynamic color dimatikan.</div>
+        </div>
+        <div style="font-size:12px;color:#475066">Android · Jetpack Compose · Material 3 · artboard 412 × 915 dp</div>
+      </div>
+    </header>
+
+    <section style="display:flex;flex-direction:column;gap:16px">
+      <div style="display:flex;align-items:baseline;gap:12px"><span style="font-family:Archivo;font-stretch:112.5%;font-weight:800;font-size:26px">Warna</span><span style="font-size:13px;color:#475066">Nama token = peran Material 3. Bertanda * adalah extended color (ColorScheme kustom).</span></div>
+      <div style="background:#FFFFFF;border-radius:16px;overflow:hidden;border:1px solid #D9DFE8">
+        <div style="display:grid;grid-template-columns:minmax(180px,1.1fr) minmax(150px,1fr) minmax(150px,1fr) minmax(200px,1.6fr);font-size:12px;font-weight:600;color:#475066;padding:12px 20px;border-bottom:1px solid #D9DFE8;gap:16px">
+          <span>Token</span><span>Light</span><span>Dark</span><span>Dipakai untuk</span>
+        </div>
+        <sc-for list="{{ tokens }}" as="t" hint-placeholder-count="12">
+          <div style="display:grid;grid-template-columns:minmax(180px,1.1fr) minmax(150px,1fr) minmax(150px,1fr) minmax(200px,1.6fr);align-items:center;padding:8px 20px;gap:16px;border-bottom:1px solid #EDF1F7;font-size:13px">
+            <span style="font-family:ui-monospace,Menlo,monospace;font-size:12.5px;font-weight:600">{{ t.name }}</span>
+            <span style="display:flex;align-items:center;gap:10px"><span style="width:36px;height:24px;border-radius:6px;background:{{ t.light }};box-shadow:inset 0 0 0 1px rgba(13,20,36,.12)"></span><span style="font-family:ui-monospace,Menlo,monospace;font-size:12px">{{ t.light }}</span></span>
+            <span style="display:flex;align-items:center;gap:10px"><span style="width:36px;height:24px;border-radius:6px;background:{{ t.dark }};box-shadow:inset 0 0 0 1px rgba(13,20,36,.12)"></span><span style="font-family:ui-monospace,Menlo,monospace;font-size:12px">{{ t.dark }}</span></span>
+            <span style="color:#475066;text-wrap:pretty">{{ t.use }}</span>
+          </div>
+        </sc-for>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px">
+        <sc-for list="{{ modes }}" as="m" hint-placeholder-count="2">
+          <div data-theme="{{ m.id }}" style="background:var(--surface);color:var(--onSurface);border-radius:16px;padding:20px;display:flex;flex-direction:column;gap:12px;border:1px solid var(--outlineVariant)">
+            <div style="font-size:13px;font-weight:600">Heatmap · {{ m.label }}</div>
+            <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:8px">
+              <div style="display:flex;flex-direction:column;gap:6px"><span style="height:40px;border-radius:4px;background:var(--hm0)"></span><span style="font-size:11px;color:var(--onSurfaceVariant)">heatmap0 · kosong</span></div>
+              <div style="display:flex;flex-direction:column;gap:6px"><span style="height:40px;border-radius:4px;background:var(--hm1)"></span><span style="font-size:11px;color:var(--onSurfaceVariant)">heatmap1 · &lt; 3.000 kg</span></div>
+              <div style="display:flex;flex-direction:column;gap:6px"><span style="height:40px;border-radius:4px;background:var(--hm2)"></span><span style="font-size:11px;color:var(--onSurfaceVariant)">heatmap2 · &lt; 4.500 kg</span></div>
+              <div style="display:flex;flex-direction:column;gap:6px"><span style="height:40px;border-radius:4px;background:var(--hm3)"></span><span style="font-size:11px;color:var(--onSurfaceVariant)">heatmap3 · &lt; 6.000 kg</span></div>
+              <div style="display:flex;flex-direction:column;gap:6px"><span style="height:40px;border-radius:4px;background:var(--hm4)"></span><span style="font-size:11px;color:var(--onSurfaceVariant)">heatmap4 · ≥ 6.000 kg</span></div>
+            </div>
+            <div style="font-size:12px;color:var(--onSurfaceVariant);text-wrap:pretty">Tingkat dihitung dari volume sesi hari itu. Warna bukan satu-satunya penanda: setiap hari bisa diketuk untuk ringkasan berteks.</div>
+          </div>
+        </sc-for>
+      </div>
+      <div style="background:#FFFFFF;border-radius:16px;padding:20px 24px;border:1px solid #D9DFE8;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px 32px;font-size:13px;color:#475066;line-height:1.5">
+        <div><b style="color:#0D1424">Kontras teks (≥ 4,5:1).</b> primary di surface: 6,1 (light) dan 6,4 (dark). onSurfaceVariant di surfaceContainer: 6,9 dan 7,4. tertiary #8A5A00 di putih 5,9; di tertiaryContainer 5,0. Label putih di primaryFill: 6,1 dan 5,2.</div>
+        <div><b style="color:#0D1424">Kontras komponen (≥ 3:1).</b> outline di surface: 4,1 (light) dan 4,0 (dark). Dipakai untuk batas text field, chip, dan checkbox. outlineVariant hanya untuk pemisah dekoratif.</div>
+        <div><b style="color:#0D1424">Tombol dan teks aktif.</b> Light: primaryFill #1A1F14 (grafit) dengan label volt #CDEB3B, 12,6:1; primary #536B00 untuk teks, ikon, dan state aktif, 6,1:1 di putih. Dark: primaryFill dan primary sama-sama volt #CDEB3B dengan label #1C2400.</div>
+        <div><b style="color:#0D1424">Volt dan kuningan.</b> Volt (accent #CDEB3B) adalah warna identitas dan "sekarang": tanda wordmark, timer istirahat, chip Hari ini, dan tanda naik dari sesi lalu. Di light mode volt hanya dipakai sebagai isi dengan teks #1C2400, atau sebagai label di tombol grafit; teks, tautan, dan state aktif memakai zaitun #536B00. Heatmap dan grafik memakai skala zaitun ke volt. Kuningan hanya untuk PR.</div>
+      </div>
+    </section>
+
+    <section style="display:flex;flex-direction:column;gap:16px">
+      <div style="display:flex;align-items:baseline;gap:12px;flex-wrap:wrap"><span style="font-family:Archivo;font-stretch:112.5%;font-weight:800;font-size:26px">Tipografi</span><span style="font-size:13px;color:#475066">Archivo (wdth 112,5) untuk angka dan judul besar · Plus Jakarta Sans untuk UI · tabular figures di semua angka</span></div>
+      <div style="display:grid;grid-template-columns:minmax(0,2fr) minmax(260px,1fr);gap:16px">
+        <div style="background:#FFFFFF;border-radius:16px;border:1px solid #D9DFE8;padding:8px 24px">
+          <div style="display:grid;grid-template-columns:150px 1fr;align-items:center;gap:16px;padding:14px 0;border-bottom:1px solid #EDF1F7"><div><div style="font-family:ui-monospace,Menlo,monospace;font-size:12px;font-weight:600">numDisplay</div><div style="font-size:11px;color:#475066">Archivo 800 · 56/60</div></div><div style="font-family:Archivo;font-stretch:112.5%;font-weight:800;font-size:56px;line-height:60px;letter-spacing:-.01em">41.200</div></div>
+          <div style="display:grid;grid-template-columns:150px 1fr;align-items:center;gap:16px;padding:14px 0;border-bottom:1px solid #EDF1F7"><div><div style="font-family:ui-monospace,Menlo,monospace;font-size:12px;font-weight:600">numHeadline</div><div style="font-size:11px;color:#475066">Archivo 700 · 36/40</div></div><div style="font-family:Archivo;font-stretch:112.5%;font-weight:700;font-size:36px;line-height:40px">116,7 kg</div></div>
+          <div style="display:grid;grid-template-columns:150px 1fr;align-items:center;gap:16px;padding:14px 0;border-bottom:1px solid #EDF1F7"><div><div style="font-family:ui-monospace,Menlo,monospace;font-size:12px;font-weight:600">numTitle</div><div style="font-size:11px;color:#475066">Archivo 700 · 22/28</div></div><div style="font-family:Archivo;font-stretch:112.5%;font-weight:700;font-size:22px;line-height:28px">80 kg × 8</div></div>
+          <div style="display:grid;grid-template-columns:150px 1fr;align-items:center;gap:16px;padding:14px 0;border-bottom:1px solid #EDF1F7"><div><div style="font-family:ui-monospace,Menlo,monospace;font-size:12px;font-weight:600">headlineSmall</div><div style="font-size:11px;color:#475066">Archivo 800 · 28/34</div></div><div style="font-family:Archivo;font-stretch:112.5%;font-weight:800;font-size:28px;line-height:34px">Push Day</div></div>
+          <div style="display:grid;grid-template-columns:150px 1fr;align-items:center;gap:16px;padding:14px 0;border-bottom:1px solid #EDF1F7"><div><div style="font-family:ui-monospace,Menlo,monospace;font-size:12px;font-weight:600">titleLarge</div><div style="font-size:11px;color:#475066">Jakarta 700 · 22/28</div></div><div style="font-weight:700;font-size:22px;line-height:28px">Raka Pratama</div></div>
+          <div style="display:grid;grid-template-columns:150px 1fr;align-items:center;gap:16px;padding:14px 0;border-bottom:1px solid #EDF1F7"><div><div style="font-family:ui-monospace,Menlo,monospace;font-size:12px;font-weight:600">titleMedium</div><div style="font-size:11px;color:#475066">Jakarta 600 · 16/24</div></div><div style="font-weight:600;font-size:16px;line-height:24px">Incline DB Press (grip netral)</div></div>
+          <div style="display:grid;grid-template-columns:150px 1fr;align-items:center;gap:16px;padding:14px 0;border-bottom:1px solid #EDF1F7"><div><div style="font-family:ui-monospace,Menlo,monospace;font-size:12px;font-weight:600">bodyLarge</div><div style="font-size:11px;color:#475066">Jakarta 400 · 16/24</div></div><div style="font-size:16px;line-height:24px">Nilai dari sesi terakhir sudah terisi otomatis.</div></div>
+          <div style="display:grid;grid-template-columns:150px 1fr;align-items:center;gap:16px;padding:14px 0;border-bottom:1px solid #EDF1F7"><div><div style="font-family:ui-monospace,Menlo,monospace;font-size:12px;font-weight:600">bodyMedium</div><div style="font-size:11px;color:#475066">Jakarta 400 · 14/20</div></div><div style="font-size:14px;line-height:20px">6 gerakan · 19 set · sekitar 55 menit</div></div>
+          <div style="display:grid;grid-template-columns:150px 1fr;align-items:center;gap:16px;padding:14px 0;border-bottom:1px solid #EDF1F7"><div><div style="font-family:ui-monospace,Menlo,monospace;font-size:12px;font-weight:600">bodySmall</div><div style="font-size:11px;color:#475066">Jakarta 400 · 12/16</div></div><div style="font-size:12px;line-height:16px">Terakhir diperbarui 18.42</div></div>
+          <div style="display:grid;grid-template-columns:150px 1fr;align-items:center;gap:16px;padding:14px 0;border-bottom:1px solid #EDF1F7"><div><div style="font-family:ui-monospace,Menlo,monospace;font-size:12px;font-weight:600">labelLarge</div><div style="font-size:11px;color:#475066">Jakarta 700 · 16/24 (tombol)</div></div><div style="font-weight:700;font-size:16px;line-height:24px">Selesai set</div></div>
+          <div style="display:grid;grid-template-columns:150px 1fr;align-items:center;gap:16px;padding:14px 0;border-bottom:1px solid #EDF1F7"><div><div style="font-family:ui-monospace,Menlo,monospace;font-size:12px;font-weight:600">labelMedium</div><div style="font-size:11px;color:#475066">Jakarta 600 · 12/16</div></div><div style="font-weight:600;font-size:12px;line-height:16px">Latihan hari ini</div></div>
+          <div style="display:grid;grid-template-columns:150px 1fr;align-items:center;gap:16px;padding:14px 0"><div><div style="font-family:ui-monospace,Menlo,monospace;font-size:12px;font-weight:600">labelSmall</div><div style="font-size:11px;color:#475066">Jakarta 600 · 11/16</div></div><div style="font-weight:600;font-size:11px;line-height:16px">Sen · Rab · Jum</div></div>
+        </div>
+        <div style="background:#FFFFFF;border-radius:16px;border:1px solid #D9DFE8;padding:20px 24px;font-size:13px;line-height:1.55;color:#475066;display:flex;flex-direction:column;gap:12px">
+          <div style="font-weight:700;color:#0D1424;font-size:14px">Catatan: pasangan huruf tetap</div>
+          <div style="text-wrap:pretty">Archivo dipertahankan karena punya sumbu lebar 62–125 dalam satu file variabel. Pada 112,5 angkanya melebar dan berat seperti cetakan di plat beban, tanpa jatuh ke gaya poster condensed. Angkanya punya figure tabular, jadi 80 dan 100 sejajar kolomnya.</div>
+          <div style="text-wrap:pretty">Plus Jakarta Sans dirancang untuk identitas Jakarta. Aperture lebar dan x-height tinggi membuatnya tetap terbaca di 12 sp, dan karakternya lokal bagi pengguna Indonesia.</div>
+          <div style="text-wrap:pretty">Aturan: Archivo hanya untuk angka (beban, reps, volume, durasi, streak) dan judul besar. Semua label, tombol, dan isi memakai Jakarta. Tidak ada huruf kapital semua.</div>
+          <div style="font-family:ui-monospace,Menlo,monospace;font-size:11.5px;background:#F2F5F9;border-radius:8px;padding:10px 12px;color:#0D1424">FontVariation.width(112.5f)<br>fontFeatureSettings = "tnum"</div>
+        </div>
+      </div>
+    </section>
+
+    <section style="display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:16px">
+      <div style="background:#FFFFFF;border-radius:16px;border:1px solid #D9DFE8;padding:20px 24px;display:flex;flex-direction:column;gap:16px">
+        <div style="font-family:Archivo;font-stretch:112.5%;font-weight:800;font-size:22px">Radius</div>
+        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px 12px">
+          <div style="display:flex;flex-direction:column;gap:6px"><span style="height:56px;background:#DFE8FF;border-radius:2px"></span><span style="font-size:12px;font-weight:600">cell · 2</span><span style="font-size:11px;color:#475066">sel heatmap</span></div>
+          <div style="display:flex;flex-direction:column;gap:6px"><span style="height:56px;background:#DFE8FF;border-radius:6px"></span><span style="font-size:12px;font-weight:600">xs · 6</span><span style="font-size:11px;color:#475066">tag PR, custom</span></div>
+          <div style="display:flex;flex-direction:column;gap:6px"><span style="height:56px;background:#DFE8FF;border-radius:8px"></span><span style="font-size:12px;font-weight:600">sm · 8</span><span style="font-size:11px;color:#475066">chip, nomor set</span></div>
+          <div style="display:flex;flex-direction:column;gap:6px"><span style="height:56px;background:#DFE8FF;border-radius:12px"></span><span style="font-size:12px;font-weight:600">md · 12</span><span style="font-size:11px;color:#475066">tombol, field, stepper</span></div>
+          <div style="display:flex;flex-direction:column;gap:6px"><span style="height:56px;background:#DFE8FF;border-radius:16px"></span><span style="font-size:12px;font-weight:600">lg · 16</span><span style="font-size:11px;color:#475066">kartu, set aktif</span></div>
+          <div style="display:flex;flex-direction:column;gap:6px"><span style="height:56px;background:#DFE8FF;border-radius:28px 28px 0 0"></span><span style="font-size:12px;font-weight:600">xl · 28</span><span style="font-size:11px;color:#475066">bottom sheet, dialog</span></div>
+          <div style="display:flex;flex-direction:column;gap:6px"><span style="height:56px;background:#DFE8FF;border-radius:999px"></span><span style="font-size:12px;font-weight:600">full</span><span style="font-size:11px;color:#475066">avatar, indikator nav</span></div>
+        </div>
+      </div>
+      <div style="background:#FFFFFF;border-radius:16px;border:1px solid #D9DFE8;padding:20px 24px;display:flex;flex-direction:column;gap:12px">
+        <div style="font-family:Archivo;font-stretch:112.5%;font-weight:800;font-size:22px">Spacing</div>
+        <div style="display:flex;flex-direction:column;gap:8px;font-size:12px">
+          <div style="display:grid;grid-template-columns:56px 52px 1fr;align-items:center;gap:8px"><b>xxs</b><span style="height:12px;width:4px;background:#536B00;border-radius:2px"></span><span style="color:#475066">4 · ikon ke label</span></div>
+          <div style="display:grid;grid-template-columns:56px 52px 1fr;align-items:center;gap:8px"><b>xs</b><span style="height:12px;width:8px;background:#536B00;border-radius:2px"></span><span style="color:#475066">8 · antar chip, antar tombol</span></div>
+          <div style="display:grid;grid-template-columns:56px 52px 1fr;align-items:center;gap:8px"><b>sm</b><span style="height:12px;width:12px;background:#536B00;border-radius:2px"></span><span style="color:#475066">12 · antar kartu, celah stepper</span></div>
+          <div style="display:grid;grid-template-columns:56px 52px 1fr;align-items:center;gap:8px"><b>md</b><span style="height:12px;width:16px;background:#536B00;border-radius:2px"></span><span style="color:#475066">16 · margin layar, padding kartu</span></div>
+          <div style="display:grid;grid-template-columns:56px 52px 1fr;align-items:center;gap:8px"><b>lg</b><span style="height:12px;width:24px;background:#536B00;border-radius:2px"></span><span style="color:#475066">24 · antar seksi</span></div>
+          <div style="display:grid;grid-template-columns:56px 52px 1fr;align-items:center;gap:8px"><b>xl</b><span style="height:12px;width:32px;background:#536B00;border-radius:2px"></span><span style="color:#475066">32 · seksi besar, layar kosong</span></div>
+          <div style="display:grid;grid-template-columns:56px 52px 1fr;align-items:center;gap:8px"><b>touch</b><span style="height:12px;width:48px;background:#E9A93C;border-radius:2px"></span><span style="color:#475066">48 · target sentuh minimum</span></div>
+        </div>
+      </div>
+      <div style="background:#FFFFFF;border-radius:16px;border:1px solid #D9DFE8;padding:20px 24px;display:flex;flex-direction:column;gap:12px">
+        <div style="font-family:Archivo;font-stretch:112.5%;font-weight:800;font-size:22px">Ikon</div>
+        <div style="font-size:12px;color:#475066;text-wrap:pretty">Material Symbols Rounded, 24 dp, berat 400, grade 0. Garis (FILL 0) untuk default, terisi (FILL 1) untuk state aktif. Compose: Icons.Rounded.* atau font simbol.</div>
+        <div style="display:grid;grid-template-columns:repeat(6,1fr);gap:12px 4px;text-align:center;font-size:10px;color:#475066">
+          <div style="display:flex;flex-direction:column;align-items:center;gap:4px"><span style="font:24px/1 'Material Symbols Rounded';color:#0D1424">space_dashboard</span>dashboard</div>
+          <div style="display:flex;flex-direction:column;align-items:center;gap:4px"><span style="font:24px/1 'Material Symbols Rounded';color:#0D1424">fitness_center</span>catat</div>
+          <div style="display:flex;flex-direction:column;align-items:center;gap:4px"><span style="font:24px/1 'Material Symbols Rounded';color:#0D1424">person</span>profil</div>
+          <div style="display:flex;flex-direction:column;align-items:center;gap:4px"><span style="font:24px/1 'Material Symbols Rounded';color:#0D1424">check</span>selesai</div>
+          <div style="display:flex;flex-direction:column;align-items:center;gap:4px"><span style="font:24px/1 'Material Symbols Rounded';color:#8A5A00;font-variation-settings:'FILL' 1">trophy</span>PR</div>
+          <div style="display:flex;flex-direction:column;align-items:center;gap:4px"><span style="font:24px/1 'Material Symbols Rounded';color:#8A5A00;font-variation-settings:'FILL' 1">local_fire_department</span>streak</div>
+          <div style="display:flex;flex-direction:column;align-items:center;gap:4px"><span style="font:24px/1 'Material Symbols Rounded';color:#0D1424">cloud_done</span>tersinkron</div>
+          <div style="display:flex;flex-direction:column;align-items:center;gap:4px"><span style="font:24px/1 'Material Symbols Rounded';color:#0D1424">smartphone</span>di perangkat</div>
+          <div style="display:flex;flex-direction:column;align-items:center;gap:4px"><span style="font:24px/1 'Material Symbols Rounded';color:#0D1424">history</span>riwayat</div>
+          <div style="display:flex;flex-direction:column;align-items:center;gap:4px"><span style="font:24px/1 'Material Symbols Rounded';color:#0D1424">list_alt</span>gerakan</div>
+          <div style="display:flex;flex-direction:column;align-items:center;gap:4px"><span style="font:24px/1 'Material Symbols Rounded';color:#0D1424">queue_music</span>routine</div>
+          <div style="display:flex;flex-direction:column;align-items:center;gap:4px"><span style="font:24px/1 'Material Symbols Rounded';color:#0D1424">lock</span>privat</div>
+        </div>
+      </div>
+    </section>
+
+    <section style="display:flex;flex-direction:column;gap:16px">
+      <div style="display:flex;align-items:baseline;gap:12px;flex-wrap:wrap"><span style="font-family:Archivo;font-stretch:112.5%;font-weight:800;font-size:26px">Komponen inti</span><span style="font-size:13px;color:#475066">Light dan dark dari markup yang sama, hanya token yang berganti.</span></div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(440px,1fr));gap:16px">
+        <sc-for list="{{ modes }}" as="m" hint-placeholder-count="2">
+          <div data-theme="{{ m.id }}" style="background:var(--background);color:var(--onSurface);border-radius:24px;padding:28px;display:flex;flex-direction:column;gap:28px;border:1px solid var(--outlineVariant)">
+            <div style="font-family:Archivo;font-stretch:112.5%;font-weight:800;font-size:20px">{{ m.label }}</div>
+
+            <div style="display:flex;flex-direction:column;gap:10px">
+              <div style="font-size:12px;font-weight:600;color:var(--onSurfaceVariant)">Tombol · md 12 · tinggi 56 / 48</div>
+              <button style="all:unset;box-sizing:border-box;cursor:pointer;height:56px;border-radius:12px;background:var(--primaryFill);color:var(--onPrimaryFill);display:flex;align-items:center;justify-content:center;gap:8px;font-size:16px;font-weight:700"><span style="font:24px/1 'Material Symbols Rounded';font-variation-settings:'FILL' 1">play_arrow</span>Mulai</button>
+              <div style="display:flex;gap:8px;flex-wrap:wrap">
+                <button style="all:unset;box-sizing:border-box;cursor:pointer;height:48px;padding:0 20px;border-radius:12px;background:var(--secondaryContainer);color:var(--onSecondaryContainer);display:flex;align-items:center;gap:6px;font-size:14px;font-weight:700"><span style="font:20px/1 'Material Symbols Rounded'">add</span>Tambah set</button>
+                <button style="all:unset;box-sizing:border-box;cursor:pointer;height:48px;padding:0 20px;border-radius:12px;border:1px solid var(--outline);color:var(--onSurface);display:flex;align-items:center;gap:6px;font-size:14px;font-weight:700">Tambah gerakan</button>
+                <button style="all:unset;box-sizing:border-box;cursor:pointer;height:48px;padding:0 12px;border-radius:12px;color:var(--primary);display:flex;align-items:center;font-size:14px;font-weight:700">Lihat semua</button>
+                <button style="all:unset;box-sizing:border-box;cursor:pointer;height:48px;padding:0 12px;border-radius:12px;color:var(--error);display:flex;align-items:center;font-size:14px;font-weight:700">Hapus</button>
+              </div>
+              <div style="font-size:12px;color:var(--onSurfaceVariant);text-wrap:pretty">Filled = satu aksi utama per layar. Tonal dan outlined netral supaya warna aksi tetap berharga. Text button memakai primary (zaitun / volt) karena tidak punya wadah.</div>
+            </div>
+
+            <div style="display:flex;flex-direction:column;gap:14px">
+              <div style="font-size:12px;font-weight:600;color:var(--onSurfaceVariant)">Text field · outlined · md 12</div>
+              <div style="position:relative;height:56px;border-radius:12px;border:1px solid var(--outline);display:flex;align-items:center;padding:0 16px;font-size:16px;color:var(--onSurfaceVariant)">raka.pratama@gmail.com<span style="position:absolute;top:-9px;left:12px;padding:0 4px;background:var(--background);font-size:12px;color:var(--onSurfaceVariant)">Email</span></div>
+              <div>
+                <div style="position:relative;height:56px;border-radius:12px;border:2px solid var(--primary);display:flex;align-items:center;padding:0 15px;font-size:16px;gap:2px"><span style="color:var(--onSurfaceVariant)">@</span>rakalifts<span style="width:2px;height:22px;background:var(--primary);margin-left:1px"></span><span style="position:absolute;top:-9px;left:11px;padding:0 4px;background:var(--background);font-size:12px;color:var(--primary);font-weight:600">Username</span></div>
+                <div style="display:flex;align-items:center;gap:6px;font-size:12px;color:var(--success);padding:6px 16px 0;font-weight:600"><span style="font:16px/1 'Material Symbols Rounded';font-variation-settings:'FILL' 1">check_circle</span>Tersedia</div>
+              </div>
+              <div>
+                <div style="position:relative;height:56px;border-radius:12px;border:2px solid var(--error);display:flex;align-items:center;padding:0 15px;font-size:16px;gap:2px"><span style="color:var(--onSurfaceVariant)">@</span>Raka.P<span style="margin-left:auto;font:22px/1 'Material Symbols Rounded';color:var(--error);font-variation-settings:'FILL' 1">error</span><span style="position:absolute;top:-9px;left:11px;padding:0 4px;background:var(--background);font-size:12px;color:var(--error);font-weight:600">Username</span></div>
+                <div style="font-size:12px;color:var(--error);padding:6px 16px 0">Hanya huruf kecil, angka, dan garis bawah</div>
+              </div>
+            </div>
+
+            <div style="display:flex;flex-direction:column;gap:10px">
+              <div style="font-size:12px;font-weight:600;color:var(--onSurfaceVariant)">Chip filter · sm 8 · tinggi 32, area sentuh 48 · tag xs 6</div>
+              <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">
+                <span style="height:32px;padding:0 12px 0 8px;border-radius:8px;background:var(--primaryContainer);color:var(--onPrimaryContainer);display:flex;align-items:center;gap:4px;font-size:14px;font-weight:600"><span style="font:18px/1 'Material Symbols Rounded'">check</span>Dada</span>
+                <span style="height:32px;padding:0 12px;border-radius:8px;border:1px solid var(--outline);display:flex;align-items:center;font-size:14px;font-weight:500;box-sizing:border-box">Punggung</span>
+                <span style="height:32px;padding:0 12px;border-radius:8px;border:1px solid var(--outline);display:flex;align-items:center;font-size:14px;font-weight:500;box-sizing:border-box">Bahu</span>
+                <span style="height:32px;padding:0 8px 0 12px;border-radius:8px;border:1px solid var(--outline);display:flex;align-items:center;gap:2px;font-size:14px;font-weight:500;box-sizing:border-box">Alat<span style="font:18px/1 'Material Symbols Rounded'">arrow_drop_down</span></span>
+              </div>
+              <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
+                <span style="height:22px;padding:0 6px;border-radius:6px;border:1px solid var(--outline);display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--onSurfaceVariant);box-sizing:border-box"><span style="font:13px/1 'Material Symbols Rounded'">edit</span>Custom</span>
+                <span style="height:22px;padding:0 7px 0 5px;border-radius:6px;background:var(--brass);color:var(--onBrass);display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:700"><span style="font:14px/1 'Material Symbols Rounded';font-variation-settings:'FILL' 1">trophy</span>PR</span>
+                <span style="font-size:12px;color:var(--onSurfaceVariant)">penanda gerakan custom dan PR, selalu ikon + teks</span>
+              </div>
+            </div>
+
+            <div style="display:flex;flex-direction:column;gap:10px">
+              <div style="font-size:12px;font-weight:600;color:var(--onSurfaceVariant)">Navigation bar · 80 dp · tepat tiga tab</div>
+              <div style="height:80px;display:grid;grid-template-columns:repeat(3,1fr);background:var(--surfaceContainer);border-radius:16px">
+                <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px"><span style="width:64px;height:32px;border-radius:16px;display:flex;align-items:center;justify-content:center;color:var(--onSurfaceVariant)"><span style="font:24px/1 'Material Symbols Rounded'">space_dashboard</span></span><span style="font-size:12px;font-weight:500;color:var(--onSurfaceVariant)">Dashboard</span></div>
+                <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px"><span style="position:relative;width:64px;height:32px;border-radius:16px;display:flex;align-items:center;justify-content:center;background:var(--accent);color:var(--onAccent)"><span style="font:24px/1 'Material Symbols Rounded';font-variation-settings:'FILL' 1">fitness_center</span><span style="position:absolute;top:3px;right:14px;width:8px;height:8px;border-radius:4px;background:var(--onAccent);box-shadow:0 0 0 2px var(--accent)"></span></span><span style="font-size:12px;font-weight:700">Catat</span></div>
+                <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px"><span style="width:64px;height:32px;border-radius:16px;display:flex;align-items:center;justify-content:center;color:var(--onSurfaceVariant)"><span style="font:24px/1 'Material Symbols Rounded'">person</span></span><span style="font-size:12px;font-weight:500;color:var(--onSurfaceVariant)">Profil</span></div>
+              </div>
+              <div style="font-size:12px;color:var(--onSurfaceVariant)">Titik pada Catat = ada sesi aktif (contentDescription: "Catat, sesi sedang berjalan").</div>
+            </div>
+
+            <div style="display:flex;flex-direction:column;gap:10px">
+              <div style="font-size:12px;font-weight:600;color:var(--onSurfaceVariant)">Kartu · lg 16 · surface + garis 1 dp, tanpa bayangan</div>
+              <div style="background:var(--surface);border:1px solid var(--outlineVariant);border-radius:16px;padding:16px;display:grid;grid-template-columns:repeat(3,1fr)">
+                <div><div style="font-family:Archivo;font-stretch:112.5%;font-weight:700;font-size:28px;line-height:32px">8</div><div style="font-size:12px;color:var(--onSurfaceVariant)">sesi</div></div>
+                <div><div style="font-family:Archivo;font-stretch:112.5%;font-weight:700;font-size:28px;line-height:32px">41.200</div><div style="font-size:12px;color:var(--onSurfaceVariant)">kg volume</div></div>
+                <div><div style="display:flex;align-items:center;gap:2px;font-family:Archivo;font-stretch:112.5%;font-weight:700;font-size:28px;line-height:32px;color:var(--accentText)"><span style="font:22px/1 'Material Symbols Rounded';font-variation-settings:'FILL' 1">local_fire_department</span>36</div><div style="font-size:12px;color:var(--onSurfaceVariant)">hari beruntun</div></div>
+              </div>
+            </div>
+
+            <div style="display:flex;flex-direction:column;gap:10px">
+              <div style="font-size:12px;font-weight:600;color:var(--onSurfaceVariant)">Bottom sheet · xl 28 · surfaceContainerLow</div>
+              <div style="background:var(--surfaceContainerHighest);border-radius:16px;padding:24px 16px 0;overflow:hidden">
+                <div style="background:var(--surfaceContainerLow);border-radius:28px 28px 0 0;padding:8px 0 16px">
+                  <div style="width:32px;height:4px;border-radius:2px;background:var(--outline);margin:6px auto 14px"></div>
+                  <div style="padding:0 24px 8px;font-size:18px;font-weight:700">@dimasfit</div>
+                  <div style="height:56px;display:flex;align-items:center;gap:16px;padding:0 24px;font-size:16px"><span style="font:24px/1 'Material Symbols Rounded';color:var(--onSurfaceVariant)">flag</span>Laporkan</div>
+                  <div style="height:56px;display:flex;align-items:center;gap:16px;padding:0 24px;font-size:16px;color:var(--error)"><span style="font:24px/1 'Material Symbols Rounded'">block</span>Blokir</div>
+                </div>
+              </div>
+            </div>
+
+            <div style="display:flex;flex-direction:column;gap:10px">
+              <div style="font-size:12px;font-weight:600;color:var(--onSurfaceVariant)">Baris set (alternatif B, terpilih) · lihat lembar 2</div>
+              <div style="background:var(--surface);border:1px solid var(--outlineVariant);border-radius:16px;padding:4px 0 8px">
+                <div style="height:56px;display:flex;align-items:center;gap:12px;padding:0 4px 0 16px">
+                  <span style="width:32px;height:32px;border-radius:8px;border:1.5px dashed var(--outline);box-sizing:border-box;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:var(--onSurfaceVariant)">W</span>
+                  <div style="flex:1;display:flex;gap:20px;align-items:baseline"><span><b style="font-family:Archivo;font-stretch:112.5%;font-size:20px">60</b> <span style="font-size:12px;color:var(--onSurfaceVariant)">kg</span></span><span><b style="font-family:Archivo;font-stretch:112.5%;font-size:20px">10</b> <span style="font-size:12px;color:var(--onSurfaceVariant)">reps</span></span><span style="font-size:12px;color:var(--onSurfaceVariant)">warm-up</span></div>
+                  <span style="width:48px;height:48px;display:flex;align-items:center;justify-content:center"><span style="width:32px;height:32px;border-radius:16px;background:var(--primaryFill);color:var(--onPrimaryFill);display:flex;align-items:center;justify-content:center;font:20px/1 'Material Symbols Rounded'">check</span></span>
+                </div>
+                <div style="height:56px;display:flex;align-items:center;gap:12px;padding:0 4px 0 16px">
+                  <span style="width:32px;height:32px;border-radius:8px;background:var(--surfaceContainer);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700">1</span>
+                  <div style="flex:1;display:flex;gap:20px;align-items:baseline"><span><b style="font-family:Archivo;font-stretch:112.5%;font-size:20px">80</b> <span style="font-size:12px;color:var(--onSurfaceVariant)">kg</span></span><span><b style="font-family:Archivo;font-stretch:112.5%;font-size:20px">8</b> <span style="font-size:12px;color:var(--onSurfaceVariant)">reps</span></span></div>
+                  <span style="height:22px;padding:0 7px 0 5px;border-radius:6px;background:var(--brass);color:var(--onBrass);display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:700"><span style="font:14px/1 'Material Symbols Rounded';font-variation-settings:'FILL' 1">trophy</span>PR</span>
+                  <span style="width:48px;height:48px;display:flex;align-items:center;justify-content:center"><span style="width:32px;height:32px;border-radius:16px;background:var(--primaryFill);color:var(--onPrimaryFill);display:flex;align-items:center;justify-content:center;font:20px/1 'Material Symbols Rounded'">check</span></span>
+                </div>
+                <div style="margin:4px 8px;padding:14px;border-radius:16px;background:var(--surfaceContainer);display:flex;flex-direction:column;gap:12px">
+                  <div style="display:flex;justify-content:space-between;align-items:center;font-size:13px"><b style="font-size:14px">Set 2</b><span style="color:var(--onSurfaceVariant)">Sesi lalu 80 kg × 8</span></div>
+                  <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+                    <div style="height:72px;border-radius:12px;background:var(--surface);display:flex;align-items:center;justify-content:space-between;padding:0 4px"><span style="width:44px;height:48px;display:flex;align-items:center;justify-content:center;font:24px/1 'Material Symbols Rounded';color:var(--onSurfaceVariant)">remove</span><span style="text-align:center"><b style="display:block;font-family:Archivo;font-stretch:112.5%;font-size:28px;line-height:30px">80</b><span style="font-size:11px;color:var(--onSurfaceVariant)">kg · ±2,5</span></span><span style="width:44px;height:48px;display:flex;align-items:center;justify-content:center;font:24px/1 'Material Symbols Rounded';color:var(--onSurfaceVariant)">add</span></div>
+                    <div style="height:72px;border-radius:12px;background:var(--surface);display:flex;align-items:center;justify-content:space-between;padding:0 4px"><span style="width:44px;height:48px;display:flex;align-items:center;justify-content:center;font:24px/1 'Material Symbols Rounded';color:var(--onSurfaceVariant)">remove</span><span style="text-align:center"><b style="display:block;font-family:Archivo;font-stretch:112.5%;font-size:28px;line-height:30px">8</b><span style="font-size:11px;color:var(--onSurfaceVariant)">reps</span></span><span style="width:44px;height:48px;display:flex;align-items:center;justify-content:center;font:24px/1 'Material Symbols Rounded';color:var(--onSurfaceVariant)">add</span></div>
+                  </div>
+                  <div style="height:56px;border-radius:12px;background:var(--primaryFill);color:var(--onPrimaryFill);display:flex;align-items:center;justify-content:center;gap:8px;font-size:16px;font-weight:700"><span style="font:22px/1 'Material Symbols Rounded'">check</span>Selesai set</div>
+                </div>
+                <div style="height:56px;display:flex;align-items:center;gap:12px;padding:0 4px 0 16px">
+                  <span style="width:32px;height:32px;border-radius:8px;background:var(--surfaceContainer);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:var(--onSurfaceVariant)">3</span>
+                  <div style="flex:1;display:flex;gap:20px;align-items:baseline;color:var(--onSurfaceVariant)"><span><b style="font-family:Archivo;font-stretch:112.5%;font-size:20px;font-weight:600">80</b> <span style="font-size:12px">kg</span></span><span><b style="font-family:Archivo;font-stretch:112.5%;font-size:20px;font-weight:600">7</b> <span style="font-size:12px">reps</span></span></div>
+                  <span style="width:48px;height:48px;display:flex;align-items:center;justify-content:center"><span style="width:32px;height:32px;border-radius:16px;border:2px solid var(--outline);box-sizing:border-box"></span></span>
+                </div>
+              </div>
+            </div>
+
+            <div style="display:flex;flex-direction:column;gap:10px">
+              <div style="font-size:12px;font-weight:600;color:var(--onSurfaceVariant)">Sel heatmap · 10 dp, celah 2 · cell 2</div>
+              <div style="display:flex;gap:14px;align-items:flex-end;flex-wrap:wrap;font-size:11px;color:var(--onSurfaceVariant)">
+                <div style="display:flex;flex-direction:column;align-items:center;gap:6px"><span style="width:20px;height:20px;border-radius:3px;background:var(--hm0)"></span>0</div>
+                <div style="display:flex;flex-direction:column;align-items:center;gap:6px"><span style="width:20px;height:20px;border-radius:3px;background:var(--hm1)"></span>1</div>
+                <div style="display:flex;flex-direction:column;align-items:center;gap:6px"><span style="width:20px;height:20px;border-radius:3px;background:var(--hm2)"></span>2</div>
+                <div style="display:flex;flex-direction:column;align-items:center;gap:6px"><span style="width:20px;height:20px;border-radius:3px;background:var(--hm3)"></span>3</div>
+                <div style="display:flex;flex-direction:column;align-items:center;gap:6px"><span style="width:20px;height:20px;border-radius:3px;background:var(--hm4)"></span>4</div>
+                <div style="display:flex;flex-direction:column;align-items:center;gap:6px"><span style="width:20px;height:20px;border-radius:3px;background:var(--hm0);outline:2px dashed var(--primary);outline-offset:1px"></span>hari ini</div>
+                <div style="display:flex;flex-direction:column;align-items:center;gap:6px"><span style="width:20px;height:20px;border-radius:3px;background:var(--hm3);outline:2px solid var(--onSurface);outline-offset:1px"></span>dipilih</div>
+                <div style="display:flex;flex-direction:column;align-items:center;gap:6px"><span style="width:20px;height:20px;border-radius:3px;border:1px dashed var(--outlineVariant);box-sizing:border-box"></span>nanti</div>
+              </div>
+            </div>
+
+            <div style="display:flex;flex-direction:column;gap:10px">
+              <div style="font-size:12px;font-weight:600;color:var(--onSurfaceVariant)">Indikator sinkron · ikon + teks, tidak pernah memblokir</div>
+              <div style="display:flex;gap:8px;flex-wrap:wrap">
+                <span style="height:28px;padding:0 10px 0 8px;border-radius:14px;background:var(--surfaceContainer);color:var(--onSurfaceVariant);display:flex;align-items:center;gap:5px;font-size:12px;font-weight:600"><span style="font:16px/1 'Material Symbols Rounded'">cloud_done</span>Tersinkron</span>
+                <span style="height:28px;padding:0 10px 0 8px;border-radius:14px;background:var(--surfaceContainer);color:var(--onSurfaceVariant);display:flex;align-items:center;gap:5px;font-size:12px;font-weight:600"><span style="font:16px/1 'Material Symbols Rounded'">smartphone</span>Tersimpan di perangkat</span>
+                <span style="height:28px;padding:0 10px 0 8px;border-radius:14px;background:var(--surfaceContainer);color:var(--onSurfaceVariant);display:flex;align-items:center;gap:5px;font-size:12px;font-weight:600"><span style="font:16px/1 'Material Symbols Rounded'">sync</span>Menyinkronkan</span>
+              </div>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+    </section>
+    <section style="display:flex;flex-direction:column;gap:16px">
+      <div style="display:flex;align-items:baseline;gap:12px;flex-wrap:wrap"><span style="font-family:Archivo;font-stretch:112.5%;font-weight:800;font-size:26px">Komponen tambahan</span><span style="font-size:13px;color:var(--onSurfaceVariant,#475066)">Ditambahkan setelah iterasi: timer, progress, musik, Catat, plat.</span></div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(440px,1fr));gap:16px">
+        <sc-for list="{{ modes }}" as="m" hint-placeholder-count="2">
+          <div data-theme="{{ m.id }}" style="background:var(--background);color:var(--onSurface);border-radius:24px;padding:28px;display:flex;flex-direction:column;gap:24px;border:1px solid var(--outlineVariant)">
+            <div style="font-family:Archivo;font-stretch:112.5%;font-weight:800;font-size:20px">{{ m.label }}</div>
+            <div style="display:flex;flex-direction:column;gap:10px"><div style="font-size:12px;font-weight:600;color:var(--onSurfaceVariant)">Timer istirahat · lg 16 · isi accent, teks onAccent</div>
+              <div style="position:relative;overflow:hidden;border-radius:16px;background:var(--accent);color:var(--onAccent);display:flex;align-items:center;gap:4px;padding:6px 4px 10px 16px">
+                <span style="font:24px/1 'Material Symbols Rounded'">timer</span>
+                <div style="flex:1;padding-left:6px"><div style="font-size:12px;font-weight:700">Istirahat · target 2:30</div><div style="font-family:Archivo;font-stretch:112.5%;font-weight:800;font-size:28px;line-height:32px">1:12</div></div>
+                <span style="width:48px;height:48px;display:flex;align-items:center;justify-content:center;font-family:Archivo;font-weight:800;font-size:14px">−15</span><span style="width:48px;height:48px;display:flex;align-items:center;justify-content:center;font-family:Archivo;font-weight:800;font-size:14px">+15</span><span style="height:48px;padding:0 12px;display:flex;align-items:center;font-size:14px;font-weight:800">Lewati</span>
+                <span style="position:absolute;left:0;right:0;bottom:0;height:5px;background:rgba(28,36,0,.18)"></span><span style="position:absolute;left:0;bottom:0;height:5px;width:52%;background:var(--onAccent)"></span>
+              </div>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px">
+              <div style="display:flex;flex-direction:column;gap:10px"><div style="font-size:12px;font-weight:600;color:var(--onSurfaceVariant)">Delta · ikon + teks</div>
+                <div style="display:flex;flex-direction:column;gap:6px;font-family:Archivo;font-stretch:112.5%;font-weight:700;font-size:14px">
+                  <span style="display:flex;align-items:center;gap:2px;color:var(--success)"><span style="font:14px/1 'Material Symbols Rounded'">arrow_upward</span>+23%</span>
+                  <span style="display:flex;align-items:center;gap:2px;color:var(--onSurfaceVariant)"><span style="font:14px/1 'Material Symbols Rounded'">arrow_downward</span>−3%</span>
+                  <span style="display:flex;align-items:center;gap:2px;color:var(--onSurfaceVariant)"><span style="font:14px/1 'Material Symbols Rounded'">remove</span>Sama</span>
+                </div>
+              </div>
+              <div style="display:flex;flex-direction:column;gap:10px"><div style="font-size:12px;font-weight:600;color:var(--onSurfaceVariant)">Sparkline · 6 sesi</div>
+                <svg viewBox="0 0 64 28" style="width:96px;height:42px;overflow:visible"><path d="M3 22 L14.6 17.5 L26.2 13 L37.8 10 L49.4 18 L61 3" style="fill:none;stroke:var(--primary);stroke-width:2;stroke-linejoin:round;stroke-linecap:round"></path><circle cx="61" cy="3" r="3" style="fill:var(--primary)"></circle></svg>
+              </div>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:10px"><div style="font-size:12px;font-weight:600;color:var(--onSurfaceVariant)">Batang pembanding · ini primaryFill, lalu outline, terjadwal putus-putus</div>
+              <div style="display:flex;align-items:flex-end;gap:18px;height:72px">
+                <div style="display:flex;align-items:flex-end;gap:3px"><span style="width:10px;height:52px;border-radius:3px 3px 0 0;background:var(--surfaceContainerHighest);border:1px solid var(--outline);border-bottom:none;box-sizing:border-box"></span><span style="width:12px;height:60px;border-radius:3px 3px 0 0;background:var(--primaryFill)"></span></div>
+                <div style="display:flex;align-items:flex-end;gap:3px"><span style="width:10px;height:44px;border-radius:3px 3px 0 0;background:var(--surfaceContainerHighest);border:1px solid var(--outline);border-bottom:none;box-sizing:border-box"></span><span style="width:12px;height:40px;border-radius:3px 3px 0 0;background:var(--primaryFill)"></span></div>
+                <div style="display:flex;align-items:flex-end;gap:3px"><span style="width:10px;height:56px;border-radius:3px 3px 0 0;background:var(--surfaceContainerHighest);border:1px solid var(--outline);border-bottom:none;box-sizing:border-box"></span><span style="width:12px;height:20px;border-radius:3px 3px 0 0;border:1.5px dashed var(--primary);box-sizing:border-box"></span></div>
+              </div>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:10px"><div style="font-size:12px;font-weight:600;color:var(--onSurfaceVariant)">Kartu musik · cover dari platform + tag platform</div>
+              <div style="display:flex;align-items:center;gap:14px;padding:10px 4px 10px 12px;border-radius:16px;background:var(--surface);border:1px solid var(--outlineVariant)">
+                <span style="width:56px;height:56px;border-radius:8px;flex:none;background:repeating-linear-gradient(135deg,var(--surfaceContainer) 0 6px,var(--surfaceContainerHigh) 6px 12px);display:flex;align-items:flex-end;padding:4px;box-sizing:border-box;font:9px/1 ui-monospace,Menlo,monospace;color:var(--onSurfaceVariant)">cover</span>
+                <div style="flex:1"><div style="font-size:15px;font-weight:600">Push day, no skip</div><div style="font-size:12px;color:var(--onSurfaceVariant)">Playlist · 42 lagu · oleh rakalifts</div><span style="display:inline-flex;margin-top:4px;height:20px;padding:0 6px;border-radius:6px;border:1px solid var(--outline);align-items:center;font-size:11px;font-weight:600;color:var(--onSurfaceVariant);box-sizing:border-box">Spotify</span></div>
+                <span style="width:48px;height:48px;display:flex;align-items:center;justify-content:center;font:22px/1 'Material Symbols Rounded';color:var(--onSurfaceVariant)">open_in_new</span>
+              </div>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:10px"><div style="font-size:12px;font-weight:600;color:var(--onSurfaceVariant)">Baris routine di Catat · tombol teks, bukan ikon putar</div>
+              <div style="display:flex;align-items:center;gap:12px;padding:10px 12px 10px 16px;border-radius:16px;background:var(--surface);border:1px solid var(--outlineVariant)">
+                <div style="flex:1"><b style="font-size:16px">Pull Day</b><div style="font-size:13px;color:var(--onSurfaceVariant)">5 gerakan · Selasa · 18.30</div><div style="font-size:12px;color:var(--onSurfaceVariant)">Pull-up, Barbell Row, Lat Pulldown +2</div></div>
+                <span style="height:48px;padding:0 16px;border-radius:12px;background:var(--secondaryContainer);color:var(--onSecondaryContainer);display:flex;align-items:center;font-size:14px;font-weight:700">Mulai</span>
+              </div>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:10px"><div style="font-size:12px;font-weight:600;color:var(--onSurfaceVariant)">Pencapaian langsung · chip di judul set aktif, muncul saat angka diubah</div>
+              <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
+                <span style="height:28px;padding:0 9px 0 6px;border-radius:8px;background:var(--accent);color:var(--onAccent);display:flex;align-items:center;gap:3px;font-size:12px;font-weight:800"><span style="font:16px/1 'Material Symbols Rounded'">arrow_upward</span>+2,5 kg</span>
+                <span style="height:28px;padding:0 9px 0 6px;border-radius:8px;background:var(--brass);color:var(--onBrass);display:flex;align-items:center;gap:4px;font-size:12px;font-weight:800"><span style="font:16px/1 'Material Symbols Rounded';font-variation-settings:'FILL' 1">trophy</span>Calon PR</span>
+                <span style="height:22px;padding:0 7px 0 4px;border-radius:6px;background:var(--accent);color:var(--onAccent);display:inline-flex;align-items:center;gap:2px;font-size:11px;font-weight:700"><span style="font:14px/1 'Material Symbols Rounded'">arrow_upward</span>+2,5 kg</span>
+                <span style="font-size:12px;color:var(--onSurfaceVariant)">chip header panel · tag baris ringkas</span>
+              </div>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:10px"><div style="font-size:12px;font-weight:600;color:var(--onSurfaceVariant)">Selesai sesi · set naik</div>
+              <div style="background:var(--surface);border:1px solid var(--outlineVariant);border-radius:16px;overflow:hidden">
+                <div style="min-height:52px;display:flex;align-items:center;gap:12px;padding:8px 16px;border-bottom:1px solid var(--outlineVariant)"><span style="flex:1;font-size:14px;font-weight:600">Barbell Bench Press</span><span style="font-size:12px;color:var(--onSurfaceVariant)">3 set</span><span style="height:22px;padding:0 7px 0 4px;border-radius:6px;background:var(--accent);color:var(--onAccent);display:inline-flex;align-items:center;gap:2px;font-size:11px;font-weight:700"><span style="font:14px/1 'Material Symbols Rounded'">arrow_upward</span>+2,5 kg</span></div>
+                <div style="min-height:52px;display:flex;align-items:center;gap:12px;padding:8px 16px"><span style="flex:1;font-size:14px;font-weight:600">Lateral Raise</span><span style="font-size:12px;color:var(--onSurfaceVariant)">2 set</span><span style="height:22px;padding:0 7px 0 4px;border-radius:6px;background:var(--accent);color:var(--onAccent);display:inline-flex;align-items:center;gap:2px;font-size:11px;font-weight:700"><span style="font:14px/1 'Material Symbols Rounded'">arrow_upward</span>+1 reps</span></div>
+              </div>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:10px"><div style="font-size:12px;font-weight:600;color:var(--onSurfaceVariant)">Gerakan di form routine · hapus langsung, dengan Urungkan</div>
+              <div style="background:var(--surface);border:1px solid var(--outlineVariant);border-radius:16px;padding:12px 8px 10px 4px;display:flex;gap:4px">
+                <span style="width:32px;height:40px;display:flex;align-items:center;justify-content:center;font:22px/1 'Material Symbols Rounded';color:var(--onSurfaceVariant)">drag_indicator</span>
+                <div style="flex:1;display:flex;flex-direction:column;gap:6px">
+                  <div style="display:flex;align-items:center;min-height:28px"><span style="flex:1;font-size:15px;font-weight:600">Barbell Bench Press</span><span style="width:48px;height:48px;margin:-10px -6px -10px 0;display:flex;align-items:center;justify-content:center;font:22px/1 'Material Symbols Rounded';color:var(--onSurfaceVariant)">delete</span></div>
+                  <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+                    <div style="height:48px;border-radius:12px;background:var(--surfaceContainer);display:flex;align-items:center;justify-content:space-between;padding:0 14px;font:20px/1 'Material Symbols Rounded'"><span>remove</span><span style="font:12px 'Plus Jakarta Sans';color:var(--onSurfaceVariant)"><b style="font-family:Archivo;font-size:18px;color:var(--onSurface)">4</b> set</span><span>add</span></div>
+                    <div style="height:48px;border-radius:12px;background:var(--surfaceContainer);display:flex;align-items:center;justify-content:space-between;padding:0 14px;font:20px/1 'Material Symbols Rounded'"><span>remove</span><span style="font:12px 'Plus Jakarta Sans';color:var(--onSurfaceVariant)"><b style="font-family:Archivo;font-size:18px;color:var(--onSurface)">8</b> reps</span><span>add</span></div>
+                  </div>
+                </div>
+              </div>
+              <div style="min-height:48px;border-radius:8px;background:var(--inverseSurface);color:var(--inverseOnSurface);display:flex;align-items:center;padding:0 4px 0 16px;font-size:14px"><span style="flex:1">Barbell Bench Press dihapus dari routine</span><span style="height:48px;padding:0 12px;display:flex;align-items:center;font-weight:700;color:var(--inversePrimary)">Urungkan</span></div>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:10px"><div style="font-size:12px;font-weight:600;color:var(--onSurfaceVariant)">Plat · satu sisi, terbesar di dalam, angka tegak di plat</div>
+              <div style="height:96px;display:flex;align-items:center;padding:0 12px;border-radius:16px;background:var(--surface);border:1px solid var(--outlineVariant)">
+                <span style="width:2px;height:20px;border-left:2px dashed var(--outline)"></span><span style="width:40px;height:7px;background:var(--outline)"></span><span style="width:7px;height:26px;border-radius:2px;background:var(--onSurfaceVariant)"></span>
+                <div style="display:flex;align-items:center;gap:2px;padding:0 2px">
+                  <span style="width:20px;height:84px;border-radius:4px;background:var(--inverseSurface);color:var(--inverseOnSurface);display:flex;align-items:center;justify-content:center"><span style="writing-mode:vertical-rl;transform:rotate(180deg);font-family:Archivo;font-size:10px;font-weight:800">25</span></span>
+                  <span style="width:15px;height:48px;border-radius:4px;background:var(--inverseSurface);color:var(--inverseOnSurface);display:flex;align-items:center;justify-content:center"><span style="writing-mode:vertical-rl;transform:rotate(180deg);font-family:Archivo;font-size:10px;font-weight:800">5</span></span>
+                  <span style="width:13px;height:34px;border-radius:4px;background:var(--inverseSurface);color:var(--inverseOnSurface);display:flex;align-items:center;justify-content:center"><span style="writing-mode:vertical-rl;transform:rotate(180deg);font-family:Archivo;font-size:9px;font-weight:800">1,25</span></span>
+                </div>
+                <span style="flex:1;height:10px;background:var(--outline)"></span><span style="width:4px;height:14px;border-radius:0 2px 2px 0;background:var(--onSurfaceVariant)"></span>
+              </div>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+    </section>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    const T = [
+      ['primary','#536B00','#CDEB3B','Teks, ikon, dan state aktif'],
+      ['onPrimary','#FFFFFF','#1C2400','Isi di atas primary'],
+      ['primaryFill *','#1A1F14','#CDEB3B','Latar tombol utama dan centang set selesai'],
+      ['onPrimaryFill *','#CDEB3B','#1C2400','Label tombol utama'],
+      ['primaryContainer','#ECF5C4','#2A3510','Indikator tab aktif, chip terpilih, avatar'],
+      ['onPrimaryContainer','#2E3B05','#E3F59A','Teks di primaryContainer'],
+      ['secondary','#4D5754','#B3BCB8','Ikon netral baja'],
+      ['onSecondary','#FFFFFF','#1F2624','Isi di atas secondary'],
+      ['secondaryContainer','#E2E7E5','#283030','Tombol tonal netral'],
+      ['onSecondaryContainer','#1A211E','#D7DEDB','Label tombol tonal'],
+      ['tertiary','#8A5A00','#E9A93C','Teks kuningan: label PR inline'],
+      ['onTertiary','#FFFFFF','#2B1C00','Isi di atas tertiary'],
+      ['tertiaryContainer','#FBEBCB','#3A2A10','Latar ikon PR di daftar'],
+      ['onTertiaryContainer','#5A3A00','#F5CB80','Teks/ikon di tertiaryContainer'],
+      ['brass *','#E9A93C','#E9A93C','Isi badge PR saja'],
+      ['accent *','#CDEB3B','#CDEB3B','Volt, warna identitas: tanda wordmark, titik sesi berjalan, badge Catat. Light mode: hanya sebagai isi dengan teks onAccent'],
+      ['onAccent *','#1C2400','#1C2400','Teks dan ikon di atas accent'],
+      ['accentText *','#536B00','#CDEB3B','Angka streak, ikon api, timer sesi'],
+      ['accentContainer *','#F0F8CF','#263010','Latar lembut bernuansa volt'],
+      ['onAccentContainer *','#34430A','#E3F59A','Teks di accentContainer'],
+      ['onBrass *','#2B1C00','#2B1C00','Label badge PR'],
+      ['error','#A63D32','#EFA59A','Validasi, aksi hapus (kalem)'],
+      ['onError','#FFFFFF','#3B0E09','Isi di atas error'],
+      ['errorContainer','#F8E4E1','#47201B','Banner error'],
+      ['onErrorContainer','#6E1F17','#F8D6D0','Teks banner error'],
+      ['success *','#2E7652','#7DC6A0','Username tersedia (kalem)'],
+      ['successContainer *','#E0F0E7','#15352A','Latar status sukses'],
+      ['onSuccessContainer *','#134330','#CBEBD9','Teks status sukses'],
+      ['background','#F5F7F6','#0B0D0D','Latar layar'],
+      ['onBackground','#111614','#EDF1EF','Teks di latar'],
+      ['surface','#FFFFFF','#131716','Kartu, daftar'],
+      ['onSurface','#111614','#EDF1EF','Teks utama'],
+      ['onSurfaceVariant','#49514E','#A7B0AC','Teks sekunder, nilai isian awal'],
+      ['surfaceContainerLowest','#FFFFFF','#0E1110','Field di atas container'],
+      ['surfaceContainerLow','#F0F2F1','#171B1A','Bottom sheet'],
+      ['surfaceContainer','#EAEDEC','#1B201F','Navigation bar, set aktif, chip sinkron'],
+      ['surfaceContainerHigh','#E2E6E4','#222827','Dialog, hover'],
+      ['surfaceContainerHighest','#D9DEDC','#2A302F','Track switch, pemisah tebal'],
+      ['outline','#78807D','#6F7875','Batas field, chip, checkbox (≥ 3:1)'],
+      ['outlineVariant','#D5DBD8','#2A3130','Garis kartu dan pemisah dekoratif'],
+      ['inverseSurface','#1E2422','#EDF1EF','Snackbar'],
+      ['inverseOnSurface','#EDF1EF','#1E2422','Teks snackbar'],
+      ['inversePrimary','#CDEB3B','#536B00','Aksi di snackbar'],
+      ['scrim','#050810 · 45%','#000000 · 60%','Di belakang sheet dan dialog'],
+    ];
+    return {
+      modes: [{ id: 'light', label: 'Light' }, { id: 'dark', label: 'Dark' }],
+      tokens: T.map(([name, light, dark, use]) => ({ name, light: light.split(' ')[0], dark: dark.split(' ')[0], use: light.includes('·') ? use + ' (' + light.split('· ')[1] + ' / ' + dark.split('· ')[1] + ')' : use })),
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="window_background">#F6F8FB</color>
-    <color name="ic_launcher_background">#2052E9</color>
+    <!-- Same value as LightColors.background in core/theme/Color.kt; keep the two in sync. -->
+    <color name="window_background">#F5F7F6</color>
+    <!-- Volt, from the handoff README "Assets" (adaptive icon background). -->
+    <color name="ic_launcher_background">#CDEB3B</color>
+    <!-- Circle behind the splash icon: volt in light mode, #131716 in dark mode (values-night). -->
+    <color name="splash_icon_background">#CDEB3B</color>
 </resources>

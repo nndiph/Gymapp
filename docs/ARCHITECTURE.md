@@ -116,6 +116,8 @@ Versi ditetapkan di M0 (dicek ke rilis resmi pada 2026-11-10) dan dicatat di `gr
 | ktlint-gradle | 14.2.0 | Gaya `android_studio`, lihat `.editorconfig` |
 | compileSdk / targetSdk / minSdk | 37 / 37 / 26 | |
 | Ikon UI | Material Symbols (vector XML di `res/drawable`) | Artefak `material-icons-*` tidak lagi dianjurkan Google (lambat di-build, tampilan lama). Unduh XML dari fonts.google.com/icons; lisensi Apache 2.0 |
+| Font UI | Archivo SemiExpanded 2.001 (Bold, ExtraBold), Plus Jakarta Sans 2.071 (Regular–Bold) | TTF statis dari Google Fonts (2026-11-12) di `res/font`, dibundel (bukan Downloadable Fonts) agar tampil sama saat offline dan tanpa Google Play Services. Lisensi SIL OFL 1.1; teks lisensi di `assets/licenses/` |
+| core-splashscreen | 1.2.0 | Splash screen gaya Android 12 di semua versi API, tema `Theme.Liftverse.Starting`. Ikon launcher (adaptive + monochrome), splash, dan notifikasi diambil dari `design_handoff_liftverse/icon`; tandanya masih draft |
 
 Pustaka yang direncanakan: Compose Material 3, Navigation Compose, Hilt, Coroutines/Flow, Firebase BoM (Auth, Firestore, Crashlytics, App Check), Credential Manager, WorkManager, DataStore, Coil (jika nanti ada gambar), JUnit + Turbine + MockK (test), ktlint (kualitas kode; detekt menyusul saat 2.x stabil).
 

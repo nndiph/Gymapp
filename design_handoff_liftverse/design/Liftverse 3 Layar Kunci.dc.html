@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="design_doc_mode" content="canvas">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&amp;family=Plus+Jakarta+Sans:wght@400..800&amp;display=swap">
+<style>
+body{margin:0;background:#DCE1E8}
+a{color:#536B00;text-decoration:none}a:hover{color:#0D1424;text-decoration:underline}
+</style>
+</helmet>
+<div style="background:#DCE1E8;color:#0D1424;font-family:'Plus Jakarta Sans',system-ui,sans-serif;padding:40px 48px 120px;display:flex;flex-direction:column;gap:64px;width:max-content;min-width:100%;box-sizing:border-box">
+  <header style="display:flex;flex-direction:column;gap:14px">
+    <nav style="display:flex;flex-wrap:wrap;gap:6px 16px;font-size:13px;font-weight:600;white-space:nowrap">
+      <a href="Liftverse%201%20Fondasi.dc.html">1 Fondasi</a>
+      <a href="Liftverse%202%20Baris%20Set.dc.html">2 Baris set</a>
+      <a href="Liftverse%203%20Layar%20Kunci.dc.html" style="color:#0D1424">3 Layar kunci</a>
+      <a href="Liftverse%204%20Layar%20Lain.dc.html">4 Layar lain</a>
+      <a href="Liftverse%205%20Kondisi%20Khusus.dc.html">5 Kondisi khusus</a>
+      <a href="Liftverse%206%20Prototype.dc.html">6 Prototype</a>
+      <a href="Liftverse%207%20Handoff.dc.html">7 Handoff</a>
+        <a href="Liftverse%208%20Warna%20Ketiga.dc.html">8 Warna ketiga</a>
+        <a href="Liftverse%209%20Ikon%20dan%20Splash.dc.html">9 Ikon dan splash</a>
+    </nav>
+    <div style="font-family:Archivo;font-stretch:112.5%;font-weight:800;font-size:40px;line-height:1.05">Tiga layar kunci · light dan dark</div>
+    <div style="font-size:15px;color:#475066;max-width:760px;text-wrap:pretty">Setiap artboard 412 × 915 dp dan bisa diklik. Light dan dark dirender dari markup yang sama; hanya token warna yang berganti.</div>
+  </header>
+
+  <section data-screen-label="Dashboard" style="display:flex;flex-direction:column;gap:20px">
+    <div style="font-family:Archivo;font-stretch:112.5%;font-weight:800;font-size:28px">Dashboard</div>
+    <div style="display:flex;gap:40px;align-items:flex-start">
+      <sc-for list="{{ modes }}" as="m" hint-placeholder-count="2">
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <div style="font-size:14px;font-weight:700">Dashboard / {{ m.label }}</div>
+          <dc-import name="LiftverseApp" screen="dashboard" theme="{{ m.id }}" label="Dashboard / {{ m.label }}" hint-size="412px,915px"></dc-import>
+        </div>
+      </sc-for>
+      <sc-for list="{{ modes }}" as="m" hint-placeholder-count="2">
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <div style="font-size:14px;font-weight:700">Dashboard tanpa jadwal / {{ m.label }}</div>
+          <dc-import name="LiftverseApp" screen="dashboard" variant="libur" theme="{{ m.id }}" label="Dashboard tanpa jadwal / {{ m.label }}" hint-size="412px,915px"></dc-import>
+        </div>
+      </sc-for>
+      <sc-for list="{{ modes }}" as="m" hint-placeholder-count="2">
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <div style="font-size:14px;font-weight:700">Dashboard, digulir / {{ m.label }}</div>
+          <dc-import name="LiftverseApp" screen="dashboard" scroll-y="520" theme="{{ m.id }}" label="Dashboard digulir / {{ m.label }}" hint-size="412px,915px"></dc-import>
+        </div>
+      </sc-for>
+      <div style="width:320px;flex:none;background:#FFFFFF;border-radius:16px;padding:20px 22px;display:flex;flex-direction:column;gap:12px;font-size:13px;line-height:1.55;color:#475066;margin-top:30px">
+        <b style="color:#0D1424;font-size:14px">Catatan desain</b>
+        <div><b style="color:#0D1424">Jangkauan ibu jari.</b> Tombol Mulai ada di sekitar y 650 dp, di separuh bawah. Kartu latihan hari ini sengaja diletakkan di bawah ringkasan minggu.</div>
+        <div><b style="color:#0D1424">Streak dari jadwal sendiri.</b> Pengguna memilih split dengan hari tetap atau target per minggu (lihat lembar 4, Jadwal dan streak). Raka memakai hari tetap Senin sampai Kamis dari routine-nya, jadi Jumat sampai Minggu tidak memutus streak. Ketuk angka streak untuk mengubah jadwal.</div>
+        <div><b style="color:#0D1424">Progress hari ini.</b> Tiap gerakan di Latihan hari ini menunjukkan target, set sesi lalu, sparkline volume 6 sesi, dan perubahan vs bulan lalu. Pengguna tahu angka yang harus dikalahkan sebelum menekan Mulai.</div>
+        <div><b style="color:#0D1424">Minggu ini vs minggu lalu.</b> Batang berpasangan per hari dan perbandingan November vs periode yang sama di Oktober. Ketuk Progress untuk detail.</div>
+        <div><b style="color:#0D1424">Lingkaran hari.</b> Centang terisi = selesai, garis biru = hari ini terjadwal, putus-putus = terjadwal nanti, abu = istirahat. Bentuk dan label membedakan, bukan warna saja.</div>
+        <div><b style="color:#0D1424">Data.</b> Kamis 12 November sebelum latihan: 3 sesi minggu ini. Setelah Push Day selesai menjadi 4 sesi minggu ini, 8 sesi dan 41.200 kg bulan ini (state di Profil).</div>
+        <div><b style="color:#0D1424">Tanpa jadwal.</b> Jumat 13 November. Mulai sesi kosong jadi aksi utama, pilih routine kedua, dan jadwal berikutnya ditampilkan supaya pengguna tahu kapan harus kembali.</div>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="Sesi aktif" style="display:flex;flex-direction:column;gap:20px">
+    <div style="font-family:Archivo;font-stretch:112.5%;font-weight:800;font-size:28px">Sesi aktif</div>
+    <div style="display:flex;gap:40px;align-items:flex-start">
+      <sc-for list="{{ modes }}" as="m" hint-placeholder-count="2">
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <div style="font-size:14px;font-weight:700">Sesi aktif / {{ m.label }}</div>
+          <dc-import name="LiftverseApp" screen="sesi" theme="{{ m.id }}" label="Sesi aktif / {{ m.label }}" hint-size="412px,915px"></dc-import>
+        </div>
+      </sc-for>
+      <sc-for list="{{ modes }}" as="m" hint-placeholder-count="2">
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <div style="font-size:14px;font-weight:700">Sesi aktif · numpad / {{ m.label }}</div>
+          <dc-import name="LiftverseApp" screen="sesi" variant="numpad" theme="{{ m.id }}" label="Sesi aktif numpad / {{ m.label }}" hint-size="412px,915px"></dc-import>
+        </div>
+      </sc-for>
+      <sc-for list="{{ modes }}" as="m" hint-placeholder-count="2">
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <div style="font-size:14px;font-weight:700">Sesi aktif · beban naik / {{ m.label }}</div>
+          <dc-import name="LiftverseApp" screen="sesi" variant="naik" theme="{{ m.id }}" label="Sesi aktif beban naik / {{ m.label }}" hint-size="412px,915px"></dc-import>
+        </div>
+      </sc-for>
+      <sc-for list="{{ modes }}" as="m" hint-placeholder-count="2">
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <div style="font-size:14px;font-weight:700">Sesi aktif · calon PR / {{ m.label }}</div>
+          <dc-import name="LiftverseApp" screen="sesi" variant="calon-pr" theme="{{ m.id }}" label="Sesi aktif calon PR / {{ m.label }}" hint-size="412px,915px"></dc-import>
+        </div>
+      </sc-for>
+      <div style="width:320px;flex:none;background:#FFFFFF;border-radius:16px;padding:20px 22px;display:flex;flex-direction:column;gap:12px;font-size:13px;line-height:1.55;color:#475066;margin-top:30px">
+        <b style="color:#0D1424;font-size:14px">Catatan desain</b>
+        <div><b style="color:#0D1424">Pencapaian langsung.</b> Begitu angka di stepper melewati sesi lalu, chip kecil "↑ +2,5 kg" (volt) langsung muncul di judul set aktif. Bila estimasi 1RM melewati rekor, berubah menjadi "Calon PR" (kuningan). Tanpa panel teks tambahan supaya stepper tetap di posisinya. Tidak perlu menunggu set atau sesi selesai. Tercatat resmi saat Selesai set, lalu baris ringkas memakai tag ↑ +2,5 kg atau PR.</div>
+        <div><b style="color:#0D1424">Baris set alternatif B.</b> Set berikutnya otomatis mengembang dengan stepper besar. Set lain tampil ringkas. Detail di lembar 2.</div>
+        <div><b style="color:#0D1424">1 ketukan.</b> Angka abu adalah isian dari sesi lalu. Centang di baris ringkas atau Selesai set langsung menyimpan nilai itu.</div>
+        <div><b style="color:#0D1424">Maksimal 3 ketukan.</b> +/− lalu Selesai set = 2. Ubah beban dan reps = 3. Mengubah beban set aktif juga memperbarui set berikutnya yang nilainya sama.</div>
+        <div><b style="color:#0D1424">Lompatan besar.</b> Ketuk angka untuk numpad dengan tombol ±langkah. Langkah mengikuti gerakan: 2,5 kg barbell, 2 kg dumbbell.</div>
+        <div><b style="color:#0D1424">Timer istirahat.</b> Mulai otomatis saat set dicentang. Panel volt di atas tombol bawah: sisa waktu besar, −15/+15, Lewati, dan bilah progres linear. Ini momen volt paling kuat di aplikasi karena istirahat adalah bagian dari usaha.</div>
+        <div><b style="color:#0D1424">Kalkulator plat.</b> Untuk gerakan barbell, tombol Plat di panel set aktif membuka sheet susunan plat per sisi (bar 20/15/10 kg). Contoh: 82,5 kg = 25 + 5 + 1,25 per sisi.</div>
+        <div><b style="color:#0D1424">Mengurangi.</b> Tombol hapus di panel set aktif menghapus set itu. Ikon hapus di kepala gerakan menghapus gerakan dari sesi. Keduanya tanpa dialog, cukup snackbar Urungkan 5 detik, supaya tetap cepat di sela set.</div>
+        <div><b style="color:#0D1424">Fokus.</b> Hanya gerakan yang sedang berjalan yang terbuka; gerakan lain diringkas menjadi satu baris berisi set dan nilai sesi lalu.</div>
+        <div><b style="color:#0D1424">Sinkron.</b> Chip kecil di app bar: Tersimpan di perangkat sesaat setelah set dicentang, lalu Tersinkron. Tidak pernah memblokir layar.</div>
+        <div><b style="color:#0D1424">Selesai</b> memakai tonal biru supaya tidak bersaing dengan Selesai set, dan meminta konfirmasi bila masih ada set yang belum dicentang.</div>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="Profil" style="display:flex;flex-direction:column;gap:20px">
+    <div style="font-family:Archivo;font-stretch:112.5%;font-weight:800;font-size:28px">Profil</div>
+    <div style="display:flex;gap:40px;align-items:flex-start">
+      <sc-for list="{{ modes }}" as="m" hint-placeholder-count="2">
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <div style="font-size:14px;font-weight:700">Profil / {{ m.label }}</div>
+          <dc-import name="LiftverseApp" screen="profil" sel="360" theme="{{ m.id }}" label="Profil / {{ m.label }}" hint-size="412px,915px"></dc-import>
+        </div>
+      </sc-for>
+      <sc-for list="{{ modes }}" as="m" hint-placeholder-count="2">
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <div style="font-size:14px;font-weight:700">Profil, digulir / {{ m.label }}</div>
+          <dc-import name="LiftverseApp" screen="profil" scroll-y="600" theme="{{ m.id }}" label="Profil digulir / {{ m.label }}" hint-size="412px,915px"></dc-import>
+        </div>
+      </sc-for>
+      <div style="width:320px;flex:none;background:#FFFFFF;border-radius:16px;padding:20px 22px;display:flex;flex-direction:column;gap:12px;font-size:13px;line-height:1.55;color:#475066;margin-top:30px">
+        <b style="color:#0D1424;font-size:14px">Catatan desain</b>
+        <div><b style="color:#0D1424">Heatmap satu baris, 6 bulan.</b> Default menampilkan 27 minggu terakhir dengan sel sekitar 11 dp. Panah 48 dp di kanan judul berpindah ke 6 bulan sebelumnya, jadi data 12 bulan tetap bisa dilihat tanpa membuat kartu tinggi.</div>
+        <div><b style="color:#0D1424">Bisa diketuk.</b> Seluruh grid adalah area sentuh. Sel terpilih diberi cincin dan ringkasan berteks muncul di bawahnya. Tombol 48 dp kiri/kanan melompat ke sesi sebelumnya/berikutnya untuk navigasi presisi.</div>
+        <div><b style="color:#0D1424">Hari ini</b> diberi cincin biru. Setelah alur prototype selesai, kotak ini terisi.</div>
+        <div><b style="color:#0D1424">Sekitar yang tenang.</b> Statistik, PR, dan routine memakai netral baja. Kuningan hanya ikon PR dan angka streak; PR selalu punya ikon piala dan judul "Rekor pribadi".</div>
+        <div><b style="color:#0D1424">Routine sebagai playlist.</b> Tile inisial + tombol putar untuk mulai dengan satu ketukan.</div>
+      </div>
+    </div>
+  </section>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    return { modes: [{ id: 'light', label: 'Light' }, { id: 'dark', label: 'Dark' }] };
+  }
+}
+</script>
+</body>
+</html>

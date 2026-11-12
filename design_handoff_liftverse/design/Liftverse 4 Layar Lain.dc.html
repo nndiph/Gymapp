@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="design_doc_mode" content="canvas">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&amp;family=Plus+Jakarta+Sans:wght@400..800&amp;display=swap">
+<style>
+body{margin:0;background:#DCE1E8}
+a{color:#536B00;text-decoration:none}a:hover{color:#0D1424;text-decoration:underline}
+</style>
+</helmet>
+<div style="background:#DCE1E8;color:#0D1424;font-family:'Plus Jakarta Sans',system-ui,sans-serif;padding:40px 48px 120px;display:flex;flex-direction:column;gap:64px;width:max-content;min-width:100%;box-sizing:border-box">
+  <header style="display:flex;flex-direction:column;gap:14px">
+    <nav style="display:flex;flex-wrap:wrap;gap:6px 16px;font-size:13px;font-weight:600;white-space:nowrap">
+      <a href="Liftverse%201%20Fondasi.dc.html">1 Fondasi</a>
+      <a href="Liftverse%202%20Baris%20Set.dc.html">2 Baris set</a>
+      <a href="Liftverse%203%20Layar%20Kunci.dc.html">3 Layar kunci</a>
+      <a href="Liftverse%204%20Layar%20Lain.dc.html" style="color:#0D1424">4 Layar lain</a>
+      <a href="Liftverse%205%20Kondisi%20Khusus.dc.html">5 Kondisi khusus</a>
+      <a href="Liftverse%206%20Prototype.dc.html">6 Prototype</a>
+      <a href="Liftverse%207%20Handoff.dc.html">7 Handoff</a>
+        <a href="Liftverse%208%20Warna%20Ketiga.dc.html">8 Warna ketiga</a>
+        <a href="Liftverse%209%20Ikon%20dan%20Splash.dc.html">9 Ikon dan splash</a>
+    </nav>
+    <div style="display:flex;align-items:flex-end;gap:32px">
+      <div>
+        <div style="font-family:Archivo;font-stretch:112.5%;font-weight:800;font-size:40px;line-height:1.05">Layar lainnya</div>
+        <div style="font-size:15px;color:#475066;max-width:760px;margin-top:10px;text-wrap:pretty">Toggle mengganti semua artboard di halaman ini, dan tersimpan untuk lembar 2, 5, dan 6. Setiap artboard bisa diklik.</div>
+      </div>
+      <div style="display:flex;height:40px;border:1px solid #7A849A;border-radius:12px;overflow:hidden;flex:none">
+        <sc-for list="{{ themes }}" as="t" hint-placeholder-count="2"><button onClick="{{ t.tap }}" style="all:unset;cursor:pointer;padding:0 16px;display:flex;align-items:center;font-size:13px;font-weight:700;background:{{ t.bg }};color:{{ t.c }}">{{ t.l }}</button></sc-for>
+      </div>
+    </div>
+  </header>
+
+  <section data-screen-label="Masuk" style="display:flex;flex-direction:column;gap:20px">
+    <div style="font-family:Archivo;font-stretch:112.5%;font-weight:800;font-size:28px">Masuk dan username</div>
+    <div style="display:flex;gap:40px;align-items:flex-start">
+      <div style="display:flex;flex-direction:column;gap:10px;width:412px"><div style="font-size:14px;font-weight:700">Masuk / {{ T }}</div><dc-import name="LiftverseApp" screen="masuk" theme="{{ theme }}" label="Masuk" hint-size="412px,915px"></dc-import><div style="font-size:12.5px;line-height:1.5;color:#475066">Masuk dan Daftar memakai satu layar dengan segmented button. Semua input ada di separuh bawah. Logo Google asli dipasang saat implementasi.</div></div>
+      <div style="display:flex;flex-direction:column;gap:10px;width:412px"><div style="font-size:14px;font-weight:700">Username · tersedia / {{ T }}</div><dc-import name="LiftverseApp" screen="username" theme="{{ theme }}" label="Username tersedia" hint-size="412px,915px"></dc-import><div style="font-size:12.5px;line-height:1.5;color:#475066">Dicek saat mengetik (debounce 400 ms). Field bisa diketik di prototype. Tiga aturan diberi ikon dan teks.</div></div>
+      <div style="display:flex;flex-direction:column;gap:10px;width:412px"><div style="font-size:14px;font-weight:700">Username · sudah dipakai / {{ T }}</div><dc-import name="LiftverseApp" screen="username" variant="dipakai" theme="{{ theme }}" label="Username dipakai" hint-size="412px,915px"></dc-import><div style="font-size:12.5px;line-height:1.5;color:#475066">Menawarkan tiga alternatif yang tersedia sebagai chip.</div></div>
+      <div style="display:flex;flex-direction:column;gap:10px;width:412px"><div style="font-size:14px;font-weight:700">Username · format salah / {{ T }}</div><dc-import name="LiftverseApp" screen="username" variant="format" theme="{{ theme }}" label="Username format salah" hint-size="412px,915px"></dc-import><div style="font-size:12.5px;line-height:1.5;color:#475066">Pesan menyebut aturan yang dilanggar. Lanjutkan nonaktif sampai valid. Validasi: ^[a-z0-9_]{3,20}$.</div></div>
+    </div>
+  </section>
+
+  <section data-screen-label="Jadwal dan streak" style="display:flex;flex-direction:column;gap:20px">
+    <div style="font-family:Archivo;font-stretch:112.5%;font-weight:800;font-size:28px">Jadwal dan streak</div>
+    <div style="display:flex;gap:40px;align-items:flex-start">
+      <div style="display:flex;flex-direction:column;gap:10px;width:412px"><div style="font-size:14px;font-weight:700">Jadwal · onboarding / {{ T }}</div><dc-import name="LiftverseApp" screen="jadwal" variant="onboarding" theme="{{ theme }}" label="Jadwal onboarding" hint-size="412px,915px"></dc-import><div style="font-size:12.5px;line-height:1.5;color:#475066">Setelah username, sebelum izin notifikasi. Belum ada pilihan, jadi Lanjutkan nonaktif; Atur nanti memakai target 3 sesi per minggu.</div></div>
+      <div style="display:flex;flex-direction:column;gap:10px;width:412px"><div style="font-size:14px;font-weight:700">Jadwal · ikuti routine (Raka) / {{ T }}</div><dc-import name="LiftverseApp" screen="jadwal" theme="{{ theme }}" label="Jadwal routine" hint-size="412px,915px"></dc-import><div style="font-size:12.5px;line-height:1.5;color:#475066">Hari latihan diambil dari hari di routine: Push Sen dan Kam, Pull Sel, Leg Rab. Jumat sampai Minggu libur.</div></div>
+      <div style="display:flex;flex-direction:column;gap:10px;width:412px"><div style="font-size:14px;font-weight:700">Jadwal · PPL × Upper/Lower / {{ T }}</div><dc-import name="LiftverseApp" screen="jadwal" variant="pplul" scroll-y="300" theme="{{ theme }}" label="Jadwal PPL UL" hint-size="412px,915px"></dc-import><div style="font-size:12.5px;line-height:1.5;color:#475066">Lima hari, libur Senin dan Jumat. Pratinjau di bawah menghitung ulang streak dari riwayat dengan aturan baru, jadi pengguna tahu akibatnya sebelum menyimpan.</div></div>
+      <div style="display:flex;flex-direction:column;gap:10px;width:412px"><div style="font-size:14px;font-weight:700">Jadwal · target per minggu / {{ T }}</div><dc-import name="LiftverseApp" screen="jadwal" variant="mingguan" theme="{{ theme }}" label="Jadwal mingguan" hint-size="412px,915px"></dc-import><div style="font-size:12.5px;line-height:1.5;color:#475066">Untuk jadwal yang berubah-ubah. Streak dihitung dalam minggu.</div></div>
+      <div style="width:340px;flex:none;background:#FFFFFF;border-radius:16px;padding:20px 22px;display:flex;flex-direction:column;gap:10px;font-size:13px;line-height:1.55;color:#475066;margin-top:30px">
+        <b style="color:#0D1424;font-size:14px">Aturan streak</b>
+        <div><b style="color:#0D1424">Hari tetap.</b> +1 setiap hari latihan yang selesai. Hari libur dilewati. Latihan di hari libur tetap dihitung.</div>
+        <div><b style="color:#0D1424">Tukar hari (default aktif).</b> Minggu dianggap aman bila jumlah sesinya minimal sama dengan jumlah hari latihan, walau harinya bergeser.</div>
+        <div><b style="color:#0D1424">Target per minggu.</b> +1 untuk setiap minggu Senin–Minggu yang mencapai target. Minggu berjalan tidak memutus streak.</div>
+        <div><b style="color:#0D1424">Tempat mengubah.</b> Ketuk streak di Dashboard, atau Pengaturan › Jadwal dan streak. Hari routine tidak ikut berubah.</div>
+        <div><b style="color:#0D1424">Split.</b> Hanya template hari, bukan rekomendasi. Mengetuk hari secara manual mengubahnya menjadi Atur sendiri.</div>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="Catat dan gerakan" style="display:flex;flex-direction:column;gap:20px">
+    <div style="font-family:Archivo;font-stretch:112.5%;font-weight:800;font-size:28px">Tab Catat, pemilih gerakan, gerakan custom</div>
+    <div style="display:flex;gap:40px;align-items:flex-start">
+      <div style="display:flex;flex-direction:column;gap:10px;width:412px"><div style="font-size:14px;font-weight:700">Catat · tanpa sesi aktif / {{ T }}</div><dc-import name="LiftverseApp" screen="catat" theme="{{ theme }}" label="Catat tanpa sesi" hint-size="412px,915px"></dc-import><div style="font-size:12.5px;line-height:1.5;color:#475066">Satu tempat untuk mencatat dan mengatur routine: ketuk routine untuk mengubah, tombol putar untuk mulai, Buat routine di akhir daftar. Tidak ada layar Kelola routine terpisah. Bila ada sesi aktif, tab ini langsung membuka sesi.</div></div>
+      <div style="display:flex;flex-direction:column;gap:10px;width:412px"><div style="font-size:14px;font-weight:700">Pemilih gerakan / {{ T }}</div><dc-import name="LiftverseApp" screen="pemilih" theme="{{ theme }}" label="Pemilih gerakan" hint-size="412px,915px"></dc-import><div style="font-size:12.5px;line-height:1.5;color:#475066">Bawaan dan custom satu daftar, custom diberi tag. Buat gerakan custom menempel di bawah, selalu terlihat. Pencarian dan chip bisa dicoba.</div></div>
+      <div style="display:flex;flex-direction:column;gap:10px;width:412px"><div style="font-size:14px;font-weight:700">Pemilih · filter Dada / {{ T }}</div><dc-import name="LiftverseApp" screen="pemilih" variant="dada" theme="{{ theme }}" label="Pemilih filter dada" hint-size="412px,915px"></dc-import><div style="font-size:12.5px;line-height:1.5;color:#475066">Chip terpilih memakai primaryContainer dan ikon centang, jadi tidak bergantung pada warna.</div></div>
+      <div style="display:flex;flex-direction:column;gap:10px;width:412px"><div style="font-size:14px;font-weight:700">Pemilih · tidak ditemukan / {{ T }}</div><dc-import name="LiftverseApp" screen="pemilih" variant="kosong" theme="{{ theme }}" label="Pemilih tidak ditemukan" hint-size="412px,915px"></dc-import><div style="font-size:12.5px;line-height:1.5;color:#475066">Aksi buat naik jadi tombol utama dan membawa kata pencarian sebagai nama.</div></div>
+      <div style="display:flex;flex-direction:column;gap:10px;width:412px"><div style="font-size:14px;font-weight:700">Gerakan custom · baru / {{ T }}</div><dc-import name="LiftverseApp" screen="gerakan-form" variant="dari-cari" theme="{{ theme }}" label="Gerakan custom baru" hint-size="412px,915px"></dc-import><div style="font-size:12.5px;line-height:1.5;color:#475066">Dibuka dari pencarian kosong: nama terisi. Tipe pencatatan menentukan baris set yang dipakai.</div></div>
+      <div style="display:flex;flex-direction:column;gap:10px;width:412px"><div style="font-size:14px;font-weight:700">Gerakan custom · ubah / {{ T }}</div><dc-import name="LiftverseApp" screen="gerakan-form" variant="ubah" scroll-y="400" theme="{{ theme }}" label="Gerakan custom ubah" hint-size="412px,915px"></dc-import><div style="font-size:12.5px;line-height:1.5;color:#475066">Arsipkan, bukan hapus: riwayat dan PR tetap utuh. Artboard digulir ke bawah.</div></div>
+    </div>
+  </section>
+
+  <section data-screen-label="Selesai sesi" style="display:flex;flex-direction:column;gap:20px">
+    <div style="font-family:Archivo;font-stretch:112.5%;font-weight:800;font-size:28px">Selesai sesi</div>
+    <div style="display:flex;gap:40px;align-items:flex-start">
+      <div style="display:flex;flex-direction:column;gap:10px;width:412px"><div style="font-size:14px;font-weight:700">Selesai sesi · PR baru / {{ T }}</div><dc-import name="LiftverseApp" screen="selesai" theme="{{ theme }}" label="Selesai sesi PR" hint-size="412px,915px"></dc-import><div style="font-size:12.5px;line-height:1.5;color:#475066">Momen kuningan: ikon piala, label PR baru, dan pembanding dengan rekor lama. Potongan heatmap menunjukkan kotak hari ini terisi.</div></div>
+      <div style="display:flex;flex-direction:column;gap:10px;width:412px"><div style="font-size:14px;font-weight:700">Selesai sesi · tanpa PR / {{ T }}</div><dc-import name="LiftverseApp" screen="selesai" variant="tanpa-pr" theme="{{ theme }}" label="Selesai sesi tanpa PR" hint-size="412px,915px"></dc-import><div style="font-size:12.5px;line-height:1.5;color:#475066">Tanpa kuningan sama sekali. Kalimat netral, tidak menghakimi.</div></div>
+      <div style="display:flex;flex-direction:column;gap:10px;width:412px"><div style="font-size:14px;font-weight:700">Selesaikan sesi · routine berubah / {{ T }}</div><dc-import name="LiftverseApp" screen="sesi" variant="selesai-ubah" theme="{{ theme }}" label="Selesaikan sesi routine berubah" hint-size="412px,915px"></dc-import><div style="font-size:12.5px;line-height:1.5;color:#475066">Routine diatur langsung saat latihan. Bila gerakan atau jumlah set berbeda dari routine, sheet menawarkan Perbarui routine beserta ringkasan perubahannya. Sesi kosong menawarkan Simpan sebagai routine.</div></div>
+    </div>
+  </section>
+
+  <section data-screen-label="Riwayat" style="display:flex;flex-direction:column;gap:20px">
+    <div style="font-family:Archivo;font-stretch:112.5%;font-weight:800;font-size:28px">Riwayat</div>
+    <div style="display:flex;gap:40px;align-items:flex-start">
+      <div style="display:flex;flex-direction:column;gap:10px;width:412px"><div style="font-size:14px;font-weight:700">Riwayat / {{ T }}</div><dc-import name="LiftverseApp" screen="riwayat" theme="{{ theme }}" label="Riwayat" hint-size="412px,915px"></dc-import><div style="font-size:12.5px;line-height:1.5;color:#475066">Dikelompokkan per bulan dengan total sesi dan volume. Tanggal tampil besar sebagai jangkar visual.</div></div>
+      <div style="display:flex;flex-direction:column;gap:10px;width:412px"><div style="font-size:14px;font-weight:700">Detail sesi / {{ T }}</div><dc-import name="LiftverseApp" screen="riwayat-detail" theme="{{ theme }}" label="Detail sesi" hint-size="412px,915px"></dc-import><div style="font-size:12.5px;line-height:1.5;color:#475066">Ubah dan hapus di top app bar, jauh dari area scroll supaya tidak terketuk.</div></div>
+      <div style="display:flex;flex-direction:column;gap:10px;width:412px"><div style="font-size:14px;font-weight:700">Detail sesi · ubah / {{ T }}</div><dc-import name="LiftverseApp" screen="riwayat-detail" variant="ubah" theme="{{ theme }}" label="Detail sesi ubah" hint-size="412px,915px"></dc-import><div style="font-size:12.5px;line-height:1.5;color:#475066">Angka diberi garis untuk menandai bisa diketuk. Hapus set per baris.</div></div>
+      <div style="display:flex;flex-direction:column;gap:10px;width:412px"><div style="font-size:14px;font-weight:700">Detail sesi · hapus / {{ T }}</div><dc-import name="LiftverseApp" screen="riwayat-detail" variant="hapus" theme="{{ theme }}" label="Detail sesi hapus" hint-size="412px,915px"></dc-import><div style="font-size:12.5px;line-height:1.5;color:#475066">Dialog menyebut apa saja yang ikut berubah: heatmap, volume, PR.</div></div>
+    </div>
+  </section>
+
+  <section data-screen-label="Alat sesi" style="display:flex;flex-direction:column;gap:20px">
+    <div style="font-family:Archivo;font-stretch:112.5%;font-weight:800;font-size:28px">Alat di sesi aktif</div>
+    <div style="display:flex;gap:40px;align-items:flex-start">
+      <div style="display:flex;flex-direction:column;gap:10px;width:412px"><div style="font-size:14px;font-weight:700">Timer istirahat / {{ T }}</div><dc-import name="LiftverseApp" screen="sesi" theme="{{ theme }}" label="Timer istirahat" hint-size="412px,915px"></dc-import><div style="font-size:12.5px;line-height:1.5;color:#475066">Panel volt muncul setelah set dicentang. Durasi mengikuti jenis gerakan.</div></div>
+      <div style="display:flex;flex-direction:column;gap:10px;width:412px"><div style="font-size:14px;font-weight:700">Timer istirahat · habis / {{ T }}</div><dc-import name="LiftverseApp" screen="sesi" variant="istirahat-habis" theme="{{ theme }}" label="Timer habis" hint-size="412px,915px"></dc-import><div style="font-size:12.5px;line-height:1.5;color:#475066">Menghitung lebihnya. HP bergetar dan notifikasi muncul bila aplikasi di latar belakang.</div></div>
+      <div style="display:flex;flex-direction:column;gap:10px;width:412px"><div style="font-size:14px;font-weight:700">Kalkulator plat / {{ T }}</div><dc-import name="LiftverseApp" screen="sesi" variant="plat" theme="{{ theme }}" label="Kalkulator plat" hint-size="412px,915px"></dc-import><div style="font-size:12.5px;line-height:1.5;color:#475066">Dari tombol Plat di set aktif (khusus barbell). Plat digambar netral dan diberi angka, karena warna plat berbeda di tiap gym.</div></div>
+    </div>
+  </section>
+
+  <section data-screen-label="Progress" style="display:flex;flex-direction:column;gap:20px">
+    <div style="font-family:Archivo;font-stretch:112.5%;font-weight:800;font-size:28px">Progress</div>
+    <div style="display:flex;gap:40px;align-items:flex-start">
+      <div style="display:flex;flex-direction:column;gap:10px;width:412px"><div style="font-size:14px;font-weight:700">Progress · minggu / {{ T }}</div><dc-import name="LiftverseApp" screen="progres" theme="{{ theme }}" label="Progress minggu" hint-size="412px,915px"></dc-import><div style="font-size:12.5px;line-height:1.5;color:#475066">Dibuka dari kartu "Minggu ini vs minggu lalu" di Dashboard. Selalu membandingkan hari yang sama (Senin–Rabu vs Senin–Rabu), jadi minggu berjalan tidak terlihat kalah.</div></div>
+      <div style="display:flex;flex-direction:column;gap:10px;width:412px"><div style="font-size:14px;font-weight:700">Progress · minggu, digulir / {{ T }}</div><dc-import name="LiftverseApp" screen="progres" scroll-y="560" theme="{{ theme }}" label="Progress minggu digulir" hint-size="412px,915px"></dc-import><div style="font-size:12.5px;line-height:1.5;color:#475066">Otot: batang = periode ini, garis tegak = periode lalu. Gerakan diurutkan dari kenaikan terbesar, dengan sparkline 6 sesi terakhir.</div></div>
+      <div style="display:flex;flex-direction:column;gap:10px;width:412px"><div style="font-size:14px;font-weight:700">Progress · bulan / {{ T }}</div><dc-import name="LiftverseApp" screen="progres" variant="bulan" theme="{{ theme }}" label="Progress bulan" hint-size="412px,915px"></dc-import><div style="font-size:12.5px;line-height:1.5;color:#475066">Enam bulan terakhir; bulan berjalan berwarna penuh.</div></div>
+      <div style="display:flex;flex-direction:column;gap:10px;width:412px"><div style="font-size:14px;font-weight:700">Progress per gerakan / {{ T }}</div><dc-import name="LiftverseApp" screen="progress" theme="{{ theme }}" label="Progress per gerakan" hint-size="412px,915px"></dc-import><div style="font-size:12.5px;line-height:1.5;color:#475066">Default volume per sesi, metrik yang naik selama blok volume. Baris November vs Oktober menjawab "naik atau turun?" tanpa membaca grafik. Estimasi 1RM tetap tersedia dan berlabel estimasi.</div></div>
+      <div style="width:340px;flex:none;background:#FFFFFF;border-radius:16px;padding:20px 22px;display:flex;flex-direction:column;gap:10px;font-size:13px;line-height:1.55;color:#475066;margin-top:30px">
+        <b style="color:#0D1424;font-size:14px">Aturan visual progress</b>
+        <div><b style="color:#0D1424">Selalu dibanding.</b> Setiap angka punya pembanding: minggu lalu, bulan lalu, atau sesi lalu, pada hari yang sama.</div>
+        <div><b style="color:#0D1424">Delta.</b> Naik: panah atas + hijau kalem. Turun dan sama: panah/garis + netral, karena turun sering disengaja (deload, blok volume). Selalu ikon + teks.</div>
+        <div><b style="color:#0D1424">Pembanding.</b> Periode lalu digambar abu dengan garis outline, periode ini biru penuh. Hari terjadwal yang belum dilakukan: kotak putus-putus biru.</div>
+        <div><b style="color:#0D1424">Tanpa cincin dan gradien.</b> Batang, sparkline, dan angka besar saja.</div>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="Musik latihan" style="display:flex;flex-direction:column;gap:20px">
+    <div style="font-family:Archivo;font-stretch:112.5%;font-weight:800;font-size:28px">Musik latihan</div>
+    <div style="display:flex;gap:40px;align-items:flex-start">
+      <div style="display:flex;flex-direction:column;gap:10px;width:412px"><div style="font-size:14px;font-weight:700">Profil · musik latihan / {{ T }}</div><dc-import name="LiftverseApp" screen="profil" scroll-y="1000" theme="{{ theme }}" label="Profil musik" hint-size="412px,915px"></dc-import><div style="font-size:12.5px;line-height:1.5;color:#475066">Di bawah Routine. Cover striped adalah tempat cover asli dari platform. Tag teks menyebut platformnya (tanpa logo di desain). Maksimal 3.</div></div>
+      <div style="display:flex;flex-direction:column;gap:10px;width:412px"><div style="font-size:14px;font-weight:700">Profil · atur musik / {{ T }}</div><dc-import name="LiftverseApp" screen="profil" variant="musik-atur" scroll-y="1000" theme="{{ theme }}" label="Atur musik" hint-size="412px,915px"></dc-import><div style="font-size:12.5px;line-height:1.5;color:#475066">Tiga aksi (buka, ganti link, hapus), jadi memakai ⋮. Di profil orang lain baris langsung membuka aplikasi musiknya.</div></div>
+      <div style="display:flex;flex-direction:column;gap:10px;width:412px"><div style="font-size:14px;font-weight:700">Tambah musik / {{ T }}</div><dc-import name="LiftverseApp" screen="musik" theme="{{ theme }}" label="Tambah musik" hint-size="412px,915px"></dc-import><div style="font-size:12.5px;line-height:1.5;color:#475066">Bila clipboard berisi link musik, langsung ditawarkan. Tombol Tempel dan field bisa dicoba di prototype.</div></div>
+      <div style="display:flex;flex-direction:column;gap:10px;width:412px"><div style="font-size:14px;font-weight:700">Tambah musik · pratinjau / {{ T }}</div><dc-import name="LiftverseApp" screen="musik" variant="preview" theme="{{ theme }}" label="Tambah musik pratinjau" hint-size="412px,915px"></dc-import><div style="font-size:12.5px;line-height:1.5;color:#475066">Pratinjau persis seperti di profil sebelum disimpan.</div></div>
+      <div style="display:flex;flex-direction:column;gap:10px;width:412px"><div style="font-size:14px;font-weight:700">Tambah musik · playlist privat / {{ T }}</div><dc-import name="LiftverseApp" screen="musik" variant="error" theme="{{ theme }}" label="Tambah musik error" hint-size="412px,915px"></dc-import><div style="font-size:12.5px;line-height:1.5;color:#475066">Error menjelaskan cara memperbaikinya di aplikasi asal.</div></div>
+      <div style="display:flex;flex-direction:column;gap:10px;width:412px"><div style="font-size:14px;font-weight:700">Dibagikan dari Spotify / {{ T }}</div><dc-import name="LiftverseApp" screen="musik" variant="share" theme="{{ theme }}" label="Share dari Spotify" hint-size="412px,915px"></dc-import><div style="font-size:12.5px;line-height:1.5;color:#475066">Liftverse muncul di share sheet Android. Link langsung terisi, cukup satu ketukan.</div></div>
+      <div style="width:360px;flex:none;background:#FFFFFF;border-radius:16px;padding:20px 22px;display:flex;flex-direction:column;gap:10px;font-size:13px;line-height:1.55;color:#475066;margin-top:30px">
+        <b style="color:#0D1424;font-size:14px">Cara teknis: link, bukan login</b>
+        <div><b style="color:#0D1424">Masuk lewat link.</b> Pengguna menempel link atau membagikan dari aplikasi musik (Android share sheet, ACTION_SEND text/plain). Tidak perlu login Spotify atau Apple Music.</div>
+        <div><b style="color:#0D1424">Metadata di server.</b> Server Liftverse membaca judul dan cover dari oEmbed (Spotify, YouTube, SoundCloud) atau tag Open Graph halaman publik (Apple Music, Deezer), lalu menyimpannya. Profil tetap tampil offline dari cache.</div>
+        <div><b style="color:#0D1424">Diputar di aplikasinya.</b> Ketuk membuka URL asli; Android meneruskannya ke aplikasi Spotify/Apple Music bila terpasang.</div>
+        <div><b style="color:#0D1424">Kenapa tidak login Spotify.</b> Sejak 15 Mei 2025, akses API Spotify untuk banyak pengguna hanya untuk organisasi dengan minimal 250 ribu MAU. Mode development hanya untuk 5 pengguna. Integrasi penuh bisa ditinjau ulang setelah Liftverse besar.</div>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="Routine" style="display:flex;flex-direction:column;gap:20px">
+    <div style="font-family:Archivo;font-stretch:112.5%;font-weight:800;font-size:28px">Routine dan progress</div>
+    <div style="display:flex;gap:40px;align-items:flex-start">
+      <div style="display:flex;flex-direction:column;gap:10px;width:412px"><div style="font-size:14px;font-weight:700">Routine · ubah / {{ T }}</div><dc-import name="LiftverseApp" screen="routine-form" theme="{{ theme }}" label="Routine ubah" hint-size="412px,915px"></dc-import><div style="font-size:12.5px;line-height:1.5;color:#475066">Target set dan reps memakai stepper yang sama dengan baris set. Gerakan bisa diurutkan dengan pegangan seret.</div></div>
+      <div style="display:flex;flex-direction:column;gap:10px;width:412px"><div style="font-size:14px;font-weight:700">Routine · ubah, digulir / {{ T }}</div><dc-import name="LiftverseApp" screen="routine-form" scroll-y="760" theme="{{ theme }}" label="Routine ubah digulir" hint-size="412px,915px"></dc-import><div style="font-size:12.5px;line-height:1.5;color:#475066">Hari pelaksanaan: tujuh tombol bulat 48 dp, terpilih terisi biru dan dijelaskan dengan kalimat. Jam pengingat muncul saat pengingat aktif.</div></div>
+      <div style="display:flex;flex-direction:column;gap:10px;width:412px"><div style="font-size:14px;font-weight:700">Routine · baru / {{ T }}</div><dc-import name="LiftverseApp" screen="routine-form" variant="baru" theme="{{ theme }}" label="Routine baru" hint-size="412px,915px"></dc-import><div style="font-size:12.5px;line-height:1.5;color:#475066">Kondisi awal tanpa gerakan dan tanpa hari.</div></div>
+    </div>
+  </section>
+
+  <section data-screen-label="Sosial" style="display:flex;flex-direction:column;gap:20px">
+    <div style="font-family:Archivo;font-stretch:112.5%;font-weight:800;font-size:28px">Sosial</div>
+    <div style="display:flex;gap:40px;align-items:flex-start">
+      <div style="display:flex;flex-direction:column;gap:10px;width:412px"><div style="font-size:14px;font-weight:700">Cari pengguna / {{ T }}</div><dc-import name="LiftverseApp" screen="cari" theme="{{ theme }}" label="Cari pengguna" hint-size="412px,915px"></dc-import><div style="font-size:12.5px;line-height:1.5;color:#475066">Pencarian hanya lewat username. Akun privat tampil dengan ikon gembok dan tanpa tombol Ikuti.</div></div>
+      <div style="display:flex;flex-direction:column;gap:10px;width:412px"><div style="font-size:14px;font-weight:700">Profil publik orang lain / {{ T }}</div><dc-import name="LiftverseApp" screen="profil-lain" theme="{{ theme }}" label="Profil publik" hint-size="412px,915px"></dc-import><div style="font-size:12.5px;line-height:1.5;color:#475066">Struktur sama dengan profil sendiri, ditambah Ikuti. Tombol putar routine disembunyikan. Laporkan dan Blokir tampil langsung sebagai ikon di top app bar: hanya dua aksi, jadi tidak perlu menu ⋮.</div></div>
+      <div style="display:flex;flex-direction:column;gap:10px;width:412px"><div style="font-size:14px;font-weight:700">Laporkan / {{ T }}</div><dc-import name="LiftverseApp" screen="profil-lain" variant="laporkan" theme="{{ theme }}" label="Laporkan" hint-size="412px,915px"></dc-import><div style="font-size:12.5px;line-height:1.5;color:#475066">Empat alasan, anonim.</div></div>
+      <div style="display:flex;flex-direction:column;gap:10px;width:412px"><div style="font-size:14px;font-weight:700">Blokir / {{ T }}</div><dc-import name="LiftverseApp" screen="profil-lain" variant="blokir" theme="{{ theme }}" label="Blokir" hint-size="412px,915px"></dc-import><div style="font-size:12.5px;line-height:1.5;color:#475066">Konfirmasi menjelaskan akibatnya bagi kedua pihak.</div></div>
+      <div style="display:flex;flex-direction:column;gap:10px;width:412px"><div style="font-size:14px;font-weight:700">Profil privat / {{ T }}</div><dc-import name="LiftverseApp" screen="profil-privat" theme="{{ theme }}" label="Profil privat" hint-size="412px,915px"></dc-import><div style="font-size:12.5px;line-height:1.5;color:#475066">Hanya identitas dan jumlah. Tidak ada tombol Ikuti, sesuai aturan profil privat tidak bisa diikuti.</div></div>
+      <div style="display:flex;flex-direction:column;gap:10px;width:412px"><div style="font-size:14px;font-weight:700">Pengikut dan mengikuti / {{ T }}</div><dc-import name="LiftverseApp" screen="koneksi" theme="{{ theme }}" label="Koneksi" hint-size="412px,915px"></dc-import><div style="font-size:12.5px;line-height:1.5;color:#475066">Dua tab. Ikuti balik untuk pengikut yang belum diikuti.</div></div>
+    </div>
+  </section>
+
+  <section data-screen-label="Izin notifikasi" style="display:flex;flex-direction:column;gap:20px">
+    <div style="font-family:Archivo;font-stretch:112.5%;font-weight:800;font-size:28px">Izin notifikasi</div>
+    <div style="display:flex;gap:40px;align-items:flex-start">
+      <div style="display:flex;flex-direction:column;gap:10px;width:412px"><div style="font-size:14px;font-weight:700">Izin · penjelasan / {{ T }}</div><dc-import name="LiftverseApp" screen="notif" theme="{{ theme }}" label="Izin notifikasi" hint-size="412px,915px"></dc-import><div style="font-size:12.5px;line-height:1.5;color:#475066">Muncul setelah username, sebelum dialog sistem (Android 13+). Contoh notifikasi menunjukkan isinya.</div></div>
+      <div style="display:flex;flex-direction:column;gap:10px;width:412px"><div style="font-size:14px;font-weight:700">Izin · dialog sistem / {{ T }}</div><dc-import name="LiftverseApp" screen="notif" variant="sistem" theme="{{ theme }}" label="Dialog sistem" hint-size="412px,915px"></dc-import><div style="font-size:12.5px;line-height:1.5;color:#475066">Ilustrasi saja; dialog asli digambar oleh Android.</div></div>
+      <div style="display:flex;flex-direction:column;gap:10px;width:412px"><div style="font-size:14px;font-weight:700">Izin · ditolak / {{ T }}</div><dc-import name="LiftverseApp" screen="notif" variant="ditolak" theme="{{ theme }}" label="Izin ditolak" hint-size="412px,915px"></dc-import><div style="font-size:12.5px;line-height:1.5;color:#475066">Aksi utama tetap melanjutkan ke aplikasi. Tidak meminta ulang secara paksa.</div></div>
+    </div>
+  </section>
+
+  <section data-screen-label="Pengaturan" style="display:flex;flex-direction:column;gap:20px">
+    <div style="font-family:Archivo;font-stretch:112.5%;font-weight:800;font-size:28px">Pengaturan</div>
+    <div style="display:flex;gap:40px;align-items:flex-start">
+      <div style="display:flex;flex-direction:column;gap:10px;width:412px"><div style="font-size:14px;font-weight:700">Pengaturan / {{ T }}</div><dc-import name="LiftverseApp" screen="pengaturan" theme="{{ theme }}" label="Pengaturan" hint-size="412px,915px"></dc-import><div style="font-size:12.5px;line-height:1.5;color:#475066">Switch dan radio bisa dicoba. Privasi ikut tampil di chip profil.</div></div>
+      <div style="display:flex;flex-direction:column;gap:10px;width:412px"><div style="font-size:14px;font-weight:700">Pengaturan · notifikasi ditolak / {{ T }}</div><dc-import name="LiftverseApp" screen="pengaturan" variant="ditolak" theme="{{ theme }}" label="Pengaturan notifikasi ditolak" hint-size="412px,915px"></dc-import><div style="font-size:12.5px;line-height:1.5;color:#475066">Banner errorContainer menggantikan panduan baterai saat izin ditolak.</div></div>
+      <div style="display:flex;flex-direction:column;gap:10px;width:412px"><div style="font-size:14px;font-weight:700">Panduan penghemat baterai / {{ T }}</div><dc-import name="LiftverseApp" screen="pengaturan" variant="baterai" theme="{{ theme }}" label="Panduan baterai" hint-size="412px,915px"></dc-import><div style="font-size:12.5px;line-height:1.5;color:#475066">Tiga langkah dan catatan nama menu per pabrikan. Tombol membuka ACTION_IGNORE_BATTERY_OPTIMIZATION_SETTINGS.</div></div>
+      <div style="display:flex;flex-direction:column;gap:10px;width:412px"><div style="font-size:14px;font-weight:700">Keluar / {{ T }}</div><dc-import name="LiftverseApp" screen="pengaturan" variant="keluar" theme="{{ theme }}" label="Keluar" hint-size="412px,915px"></dc-import><div style="font-size:12.5px;line-height:1.5;color:#475066">Bila ada sesi belum tersinkron, kalimat berubah dan menyarankan sinkron dulu.</div></div>
+      <div style="display:flex;flex-direction:column;gap:10px;width:412px"><div style="font-size:14px;font-weight:700">Hapus akun / {{ T }}</div><dc-import name="LiftverseApp" screen="pengaturan" variant="hapus" theme="{{ theme }}" label="Hapus akun" hint-size="412px,915px"></dc-import><div style="font-size:12.5px;line-height:1.5;color:#475066">Konfirmasi dengan mengetik username. Tombol hapus aktif hanya bila cocok.</div></div>
+      <div style="display:flex;flex-direction:column;gap:10px;width:412px"><div style="font-size:14px;font-weight:700">Tentang / {{ T }}</div><dc-import name="LiftverseApp" screen="tentang" theme="{{ theme }}" label="Tentang" hint-size="412px,915px"></dc-import><div style="font-size:12.5px;line-height:1.5;color:#475066">Wordmark memakai prop appName, jadi nama aplikasi bisa diganti di satu tempat.</div></div>
+    </div>
+  </section>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { theme: (typeof localStorage !== 'undefined' && localStorage.getItem('repset-theme')) || 'light' };
+  componentDidMount() {
+    this.onStore = e => { if (e.key === 'repset-theme' && e.newValue) this.setState({ theme: e.newValue }); };
+    window.addEventListener('storage', this.onStore);
+  }
+  componentWillUnmount() { window.removeEventListener('storage', this.onStore); }
+  setTheme(t) { try { localStorage.setItem('repset-theme', t); } catch (e) {} this.setState({ theme: t }); }
+  renderVals() {
+    const th = this.state.theme;
+    return {
+      theme: th, T: th === 'dark' ? 'Dark' : 'Light',
+      themes: [['light', 'Light'], ['dark', 'Dark']].map(([id, l]) => ({ l, tap: () => this.setTheme(id), bg: th === id ? '#0D1424' : 'transparent', c: th === id ? '#FFFFFF' : '#0D1424' })),
+    };
+  }
+}
+</script>
+</body>
+</html>

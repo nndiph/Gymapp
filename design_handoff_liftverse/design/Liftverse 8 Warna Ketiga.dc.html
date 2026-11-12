@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="design_doc_mode" content="canvas">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&amp;family=Plus+Jakarta+Sans:wght@400..800&amp;display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&amp;display=block">
+<style>
+body{margin:0;background:#DCE1E8}
+a{color:#536B00;text-decoration:none}a:hover{color:#0D1424;text-decoration:underline}
+</style>
+</helmet>
+<div style="background:#DCE1E8;color:#0D1424;font-family:'Plus Jakarta Sans',system-ui,sans-serif;font-variant-numeric:tabular-nums;padding:40px 48px 120px;display:flex;flex-direction:column;gap:56px;width:max-content;min-width:100%;box-sizing:border-box">
+  <header style="display:flex;flex-direction:column;gap:16px;max-width:1180px">
+    <nav style="display:flex;flex-wrap:wrap;gap:6px 16px;font-size:13px;font-weight:600;white-space:nowrap">
+      <a href="Liftverse%201%20Fondasi.dc.html">1 Fondasi</a>
+      <a href="Liftverse%202%20Baris%20Set.dc.html">2 Baris set</a>
+      <a href="Liftverse%203%20Layar%20Kunci.dc.html">3 Layar kunci</a>
+      <a href="Liftverse%204%20Layar%20Lain.dc.html">4 Layar lain</a>
+      <a href="Liftverse%205%20Kondisi%20Khusus.dc.html">5 Kondisi khusus</a>
+      <a href="Liftverse%206%20Prototype.dc.html">6 Prototype</a>
+      <a href="Liftverse%207%20Handoff.dc.html">7 Handoff</a>
+      <a href="Liftverse%208%20Warna%20Ketiga.dc.html" style="color:#0D1424">8 Warna ketiga</a>
+        <a href="Liftverse%209%20Ikon%20dan%20Splash.dc.html">9 Ikon dan splash</a>
+    </nav>
+    <div style="font-family:Archivo;font-stretch:112.5%;font-weight:800;font-size:40px;line-height:1.05">Liftverse · analisis warna ketiga</div>
+    <div style="max-width:780px;padding:14px 18px;border-radius:12px;background:#1A1F14;color:#EDF1EF;font-size:14px;line-height:1.55"><b style="color:#CDEB3B">Keputusan akhir.</b> Volt dipilih, lalu kobalt dilepas karena biru dan hijau terasa tidak menyatu. Palet yang berlaku: grafit + volt, dengan zaitun #536B00 untuk teks aktif di light mode dan kuningan khusus PR. Perbandingan di bawah dipertahankan sebagai riwayat keputusan.</div>
+    <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;font-size:14px;line-height:1.55;color:#475066">
+      <div style="background:#FFFFFF;border-radius:16px;padding:18px 20px"><b style="color:#0D1424;display:block;margin-bottom:6px">Kenapa terasa polos</b>Biru kobalt bertugas sebagai warna fungsi: tombol, state aktif, data. Netral baja menjadi latar. Tidak ada warna yang bertugas sebagai identitas. Kuningan sebenarnya ada, tetapi hanya muncul di badge PR, jadi jarang terlihat.</div>
+      <div style="background:#FFFFFF;border-radius:16px;padding:18px 20px"><b style="color:#0D1424;display:block;margin-bottom:6px">Tugas warna ketiga</b>Menjadi warna identitas dan usaha, bukan fungsi. Muncul di empat tempat: tanda wordmark, streak, sesi yang sedang berjalan (titik dan timer), dan badge sesi aktif di tab Catat. Biru tetap untuk aksi dan data, supaya tidak ada dua warna yang berebut tombol.</div>
+      <div style="background:#FFFFFF;border-radius:16px;padding:18px 20px"><b style="color:#0D1424;display:block;margin-bottom:6px">Syarat</b>Hangat, supaya kontras dengan kobalt yang dingin. Punya cerita yang sama dengan baja biru: ditempa, mekanis, disiplin. Tidak bentrok dengan merah error. Bekerja di light dan dark. Teks ≥ 4,5:1, isi grafis ≥ 3:1 atau selalu dipasangkan dengan teks gelap.</div>
+    </div>
+  </header>
+
+  <section style="display:flex;flex-direction:column;gap:16px;max-width:1180px">
+    <div style="font-family:Archivo;font-stretch:112.5%;font-weight:800;font-size:26px">Empat kandidat</div>
+    <div style="background:#FFFFFF;border-radius:16px;overflow:hidden">
+      <div style="display:grid;grid-template-columns:200px repeat(4,minmax(0,1fr));font-size:12px;font-weight:700;color:#475066;border-bottom:1px solid #D9DFE8">
+        <span style="padding:12px 16px">Kriteria (1–5)</span>
+        <sc-for list="{{ opts }}" as="o" hint-placeholder-count="4"><span style="padding:12px 16px;display:flex;align-items:center;gap:8px;color:#0D1424"><span style="width:14px;height:14px;border-radius:3px;background:{{ o.fillL }};box-shadow:inset 0 0 0 1px rgba(13,20,36,.15)"></span>{{ o.id }} {{ o.name }}</span></sc-for>
+      </div>
+      <sc-for list="{{ crit }}" as="c" hint-placeholder-count="6">
+        <div style="display:grid;grid-template-columns:200px repeat(4,minmax(0,1fr));font-size:13px;border-bottom:1px solid #EDF1F7">
+          <span style="padding:10px 16px;font-weight:600">{{ c.l }}</span>
+          <sc-for list="{{ c.v }}" as="x"><span style="padding:10px 16px;display:flex;align-items:center;gap:8px"><span style="display:flex;gap:2px"><sc-for list="{{ x.dots }}" as="d"><span style="width:10px;height:10px;border-radius:2px;background:{{ d.bg }}"></span></sc-for></span><span style="color:#475066">{{ x.n }}</span></span></sc-for>
+        </div>
+      </sc-for>
+      <div style="display:grid;grid-template-columns:200px repeat(4,minmax(0,1fr));font-size:13px;font-weight:700;background:#F2F5F9">
+        <span style="padding:12px 16px">Total</span>
+        <sc-for list="{{ opts }}" as="o"><span style="padding:12px 16px;font-family:Archivo;font-stretch:112.5%;font-size:16px">{{ o.total }} / 30</span></sc-for>
+      </div>
+    </div>
+  </section>
+
+  <sc-for list="{{ opts }}" as="o" hint-placeholder-count="4">
+    <section data-screen-label="Opsi {{ o.id }}" id="{{ o.id }}" style="display:flex;flex-direction:column;gap:18px">
+      <div style="display:flex;align-items:center;gap:14px">
+        <span style="height:32px;padding:0 10px;border-radius:8px;background:#0D1424;color:#FFFFFF;display:flex;align-items:center;font-family:Archivo;font-weight:800;font-size:15px">{{ o.id }}</span>
+        <span style="font-family:Archivo;font-stretch:112.5%;font-weight:800;font-size:30px">{{ o.name }}</span>
+        <sc-if value="{{ o.rec }}"><span style="height:26px;padding:0 10px;border-radius:6px;background:#1A1F14;color:#CDEB3B;font-size:12px;font-weight:700;display:flex;align-items:center">Rekomendasi</span></sc-if>
+      </div>
+      <div style="display:flex;gap:32px;align-items:flex-start">
+        <div style="width:380px;flex:none;display:flex;flex-direction:column;gap:14px">
+          <div style="background:#FFFFFF;border-radius:16px;padding:18px 20px;display:flex;flex-direction:column;gap:10px;font-size:13.5px;line-height:1.55;color:#475066">
+            <div><b style="color:#0D1424">Cerita.</b> {{ o.story }}</div>
+            <div><b style="color:#0D1424">Kelebihan.</b> {{ o.pro }}</div>
+            <div><b style="color:#0D1424">Risiko.</b> {{ o.con }}</div>
+            <div><b style="color:#0D1424">Peran.</b> {{ o.role }}</div>
+          </div>
+          <div style="background:#FFFFFF;border-radius:16px;padding:16px 20px;display:flex;flex-direction:column;gap:10px">
+            <div style="font-size:12px;font-weight:700;color:#475066">Token dan kontras</div>
+            <sc-for list="{{ o.swatches }}" as="s">
+              <div style="display:grid;grid-template-columns:44px 1fr auto;gap:12px;align-items:center;font-size:12px">
+                <span style="height:32px;border-radius:6px;background:{{ s.bg }};color:{{ s.fg }};display:flex;align-items:center;justify-content:center;font-family:Archivo;font-weight:800;font-size:13px;box-shadow:inset 0 0 0 1px rgba(13,20,36,.12)">Aa</span>
+                <span><b style="font-family:ui-monospace,Menlo,monospace">{{ s.name }}</b><br><span style="color:#475066">{{ s.hex }} · {{ s.on }}</span></span>
+                <span style="font-family:Archivo;font-stretch:112.5%;font-weight:700;font-size:14px;color:{{ s.okC }}">{{ s.ratio }}</span>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:10px"><div style="font-size:14px;font-weight:700">Dashboard / Light</div><dc-import name="LiftverseApp" screen="dashboard" accent="{{ o.key }}" theme="light" label="Opsi {{ o.id }} dashboard light" hint-size="412px,915px"></dc-import></div>
+        <div style="display:flex;flex-direction:column;gap:10px"><div style="font-size:14px;font-weight:700">Sesi aktif / Dark</div><dc-import name="LiftverseApp" screen="sesi" accent="{{ o.key }}" theme="dark" label="Opsi {{ o.id }} sesi dark" hint-size="412px,915px"></dc-import></div>
+        <div style="display:flex;flex-direction:column;gap:10px"><div style="font-size:14px;font-weight:700">Profil / Dark</div><dc-import name="LiftverseApp" screen="profil" sel="360" accent="{{ o.key }}" theme="dark" label="Opsi {{ o.id }} profil dark" hint-size="412px,915px"></dc-import></div>
+        <div style="display:flex;flex-direction:column;gap:10px"><div style="font-size:14px;font-weight:700">Masuk / Light</div><dc-import name="LiftverseApp" screen="masuk" accent="{{ o.key }}" theme="light" label="Opsi {{ o.id }} masuk light" hint-size="412px,915px"></dc-import></div>
+      </div>
+    </section>
+  </sc-for>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+const lum = h => { const c = [1, 3, 5].map(i => parseInt(h.slice(i, i + 2), 16) / 255).map(v => v <= 0.03928 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4)); return 0.2126 * c[0] + 0.7152 * c[1] + 0.0722 * c[2]; };
+const cr = (a, b) => { const x = lum(a), y = lum(b); return (Math.max(x, y) + 0.05) / (Math.min(x, y) + 0.05); };
+const OPTS = [
+  { id: 'A', key: 'kuningan', name: 'Kuningan', fillL: '#E9A93C', fillD: '#E9A93C', onA: '#2B1C00', txtL: '#8A5A00', txtD: '#E9A93C', score: [4, 3, 5, 5, 4, 4],
+    story: 'Jam mekanik yang jadi titik awal konsep: jarum baja biru di atas pelat kuningan. Juga kerah dan medali plat beban.',
+    pro: 'Sudah ada di sistem, jadi perubahan paling kecil. Biru kobalt dan kuningan terasa premium dan tenang.',
+    con: 'Isi kuningan di atas putih hanya 2,1:1, jadi di light mode harus selalu berupa isi dengan teks gelap atau teks cokelat tua. Karakternya kalem, mungkin masih kurang kuat. PR kehilangan warna eksklusifnya.',
+    role: 'Wordmark, streak, sesi berjalan, dan PR memakai satu warna yang sama.' },
+  { id: 'B', key: 'bara', name: 'Bara', fillL: '#E8572A', fillD: '#FF6B3D', onA: '#2A0D00', txtL: '#B23C12', txtD: '#FF8A5C', score: [5, 4, 5, 3, 5, 4], rec: true,
+    story: 'Sebelum membiru, baja dipanaskan sampai membara. Bara adalah prosesnya (usaha, panas, latihan hari ini), biru adalah hasilnya (disiplin, data, riwayat). Satu cerita, dua warna.',
+    pro: 'Komplementer dengan kobalt, jadi kontras dan paling mudah diingat. Api streak memang berwarna bara. Kuat di dark mode (6,2:1) dan tetap berwarna di light mode (3,6:1 sebagai grafis).',
+    con: 'Mirip oranye yang dipakai beberapa aplikasi olahraga besar. Pembedanya ada pada pasangan kobalt dan penggunaan yang hemat. Merah error harus digeser ke merah mawar (#B3264F) supaya tidak tertukar. Kuningan dilebur ke bara.',
+    role: 'Wordmark, streak, sesi berjalan, badge Catat, dan PR. Kuningan dihapus supaya warna hangat hanya satu.' },
+  { id: 'C', key: 'volt', name: 'Volt', fillL: '#CDEB3B', fillD: '#CDEB3B', onA: '#1C2400', txtL: '#536B00', txtD: '#CDEB3B', score: [4, 4, 3, 4, 2, 2],
+    story: 'Hijau-kuning neon dari dunia sepatu lari dan perlengkapan sport modern.',
+    pro: 'Sangat menyala di dark mode (13:1). Terlihat sporty dan muda.',
+    con: 'Di atas putih hanya 1,35:1, praktis hilang di light mode. Mendekati neon ala gaming yang ingin dihindari. Teks volt di light mode harus jadi hijau zaitun yang terasa lain warnanya.',
+    role: 'Wordmark, streak, sesi berjalan. PR tetap kuningan.' },
+  { id: 'D', key: 'rubi', name: 'Rubi', fillL: '#C2185B', fillD: '#F06292', onA: '#FFFFFF', txtL: '#B0154F', txtD: '#FF8AB2', score: [3, 5, 4, 2, 4, 4],
+    story: 'Bantalan rubi di mesin jam mekanik, di samping sekrup baja biru. Jarang dipakai aplikasi gym, jadi paling unik.',
+    pro: 'Paling membedakan di kategori ini. Kontras teks bagus di kedua mode.',
+    con: 'Kecerahannya hampir sama dengan biru (1,04:1), sehingga keduanya bergetar bila berdampingan dan sulit dibedakan bagi buta warna. Mudah terbaca sebagai error atau hapus.',
+    role: 'Wordmark, streak, sesi berjalan. PR tetap kuningan.' },
+];
+const CRIT = ['Cocok dengan tema gym', 'Karakter dan pembeda', 'Harmoni dengan kobalt', 'Tidak bentrok dengan error/sukses', 'Kuat di light dan dark', 'Aksesibilitas'];
+class Component extends DCLogic {
+  renderVals() {
+    const fmt = r => r.toFixed(1).replace('.', ',') + ':1';
+    const ok = (r, min) => r >= min ? '#2E7652' : '#A63D32';
+    return {
+      opts: OPTS.map(o => {
+        const S = [
+          { name: 'accent light', bg: o.fillL, fg: o.onA, hex: o.fillL, on: 'isi di surface putih', r: cr(o.fillL, '#FFFFFF'), min: 3 },
+          { name: 'onAccent', bg: o.fillL, fg: o.onA, hex: o.onA, on: 'teks di accent', r: cr(o.onA, o.fillL), min: 4.5 },
+          { name: 'accentText light', bg: '#FFFFFF', fg: o.txtL, hex: o.txtL, on: 'teks di surface', r: cr(o.txtL, '#FFFFFF'), min: 4.5 },
+          { name: 'accent dark', bg: o.fillD, fg: o.onA === '#FFFFFF' ? '#2E0614' : o.onA, hex: o.fillD, on: 'isi di surface #121929', r: cr(o.fillD, '#121929'), min: 3 },
+          { name: 'accentText dark', bg: '#121929', fg: o.txtD, hex: o.txtD, on: 'teks di surface', r: cr(o.txtD, '#121929'), min: 4.5 },
+          { name: 'vs kobalt', bg: o.fillL, fg: '#2052E9', hex: 'beda kecerahan', on: 'accent vs #2052E9', r: cr(o.fillL, '#2052E9'), min: 1.5 },
+        ];
+        return { ...o, total: o.score.reduce((a, b) => a + b, 0), swatches: S.map(s => ({ ...s, ratio: fmt(s.r), okC: ok(s.r, s.min) })) };
+      }),
+      crit: CRIT.map((l, i) => ({ l, v: OPTS.map(o => ({ n: String(o.score[i]), dots: [1, 2, 3, 4, 5].map(k => ({ bg: k <= o.score[i] ? '#0D1424' : '#D9DFE8' })) })) })),
+    };
+  }
+}
+</script>
+</body>
+</html>

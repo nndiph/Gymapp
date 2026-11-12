@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="design_doc_mode" content="canvas">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&amp;family=Plus+Jakarta+Sans:wght@400..800&amp;display=swap">
+<style>
+body{margin:0;background:#DCE1E8}
+a{color:#536B00;text-decoration:none}a:hover{color:#0D1424;text-decoration:underline}
+</style>
+</helmet>
+<div style="background:#DCE1E8;color:#0D1424;font-family:'Plus Jakarta Sans',system-ui,sans-serif;padding:40px 48px 120px;display:flex;flex-direction:column;gap:64px;width:max-content;min-width:100%;box-sizing:border-box">
+  <header style="display:flex;flex-direction:column;gap:14px">
+    <nav style="display:flex;flex-wrap:wrap;gap:6px 16px;font-size:13px;font-weight:600;white-space:nowrap">
+      <a href="Liftverse%201%20Fondasi.dc.html">1 Fondasi</a>
+      <a href="Liftverse%202%20Baris%20Set.dc.html">2 Baris set</a>
+      <a href="Liftverse%203%20Layar%20Kunci.dc.html">3 Layar kunci</a>
+      <a href="Liftverse%204%20Layar%20Lain.dc.html">4 Layar lain</a>
+      <a href="Liftverse%205%20Kondisi%20Khusus.dc.html" style="color:#0D1424">5 Kondisi khusus</a>
+      <a href="Liftverse%206%20Prototype.dc.html">6 Prototype</a>
+      <a href="Liftverse%207%20Handoff.dc.html">7 Handoff</a>
+        <a href="Liftverse%208%20Warna%20Ketiga.dc.html">8 Warna ketiga</a>
+        <a href="Liftverse%209%20Ikon%20dan%20Splash.dc.html">9 Ikon dan splash</a>
+    </nav>
+    <div style="display:flex;align-items:flex-end;gap:32px">
+      <div>
+        <div style="font-family:Archivo;font-stretch:112.5%;font-weight:800;font-size:40px;line-height:1.05">Kondisi khusus</div>
+        <div style="font-size:15px;color:#475066;max-width:760px;margin-top:10px;text-wrap:pretty">Pengguna baru, pengguna sangat aktif, offline, serta kondisi kosong dan error di setiap daftar.</div>
+      </div>
+      <div style="display:flex;height:40px;border:1px solid #7A849A;border-radius:12px;overflow:hidden;flex:none">
+        <sc-for list="{{ themes }}" as="t" hint-placeholder-count="2"><button onClick="{{ t.tap }}" style="all:unset;cursor:pointer;padding:0 16px;display:flex;align-items:center;font-size:13px;font-weight:700;background:{{ t.bg }};color:{{ t.c }}">{{ t.l }}</button></sc-for>
+      </div>
+    </div>
+  </header>
+
+  <section data-screen-label="Pengguna baru" style="display:flex;flex-direction:column;gap:20px">
+    <div style="font-family:Archivo;font-stretch:112.5%;font-weight:800;font-size:28px">Pengguna baru tanpa data</div>
+    <div style="display:flex;gap:40px;align-items:flex-start">
+      <div style="display:flex;flex-direction:column;gap:10px;width:412px"><div style="font-size:14px;font-weight:700">Profil · baru / {{ T }}</div><dc-import name="LiftverseApp" screen="profil" variant="baru" today="" theme="{{ theme }}" label="Profil baru" hint-size="412px,915px"></dc-import><div style="font-size:12.5px;line-height:1.5;color:#475066">Heatmap kosong tetap utuh dengan legenda, bukan disembunyikan. Kotak hari ini diberi garis putus biru sebagai titik awal, dan kartu di bawahnya menjelaskan cara mengisinya dengan satu aksi.</div></div>
+      <div style="display:flex;flex-direction:column;gap:10px;width:412px"><div style="font-size:14px;font-weight:700">Dashboard · baru / {{ T }}</div><dc-import name="LiftverseApp" screen="dashboard" variant="baru" theme="{{ theme }}" label="Dashboard baru" hint-size="412px,915px"></dc-import><div style="font-size:12.5px;line-height:1.5;color:#475066">Belum ada routine, jadi tidak ada latihan hari ini. Streak 0 diberi kalimat, bukan dibiarkan sebagai angka nol.</div></div>
+      <div style="display:flex;flex-direction:column;gap:10px;width:412px"><div style="font-size:14px;font-weight:700">Riwayat · kosong / {{ T }}</div><dc-import name="LiftverseApp" screen="riwayat" variant="kosong" theme="{{ theme }}" label="Riwayat kosong" hint-size="412px,915px"></dc-import><div style="font-size:12.5px;line-height:1.5;color:#475066">Pola kosong yang sama di semua daftar: ikon dalam kotak 64 dp, judul, satu kalimat, satu aksi.</div></div>
+      <div style="display:flex;flex-direction:column;gap:10px;width:412px"><div style="font-size:14px;font-weight:700">Catat · tanpa routine / {{ T }}</div><dc-import name="LiftverseApp" screen="catat" variant="baru" theme="{{ theme }}" label="Catat tanpa routine" hint-size="412px,915px"></dc-import><div style="font-size:12.5px;line-height:1.5;color:#475066">Daftar routine kosong hanya berisi baris Buat routine. Mulai sesi kosong naik jadi aksi utama.</div></div>
+      <div style="display:flex;flex-direction:column;gap:10px;width:412px"><div style="font-size:14px;font-weight:700">Pengikut · kosong / {{ T }}</div><dc-import name="LiftverseApp" screen="koneksi" variant="kosong" theme="{{ theme }}" label="Pengikut kosong" hint-size="412px,915px"></dc-import><div style="font-size:12.5px;line-height:1.5;color:#475066">Mengarahkan ke pencarian username.</div></div>
+    </div>
+  </section>
+
+  <section data-screen-label="Sangat aktif" style="display:flex;flex-direction:column;gap:20px">
+    <div style="font-family:Archivo;font-stretch:112.5%;font-weight:800;font-size:28px">Pengguna sangat aktif</div>
+    <div style="display:flex;gap:40px;align-items:flex-start">
+      <div style="display:flex;flex-direction:column;gap:10px;width:412px"><div style="font-size:14px;font-weight:700">Profil · heatmap penuh / {{ T }}</div><dc-import name="LiftverseApp" screen="profil" variant="aktif" today="" theme="{{ theme }}" label="Profil sangat aktif" hint-size="412px,915px"></dc-import><div style="font-size:12.5px;line-height:1.5;color:#475066">Enam hari seminggu selama setahun. Tingkat 4 tetap terbaca di kedua mode; angka ribuan memakai titik pemisah.</div></div>
+      <div style="display:flex;flex-direction:column;gap:10px;width:412px"><div style="font-size:14px;font-weight:700">Sesi · 8 gerakan / {{ T }}</div><dc-import name="LiftverseApp" screen="sesi" variant="padat" height="1180" theme="{{ theme }}" label="Sesi 8 gerakan" hint-size="412px,1180px"></dc-import><div style="font-size:12.5px;line-height:1.5;color:#475066">Artboard diperpanjang ke 1.180 dp. Gerakan yang sudah selesai diringkas menjadi satu baris dengan total volume, jadi delapan gerakan tetap bisa dipindai. Hanya gerakan yang berjalan yang terbuka. PR di tengah sesi diberi badge di barisnya.</div></div>
+    </div>
+  </section>
+
+  <section data-screen-label="Offline" style="display:flex;flex-direction:column;gap:20px">
+    <div style="font-family:Archivo;font-stretch:112.5%;font-weight:800;font-size:28px">Offline</div>
+    <div style="display:flex;gap:40px;align-items:flex-start">
+      <div style="display:flex;flex-direction:column;gap:10px;width:412px"><div style="font-size:14px;font-weight:700">Dashboard · offline / {{ T }}</div><dc-import name="LiftverseApp" screen="dashboard" variant="offline" theme="{{ theme }}" label="Dashboard offline" hint-size="412px,915px"></dc-import><div style="font-size:12.5px;line-height:1.5;color:#475066">Banner netral (bukan error) menjelaskan bahwa mencatat tetap jalan. Semua data dashboard berasal dari database lokal.</div></div>
+      <div style="display:flex;flex-direction:column;gap:10px;width:412px"><div style="font-size:14px;font-weight:700">Sesi aktif · offline / {{ T }}</div><dc-import name="LiftverseApp" screen="sesi" variant="offline" theme="{{ theme }}" label="Sesi offline" hint-size="412px,915px"></dc-import><div style="font-size:12.5px;line-height:1.5;color:#475066">Tidak ada perbedaan selain chip "Tersimpan di perangkat". Sinkron berjalan di latar belakang lewat WorkManager saat sinyal kembali.</div></div>
+      <div style="display:flex;flex-direction:column;gap:10px;width:412px"><div style="font-size:14px;font-weight:700">Profil orang lain · offline / {{ T }}</div><dc-import name="LiftverseApp" screen="profil-lain" variant="offline" theme="{{ theme }}" label="Profil lain offline" hint-size="412px,915px"></dc-import><div style="font-size:12.5px;line-height:1.5;color:#475066">Tidak ada spinner tanpa batas. Batas waktu 8 detik, lalu "Tidak bisa memuat" dengan Coba lagi.</div></div>
+      <div style="display:flex;flex-direction:column;gap:10px;width:412px"><div style="font-size:14px;font-weight:700">Cari · offline / {{ T }}</div><dc-import name="LiftverseApp" screen="cari" variant="offline" theme="{{ theme }}" label="Cari offline" hint-size="412px,915px"></dc-import><div style="font-size:12.5px;line-height:1.5;color:#475066">Kalimat yang sama di semua layar sosial, ditambah pengingat bahwa fitur inti tetap jalan.</div></div>
+      <div style="display:flex;flex-direction:column;gap:10px;width:412px"><div style="font-size:14px;font-weight:700">Pengikut · offline / {{ T }}</div><dc-import name="LiftverseApp" screen="koneksi" variant="offline" theme="{{ theme }}" label="Pengikut offline" hint-size="412px,915px"></dc-import><div style="font-size:12.5px;line-height:1.5;color:#475066">Jumlah di tab memakai angka terakhir yang tersimpan.</div></div>
+    </div>
+  </section>
+
+  <section data-screen-label="Kosong dan error" style="display:flex;flex-direction:column;gap:20px">
+    <div style="font-family:Archivo;font-stretch:112.5%;font-weight:800;font-size:28px">Daftar kosong dan error</div>
+    <div style="display:flex;gap:40px;align-items:flex-start">
+      <div style="display:flex;flex-direction:column;gap:10px;width:412px"><div style="font-size:14px;font-weight:700">Riwayat · error / {{ T }}</div><dc-import name="LiftverseApp" screen="riwayat" variant="error" theme="{{ theme }}" label="Riwayat error" hint-size="412px,915px"></dc-import><div style="font-size:12.5px;line-height:1.5;color:#475066">Error lokal (database) memakai errorContainer yang kalem dan menegaskan data tidak hilang.</div></div>
+      <div style="display:flex;flex-direction:column;gap:10px;width:412px"><div style="font-size:14px;font-weight:700">Pemilih gerakan · tidak ditemukan / {{ T }}</div><dc-import name="LiftverseApp" screen="pemilih" variant="kosong" theme="{{ theme }}" label="Pemilih tidak ditemukan" hint-size="412px,915px"></dc-import><div style="font-size:12.5px;line-height:1.5;color:#475066">Buat gerakan custom tetap terlihat dan naik menjadi aksi utama.</div></div>
+      <div style="display:flex;flex-direction:column;gap:10px;width:412px"><div style="font-size:14px;font-weight:700">Cari · tidak ditemukan / {{ T }}</div><dc-import name="LiftverseApp" screen="cari" variant="kosong" theme="{{ theme }}" label="Cari tidak ditemukan" hint-size="412px,915px"></dc-import><div style="font-size:12.5px;line-height:1.5;color:#475066">Mengingatkan aturan format username.</div></div>
+      <div style="display:flex;flex-direction:column;gap:10px;width:412px"><div style="font-size:14px;font-weight:700">Sesi kosong / {{ T }}</div><dc-import name="LiftverseApp" screen="sesi" variant="kosong" theme="{{ theme }}" label="Sesi kosong" hint-size="412px,915px"></dc-import><div style="font-size:12.5px;line-height:1.5;color:#475066">Sesi kosong sudah berjalan sejak diketuk; Tambah gerakan ada di bawah, dalam jangkauan ibu jari.</div></div>
+      <div style="width:340px;flex:none;background:#FFFFFF;border-radius:16px;padding:20px 22px;display:flex;flex-direction:column;gap:10px;font-size:13px;line-height:1.55;color:#475066;margin-top:30px">
+        <b style="color:#0D1424;font-size:14px">Kosong dan error per daftar</b>
+        <div><b style="color:#0D1424">Riwayat:</b> kosong, error lokal.</div>
+        <div><b style="color:#0D1424">Routine (tab Catat):</b> kosong. Data lokal, tidak ada error jaringan.</div>
+        <div><b style="color:#0D1424">Pemilih gerakan:</b> tidak ditemukan, dengan aksi buat.</div>
+        <div><b style="color:#0D1424">PR dan routine di profil:</b> kotak putus-putus dengan satu kalimat (lihat Profil baru).</div>
+        <div><b style="color:#0D1424">Cari pengguna:</b> tidak ditemukan, offline.</div>
+        <div><b style="color:#0D1424">Pengikut/mengikuti:</b> kosong per tab, offline.</div>
+        <div><b style="color:#0D1424">Profil orang lain:</b> offline, privat.</div>
+        <div><b style="color:#0D1424">Aturan:</b> error jaringan selalu netral (cloud_off), error data memakai errorContainer. Keduanya punya Coba lagi 48 dp.</div>
+      </div>
+    </div>
+  </section>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { theme: (typeof localStorage !== 'undefined' && localStorage.getItem('repset-theme')) || 'light' };
+  componentDidMount() {
+    this.onStore = e => { if (e.key === 'repset-theme' && e.newValue) this.setState({ theme: e.newValue }); };
+    window.addEventListener('storage', this.onStore);
+  }
+  componentWillUnmount() { window.removeEventListener('storage', this.onStore); }
+  setTheme(t) { try { localStorage.setItem('repset-theme', t); } catch (e) {} this.setState({ theme: t }); }
+  renderVals() {
+    const th = this.state.theme;
+    return {
+      theme: th, T: th === 'dark' ? 'Dark' : 'Light',
+      themes: [['light', 'Light'], ['dark', 'Dark']].map(([id, l]) => ({ l, tap: () => this.setTheme(id), bg: th === id ? '#0D1424' : 'transparent', c: th === id ? '#FFFFFF' : '#0D1424' })),
+    };
+  }
+}
+</script>
+</body>
+</html>
