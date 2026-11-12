@@ -111,3 +111,16 @@ firebase emulators:start           # Firestore + Auth emulator (untuk dev & uji 
 2. Tanyakan Pertanyaan Terbuka no. 1–2 ke pemilik proyek bila belum terjawab.
 3. Ikuti `docs/GITHUB_SETUP.md` (repo, label, milestone, CI) — bantu pemilik proyek menjalankan perintahnya; jangan melakukan aksi yang mengubah akun GitHub/Firebase tanpa konfirmasi.
 4. Kerjakan **M0 — Fondasi** di `docs/ROADMAP.md`.
+
+
+
+
+```md
+## Desain
+- Acuan desain: design_handoff_liftverse/README.md (utama) dan SPEC.md (aturan rinci).
+- Warna, tipografi, radius, spacing: salin dari design_handoff_liftverse/theme/*.kt. Jangan buat nilai warna baru.
+- Pembanding visual: design_handoff_liftverse/screenshots/{light,dark}/. Nama file = screen/variant di tabel README.
+- File design/*.html adalah referensi, bukan kode. Jangan disalin ke app.
+- Dynamic color mati. Tanpa bayangan (tonalElevation 0). Target sentuh minimal 48 dp.
+- Teks UI Bahasa Indonesia, sentence case, angka format id-ID.
+```

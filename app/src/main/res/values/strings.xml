@@ -11,4 +11,136 @@
     <string name="placeholder_dashboard">Latihan hari ini akan muncul di sini.</string>
     <string name="placeholder_logger">Mulai mencatat sesi latihan dari sini.</string>
     <string name="placeholder_profile">Heatmap dan progress-mu akan muncul di sini.</string>
+
+    <!-- Catat tab without a running session (temporary until the Catat screen is built) -->
+    <string name="logger_start_empty">Mulai sesi kosong</string>
+    <string name="session_default_name">Sesi bebas</string>
+    <string name="session_add_exercise_unavailable">Pemilih gerakan belum dibuat.</string>
+
+    <!-- Active session: header -->
+    <string name="session_set_progress">· %1$d dari %2$d set</string>
+    <string name="session_active_rest">aktif %1$s · istirahat %2$s</string>
+    <string name="sync_saved_on_device">Tersimpan di perangkat</string>
+
+    <!-- Tracking types -->
+    <string name="tracking_weight_reps">Beban + reps</string>
+    <string name="tracking_bodyweight_reps">Bodyweight reps</string>
+    <string name="tracking_duration">Durasi</string>
+    <string name="tracking_distance_duration">Jarak + durasi</string>
+
+    <!-- Exercise card -->
+    <string name="exercise_subtitle_step">%1$s · langkah %2$s kg</string>
+    <string name="exercise_summary_done">%1$d set selesai</string>
+    <string name="exercise_summary_done_volume">%1$d set selesai · %2$s kg</string>
+    <string name="exercise_summary_partial">%1$d dari %2$d set selesai</string>
+    <string name="exercise_summary_planned">%1$d set</string>
+    <string name="exercise_summary_planned_previous">%1$d set · sesi lalu %2$s</string>
+    <string name="exercise_done_description">Semua set selesai</string>
+    <string name="tag_custom">Custom</string>
+    <string name="action_delete_exercise">Hapus %1$s</string>
+    <string name="action_expand_exercise">Buka %1$s</string>
+    <string name="action_collapse_exercise">Tutup %1$s</string>
+    <string name="action_add_set">Tambah set</string>
+
+    <!-- Set rows -->
+    <string name="set_warmup_badge">W</string>
+    <string name="set_warmup_label">warm-up</string>
+    <string name="set_title">Set %1$d</string>
+    <string name="set_title_warmup">Set warm-up</string>
+    <string name="set_previous">Sesi lalu %1$s</string>
+    <string name="set_previous_none">Sesi lalu belum ada</string>
+    <string name="action_open_set">Ubah set %1$d</string>
+    <string name="action_open_warmup_set">Ubah set warm-up</string>
+    <string name="action_complete_set_check">Selesaikan set dengan nilai ini</string>
+    <string name="action_uncomplete_set">Batalkan set</string>
+    <string name="unit_kg">kg</string>
+    <string name="unit_reps">reps</string>
+    <string name="unit_km">km</string>
+    <string name="value_bodyweight">BW</string>
+    <string name="value_added_weight">+%1$s</string>
+    <string name="set_summary_weight_reps">%1$s kg × %2$d</string>
+    <string name="set_summary_weight_reps_short">%1$s×%2$d</string>
+    <string name="set_summary_bodyweight">BW × %1$d</string>
+    <string name="set_summary_added_weight">+%1$s kg × %2$d</string>
+    <string name="set_summary_added_weight_short">+%1$s×%2$d</string>
+    <string name="set_summary_distance">%1$s km · %2$s</string>
+
+    <!-- Active set panel -->
+    <string name="caption_weight">kg · ±%1$s</string>
+    <string name="caption_reps">reps</string>
+    <string name="caption_added_weight">kg tambahan</string>
+    <string name="caption_no_added_weight">beban tambahan</string>
+    <string name="caption_duration">menit:detik · ±%1$d dtk</string>
+    <string name="caption_distance">km · ±%1$s</string>
+    <string name="caption_cardio_duration">durasi · ±%1$d dtk</string>
+    <string name="field_weight">beban</string>
+    <string name="field_added_weight">beban tambahan</string>
+    <string name="field_reps">reps</string>
+    <string name="field_duration">durasi</string>
+    <string name="field_distance">jarak</string>
+    <string name="action_decrease">Kurangi %1$s</string>
+    <string name="action_increase">Tambah %1$s</string>
+    <string name="action_edit_value">Ubah %1$s</string>
+    <string name="action_warmup">Warm-up</string>
+    <string name="action_complete_set">Selesai set</string>
+    <string name="action_save_changes">Simpan perubahan</string>
+    <string name="action_delete_set">Hapus set %1$d</string>
+    <string name="action_delete_warmup_set">Hapus set warm-up</string>
+
+    <!-- Live achievements -->
+    <string name="achievement_up">↑ %1$s</string>
+    <string name="improvement_weight">+%1$s kg</string>
+    <string name="improvement_reps">+%1$d reps</string>
+    <string name="improvement_duration">+%1$s</string>
+    <string name="improvement_distance">+%1$s km</string>
+    <string name="achievement_up_weight_description">Naik %1$s kg dari sesi lalu</string>
+    <string name="achievement_up_reps_description">Naik %1$d reps dari sesi lalu</string>
+    <string name="achievement_up_duration_description">Lebih lama %1$s dari sesi lalu</string>
+    <string name="achievement_up_distance_description">Lebih jauh %1$s km dari sesi lalu</string>
+    <string name="achievement_pr">Calon PR</string>
+    <string name="achievement_pr_description">Calon PR, estimasi 1RM %1$s kg, rekor %2$s kg</string>
+    <string name="tag_pr">PR</string>
+
+    <!-- Rest timer -->
+    <string name="rest_label">Istirahat · target %1$s</string>
+    <string name="rest_over">Waktunya set berikutnya</string>
+    <string name="rest_overtime">+%1$s</string>
+    <string name="rest_minus">−%1$d</string>
+    <string name="rest_plus">+%1$d</string>
+    <string name="rest_skip">Lewati</string>
+    <string name="rest_minus_description">Kurangi %1$d detik</string>
+    <string name="rest_plus_description">Tambah %1$d detik</string>
+    <string name="rest_skip_description">Lewati istirahat</string>
+
+    <!-- Numpad -->
+    <string name="numpad_title">%1$s · %2$s</string>
+    <string name="numpad_field_weight">Beban</string>
+    <string name="numpad_field_added_weight">Beban tambahan</string>
+    <string name="numpad_field_reps">Reps</string>
+    <string name="numpad_field_distance">Jarak</string>
+    <string name="numpad_step_minus">−%1$s</string>
+    <string name="numpad_step_plus">+%1$s</string>
+    <string name="numpad_decimal">,</string>
+    <string name="numpad_delete">Hapus angka</string>
+    <string name="numpad_save">Simpan</string>
+
+    <!-- Bottom bar and finishing -->
+    <string name="action_add_exercise">Tambah gerakan</string>
+    <string name="action_finish">Selesai</string>
+    <string name="finish_title">Selesaikan sesi?</string>
+    <string name="finish_body_unticked">%1$d set belum dicentang dan tidak akan disimpan. %2$d set yang sudah selesai masuk ke riwayat, heatmap, dan PR.</string>
+    <string name="finish_body_all_done">Semua set sudah dicentang. Sesi masuk ke riwayat, heatmap, dan PR.</string>
+    <string name="finish_body_nothing_done">Belum ada set yang dicentang, jadi sesi ini tidak akan disimpan.</string>
+    <string name="finish_confirm">Selesaikan sesi</string>
+    <string name="finish_continue">Lanjut latihan</string>
+
+    <!-- Empty session -->
+    <string name="empty_session_title">Sesi sudah berjalan</string>
+    <string name="empty_session_body">Tambah gerakan pertama dari daftar, termasuk gerakan custom buatanmu. Durasi dihitung sejak sesi dimulai.</string>
+
+    <!-- Undo -->
+    <string name="deleted_set">Set %1$d dihapus</string>
+    <string name="deleted_warmup_set">Set warm-up dihapus</string>
+    <string name="deleted_exercise">%1$s dihapus</string>
+    <string name="action_undo">Urungkan</string>
 </resources>

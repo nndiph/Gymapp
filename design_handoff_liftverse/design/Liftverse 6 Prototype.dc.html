@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&amp;family=Plus+Jakarta+Sans:wght@400..800&amp;display=swap">
+<style>
+body{margin:0;background:#DCE1E8}
+a{color:#536B00;text-decoration:none}a:hover{color:#0D1424;text-decoration:underline}
+</style>
+</helmet>
+<div style="min-height:100vh;background:{{ pageBg }};color:{{ pageC }};font-family:'Plus Jakarta Sans',system-ui,sans-serif;padding:32px 40px 64px;box-sizing:border-box;display:flex;flex-direction:column;gap:28px">
+  <nav style="display:flex;flex-wrap:wrap;gap:6px 16px;font-size:13px;font-weight:600;white-space:nowrap">
+    <a href="Liftverse%201%20Fondasi.dc.html" style="color:{{ linkC }}">1 Fondasi</a>
+    <a href="Liftverse%202%20Baris%20Set.dc.html" style="color:{{ linkC }}">2 Baris set</a>
+    <a href="Liftverse%203%20Layar%20Kunci.dc.html" style="color:{{ linkC }}">3 Layar kunci</a>
+    <a href="Liftverse%204%20Layar%20Lain.dc.html" style="color:{{ linkC }}">4 Layar lain</a>
+    <a href="Liftverse%205%20Kondisi%20Khusus.dc.html" style="color:{{ linkC }}">5 Kondisi khusus</a>
+    <a href="Liftverse%206%20Prototype.dc.html" style="color:{{ pageC }}">6 Prototype</a>
+    <a href="Liftverse%207%20Handoff.dc.html" style="color:{{ linkC }}">7 Handoff</a>
+        <a href="Liftverse%208%20Warna%20Ketiga.dc.html" style="color:{{ linkC }}">8 Warna ketiga</a>
+        <a href="Liftverse%209%20Ikon%20dan%20Splash.dc.html" style="color:{{ linkC }}">9 Ikon dan splash</a>
+  </nav>
+  <div style="display:flex;gap:48px;align-items:flex-start;flex-wrap:wrap">
+    <div data-screen-label="Prototype" style="flex:none">
+      <dc-import name="LiftverseApp" screen="dashboard" theme="{{ theme }}" reset="{{ reset }}" label="Prototype" hint-size="412px,915px"></dc-import>
+    </div>
+    <div style="flex:1;min-width:280px;max-width:440px;display:flex;flex-direction:column;gap:24px">
+      <div>
+        <div style="font-family:Archivo;font-stretch:112.5%;font-weight:800;font-size:36px;line-height:1.1">Prototype alur utama</div>
+        <div style="font-size:14px;line-height:1.55;color:{{ subC }};margin-top:8px;text-wrap:pretty">Kamis, 12 November. Push Day terjadwal. Seluruh aplikasi bisa diklik, termasuk tab, riwayat, routine, pencarian, dan pengaturan.</div>
+      </div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <div style="display:flex;height:44px;border:1px solid {{ bdC }};border-radius:12px;overflow:hidden">
+          <sc-for list="{{ themes }}" as="t" hint-placeholder-count="2"><button onClick="{{ t.tap }}" style="all:unset;cursor:pointer;padding:0 18px;display:flex;align-items:center;font-size:14px;font-weight:700;background:{{ t.bg }};color:{{ t.c }}">{{ t.l }}</button></sc-for>
+        </div>
+        <div style="display:flex;height:44px;border:1px solid {{ bdC }};border-radius:12px;overflow:hidden">
+          <sc-for list="{{ palettes }}" as="t" hint-placeholder-count="2"><button onClick="{{ t.tap }}" style="all:unset;cursor:pointer;padding:0 16px;display:flex;align-items:center;font-size:14px;font-weight:700;background:{{ t.bg }};color:{{ t.c }}">{{ t.l }}</button></sc-for>
+        </div>
+        <button onClick="{{ doReset }}" style="all:unset;cursor:pointer;height:44px;padding:0 18px;border-radius:12px;border:1px solid {{ bdC }};display:flex;align-items:center;font-size:14px;font-weight:700">Ulang dari awal</button>
+      </div>
+      <ol style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:2px">
+        <sc-for list="{{ steps }}" as="s" hint-placeholder-count="5">
+          <li style="display:flex;gap:14px;padding:12px 0;border-top:1px solid {{ lineC }}">
+            <span style="width:28px;height:28px;flex:none;border-radius:8px;background:{{ chipBg }};display:flex;align-items:center;justify-content:center;font-family:Archivo;font-stretch:112.5%;font-weight:800;font-size:14px">{{ s.n }}</span>
+            <div style="display:flex;flex-direction:column;gap:2px"><b style="font-size:15px">{{ s.t }}</b><span style="font-size:13px;line-height:1.5;color:{{ subC }}">{{ s.d }}</span></div>
+          </li>
+        </sc-for>
+      </ol>
+      <div style="font-size:12.5px;line-height:1.55;color:{{ subC }};text-wrap:pretty">Durasi sesi berjalan sungguhan. Angka 41.200 kg di profil = volume 7 sesi November sebelumnya ditambah 1.240 kg dari dua set ini (60 × 10 + 80 × 8). Bila mengubah angka atau mencatat lebih banyak set, volume dan heatmap mengikuti, dan set di atas estimasi 1RM lama otomatis diberi badge PR.</div>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { theme: (typeof localStorage !== 'undefined' && localStorage.getItem('repset-theme')) || 'light', reset: 0 };
+  componentDidMount() {
+    this.onStore = e => { if (e.key === 'repset-theme' && e.newValue) this.setState({ theme: e.newValue }); };
+    window.addEventListener('storage', this.onStore);
+  }
+  componentWillUnmount() { window.removeEventListener('storage', this.onStore); }
+  setTheme(t) { try { localStorage.setItem('repset-theme', t); } catch (e) {} this.setState({ theme: t }); }
+  renderVals() {
+    const th = this.state.theme, dark = th === 'dark';
+    return {
+      theme: th, reset: this.state.reset, doReset: () => this.setState(s => ({ reset: s.reset + 1 })),
+      pageBg: dark ? '#05080F' : '#DCE1E8', pageC: dark ? '#EDF1F7' : '#0D1424', subC: dark ? '#A5AFC2' : '#475066', linkC: dark ? '#CDEB3B' : '#536B00', bdC: dark ? '#6E7890' : '#7A849A', lineC: dark ? '#2A3449' : '#C7CFDA', chipBg: dark ? '#1A2336' : '#FFFFFF',
+      palettes: [['volt', 'Grafit + volt'], ['kobalt', 'Kobalt']].map(([id, l]) => { const cur = this.state.pal || (typeof localStorage !== 'undefined' && localStorage.getItem('liftverse-palette')) || 'volt'; return { l, tap: () => { try { localStorage.setItem('liftverse-palette', id); } catch (e) {} window.dispatchEvent(new CustomEvent('liftverse-palette', { detail: id })); this.setState({ pal: id }); }, bg: cur === id ? (dark ? '#EDF1F7' : '#0D1424') : 'transparent', c: cur === id ? (dark ? '#0D1424' : '#FFFFFF') : (dark ? '#EDF1F7' : '#0D1424') }; }),
+      themes: [['light', 'Light'], ['dark', 'Dark']].map(([id, l]) => ({ l, tap: () => this.setTheme(id), bg: th === id ? (dark ? '#EDF1F7' : '#0D1424') : 'transparent', c: th === id ? (dark ? '#0D1424' : '#FFFFFF') : (dark ? '#EDF1F7' : '#0D1424') })),
+      steps: [
+        { n: '1', t: 'Dashboard → Mulai', d: 'Kartu Latihan hari ini menampilkan Push Day. Tab Catat juga bisa dipakai.' },
+        { n: '2', t: 'Catat set warm-up', d: 'Set W sudah terbuka dengan 60 kg × 10 dari sesi lalu. Ketuk Selesai set: 1 ketukan.' },
+        { n: '3', t: 'Catat set 1', d: 'Set berikutnya otomatis terbuka dengan 80 kg × 8. Ketuk Selesai set lagi. Coba juga +/− atau ketuk angka untuk numpad.' },
+        { n: '4', t: 'Selesai → Selesaikan sesi', d: 'Konfirmasi menyebut berapa set yang belum dicentang. Ringkasan menampilkan durasi, set, volume, dan kotak heatmap hari ini.' },
+        { n: '5', t: 'Lihat profil', d: 'Heatmap bertambah satu kotak di hari ini dan ringkasannya langsung terbuka. Sesi bulan ini menjadi 8, volume 41.200 kg.' },
+      ],
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Adaptive launcher icon from design_handoff_liftverse/icon (README "Assets"): volt background,
+     graphite mark (#1C2400) as foreground, white mark as the monochrome layer for themed icons (Android 13+).
+     The mark is a draft trace; replace the PNGs when the export from the original design file arrives. -->
 <adaptive-icon xmlns:android="http://schemas.android.com/apk/res/android">
     <background android:drawable="@color/ic_launcher_background" />
-    <foreground android:drawable="@drawable/ic_launcher_foreground" />
-    <monochrome android:drawable="@drawable/ic_launcher_foreground" />
+    <foreground android:drawable="@mipmap/ic_launcher_foreground" />
+    <monochrome android:drawable="@mipmap/ic_launcher_monochrome" />
 </adaptive-icon>
