@@ -143,6 +143,8 @@ class DashboardUiStateTest {
         assertEquals(200, benchRow.monthChangePercent)
         assertEquals(emptyList<Double>(), plankRow.recentVolumesKg)
         assertNull(plankRow.monthChangePercent)
+        // Never logged: no sparkline and no change instead of "Sama".
+        assertNull(customRow.monthChangePercent)
         assertEquals("Incline DB Press", customRow.name)
         assertEquals(true, customRow.isCustom)
         assertEquals(emptyList<SetValues>(), customRow.previousSets)

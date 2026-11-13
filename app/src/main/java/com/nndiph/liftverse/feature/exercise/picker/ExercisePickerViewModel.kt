@@ -20,8 +20,11 @@ import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.flow.update
 
-/** How the picker was opened: to add an exercise (session, routine) or to browse the library. */
-enum class PickerMode { ADD, BROWSE }
+/**
+ * How the picker was opened: to add an exercise (session, routine), to choose the parent of a custom exercise
+ * ("Variasi dari"), or to browse the library.
+ */
+enum class PickerMode { ADD, SELECT, BROWSE }
 
 /** The filter state the user controls. */
 data class PickerFilter(val query: String = "", val muscleGroup: MuscleGroup? = null, val equipment: Equipment? = null)

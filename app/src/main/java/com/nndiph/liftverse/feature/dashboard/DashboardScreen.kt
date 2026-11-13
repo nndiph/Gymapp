@@ -80,6 +80,8 @@ class DashboardCallbacks(
     val onOpenProfile: () -> Unit,
     /** The Gerakan shortcut: the exercise library. */
     val onOpenExercises: () -> Unit,
+    /** "Buat routine" on the no-routine card. */
+    val onCreateRoutine: () -> Unit,
     val onUnavailable: () -> Unit
 )
 
@@ -88,6 +90,7 @@ fun DashboardRoute(
     onOpenLogger: () -> Unit,
     onOpenProfile: () -> Unit,
     onOpenExercises: () -> Unit,
+    onCreateRoutine: () -> Unit,
     modifier: Modifier = Modifier,
     viewModel: DashboardViewModel = hiltViewModel()
 ) {
@@ -99,6 +102,7 @@ fun DashboardRoute(
     val openLogger by rememberUpdatedState(onOpenLogger)
     val openProfile by rememberUpdatedState(onOpenProfile)
     val openExercises by rememberUpdatedState(onOpenExercises)
+    val createRoutine by rememberUpdatedState(onCreateRoutine)
 
     LaunchedEffect(viewModel) { viewModel.sessionStarted.collect { openLogger() } }
 
@@ -109,6 +113,7 @@ fun DashboardRoute(
             onOpenLogger = { openLogger() },
             onOpenProfile = { openProfile() },
             onOpenExercises = { openExercises() },
+            onCreateRoutine = { createRoutine() },
             onUnavailable = {
                 scope.launch {
                     snackbarHostState.currentSnackbarData?.dismiss()
@@ -437,7 +442,7 @@ internal fun dayLabelStyle(isToday: Boolean): TextStyle = MaterialTheme.typograp
     fontWeight = if (isToday) FontWeight.Bold else FontWeight.Medium
 )
 
-private val previewCallbacks = DashboardCallbacks({}, {}, {}, {}, {}, {})
+private val previewCallbacks = DashboardCallbacks({}, {}, {}, {}, {}, {}, {})
 
 @ScreenPreviews
 @Composable

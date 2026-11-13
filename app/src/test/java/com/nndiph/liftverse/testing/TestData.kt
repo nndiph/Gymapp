@@ -60,3 +60,17 @@ val DIPS = Exercise(
     equipment = Equipment.BODYWEIGHT,
     trackingType = TrackingType.BODYWEIGHT_REPS
 )
+
+/**
+ * Waits for state that Room's own threads update outside the test scheduler (view models writing Compose state
+ * after a suspend DAO call). Fails after [timeoutMs].
+ */
+fun <T> pollUntil(read: () -> T, timeoutMs: Long = 5_000, predicate: (T) -> Boolean): T {
+    val deadline = System.currentTimeMillis() + timeoutMs
+    while (true) {
+        val value = read()
+        if (predicate(value)) return value
+        check(System.currentTimeMillis() < deadline) { "Timed out waiting, last value: $value" }
+        Thread.sleep(5)
+    }
+}

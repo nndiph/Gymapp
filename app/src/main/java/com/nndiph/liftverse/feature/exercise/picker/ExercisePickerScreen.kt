@@ -1,7 +1,6 @@
 package com.nndiph.liftverse.feature.exercise.picker
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.Arrangement
@@ -33,7 +32,6 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Text
-import androidx.compose.material3.minimumInteractiveComponentSize
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
@@ -60,6 +58,7 @@ import com.nndiph.liftverse.core.theme.LiftverseTheme
 import com.nndiph.liftverse.core.ui.CustomTag
 import com.nndiph.liftverse.core.ui.LiftversePreview
 import com.nndiph.liftverse.core.ui.ScreenPreviews
+import com.nndiph.liftverse.core.ui.SelectChip
 import com.nndiph.liftverse.core.ui.labelRes
 import com.nndiph.liftverse.domain.model.Equipment
 import com.nndiph.liftverse.domain.model.MuscleGroup
@@ -117,11 +116,13 @@ fun ExercisePickerScreen(
                     else -> ResultList(state, items, callbacks.onPick)
                 }
             }
-            CreateBar(
-                query = state.filter.query,
-                prominent = noResults,
-                onCreate = { callbacks.onCreate(createLabelName(state.filter.query)) }
-            )
+            if (state.mode != PickerMode.SELECT) {
+                CreateBar(
+                    query = state.filter.query,
+                    prominent = noResults,
+                    onCreate = { callbacks.onCreate(createLabelName(state.filter.query)) }
+                )
+            }
         }
         SnackbarHost(snackbarHostState, Modifier.align(Alignment.BottomCenter).padding(bottom = 88.dp))
     }
@@ -149,7 +150,11 @@ private fun PickerHeader(
             }
             Text(
                 text = stringResource(
-                    if (state.mode == PickerMode.BROWSE) R.string.picker_title_browse else R.string.action_add_exercise
+                    when (state.mode) {
+                        PickerMode.ADD -> R.string.action_add_exercise
+                        PickerMode.SELECT -> R.string.picker_title_parent
+                        PickerMode.BROWSE -> R.string.picker_title_browse
+                    }
                 ),
                 style = MaterialTheme.typography.titleLarge.copy(fontSize = 20.sp),
                 modifier = Modifier.semantics { heading() }
@@ -248,46 +253,7 @@ private fun <T> ChipRow(label: String, options: List<T>, selected: T?, labelOf: 
             modifier = Modifier.width(44.dp)
         )
         options.forEach { option ->
-            FilterChip(stringResource(labelOf(option)), option == selected) { onToggle(option) }
-        }
-    }
-}
-
-/** 32 dp chip, radius 8 (SPEC "Chip filter"); the touch target is 48 dp. */
-@Composable
-internal fun FilterChip(label: String, selected: Boolean, onClick: () -> Unit) {
-    val shape = MaterialTheme.shapes.small
-    val colors = MaterialTheme.colorScheme
-    Box(
-        modifier = Modifier
-            .minimumInteractiveComponentSize()
-            .clip(shape)
-            .clickable(role = Role.Checkbox, onClick = onClick)
-    ) {
-        Row(
-            modifier = Modifier
-                .height(32.dp)
-                .clip(shape)
-                .background(if (selected) colors.primaryContainer else colors.background)
-                .border(1.dp, if (selected) colors.primaryContainer else colors.outline, shape)
-                .padding(start = if (selected) 8.dp else 12.dp, end = 12.dp),
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.spacedBy(4.dp)
-        ) {
-            if (selected) {
-                Icon(
-                    painter = painterResource(R.drawable.ic_check),
-                    contentDescription = null,
-                    tint = colors.onPrimaryContainer,
-                    modifier = Modifier.size(18.dp)
-                )
-            }
-            Text(
-                text = label,
-                style = MaterialTheme.typography.bodyMedium.copy(fontWeight = FontWeight.SemiBold),
-                color = if (selected) colors.onPrimaryContainer else colors.onSurface,
-                maxLines = 1
-            )
+            SelectChip(stringResource(labelOf(option)), option == selected) { onToggle(option) }
         }
     }
 }
@@ -314,12 +280,10 @@ private fun ResultList(state: ExercisePickerUi, items: List<PickerItemUi>, onPic
 @Composable
 private fun PickerRow(item: PickerItemUi, mode: PickerMode, onPick: (String) -> Unit) {
     val actionLabel = stringResource(
-        if (mode ==
-            PickerMode.ADD
-        ) {
-            R.string.picker_add_label
-        } else {
-            R.string.picker_open_label
+        when (mode) {
+            PickerMode.ADD -> R.string.picker_add_label
+            PickerMode.SELECT -> R.string.action_choose
+            PickerMode.BROWSE -> R.string.picker_open_label
         }
     )
     Column {
@@ -360,13 +324,7 @@ private fun PickerRow(item: PickerItemUi, mode: PickerMode, onPick: (String) -> 
             Box(Modifier.size(48.dp), contentAlignment = Alignment.Center) {
                 Icon(
                     painter = painterResource(
-                        if (mode ==
-                            PickerMode.ADD
-                        ) {
-                            R.drawable.ic_add
-                        } else {
-                            R.drawable.ic_chevron_right
-                        }
+                        if (mode == PickerMode.BROWSE) R.drawable.ic_chevron_right else R.drawable.ic_add
                     ),
                     contentDescription = null,
                     tint = MaterialTheme.colorScheme.onSurfaceVariant
