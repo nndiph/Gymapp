@@ -6,6 +6,7 @@ import com.nndiph.liftverse.data.repository.OfflineFirstSessionRepository
 import com.nndiph.liftverse.domain.model.Equipment
 import com.nndiph.liftverse.testing.BENCH
 import com.nndiph.liftverse.testing.MutableClock
+import com.nndiph.liftverse.testing.PLANK
 import com.nndiph.liftverse.testing.inMemoryDatabase
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -38,7 +39,7 @@ class ActiveSessionViewModelTest {
         sessions = OfflineFirstSessionRepository(database, clock)
         val exercises = OfflineFirstExerciseRepository(database, clock)
         viewModel = ActiveSessionViewModel(sessions, exercises)
-        runTest { exercises.upsertSeedExercises(listOf(BENCH)) }
+        runTest { exercises.upsertSeedExercises(listOf(BENCH, PLANK)) }
     }
 
     @After
@@ -87,6 +88,18 @@ class ActiveSessionViewModelTest {
 
         viewModel.undo(message)
         assertEquals(second.id, awaitSession { it.exercises.single().sets.size == 3 }.exercises.single().sets[1].id)
+    }
+
+    @Test
+    fun `an exercise picked in Tambah gerakan is added and opened at its first set`() = runTest {
+        startBenchSession()
+        awaitSession { it.exercises.isNotEmpty() }
+
+        viewModel.addExercise(PLANK.key)
+
+        val shown = awaitSession { it.exercises.size == 2 && it.activeSetId == it.exercises[1].sets.first().id }
+        assertEquals(listOf(false, true), shown.exercises.map { it.isExpanded })
+        assertEquals("Plank", shown.exercises[1].name)
     }
 
     private suspend fun startBenchSession(): String {

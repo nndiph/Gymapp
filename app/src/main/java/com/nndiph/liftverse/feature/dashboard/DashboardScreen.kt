@@ -78,6 +78,8 @@ class DashboardCallbacks(
     /** "Lanjutkan sesi" and "Pilih routine": the Catat tab. */
     val onOpenLogger: () -> Unit,
     val onOpenProfile: () -> Unit,
+    /** The Gerakan shortcut: the exercise library. */
+    val onOpenExercises: () -> Unit,
     val onUnavailable: () -> Unit
 )
 
@@ -85,6 +87,7 @@ class DashboardCallbacks(
 fun DashboardRoute(
     onOpenLogger: () -> Unit,
     onOpenProfile: () -> Unit,
+    onOpenExercises: () -> Unit,
     modifier: Modifier = Modifier,
     viewModel: DashboardViewModel = hiltViewModel()
 ) {
@@ -95,6 +98,7 @@ fun DashboardRoute(
     val sessionName = stringResource(R.string.session_default_name)
     val openLogger by rememberUpdatedState(onOpenLogger)
     val openProfile by rememberUpdatedState(onOpenProfile)
+    val openExercises by rememberUpdatedState(onOpenExercises)
 
     LaunchedEffect(viewModel) { viewModel.sessionStarted.collect { openLogger() } }
 
@@ -104,6 +108,7 @@ fun DashboardRoute(
             onStartEmpty = { viewModel.startEmptySession(sessionName) },
             onOpenLogger = { openLogger() },
             onOpenProfile = { openProfile() },
+            onOpenExercises = { openExercises() },
             onUnavailable = {
                 scope.launch {
                     snackbarHostState.currentSnackbarData?.dismiss()
@@ -145,7 +150,7 @@ private fun DashboardContent(dashboard: DashboardUi, callbacks: DashboardCallbac
         StreakCard(dashboard, onOpenSchedule = callbacks.onUnavailable)
         TodayCard(dashboard.todayCard, dashboard.isSessionRunning, callbacks)
         dashboard.weekComparison?.let { WeekComparisonCard(it, onOpenProgress = callbacks.onUnavailable) }
-        Shortcuts(dashboard, onOpen = callbacks.onUnavailable)
+        Shortcuts(dashboard, onOpenHistory = callbacks.onUnavailable, onOpenExercises = callbacks.onOpenExercises)
     }
 }
 
@@ -327,7 +332,7 @@ private fun Modifier.dashedCircle(color: Color, width: Dp): Modifier = drawBehin
 
 /** Riwayat and Gerakan shortcuts (64 dp tiles). */
 @Composable
-private fun Shortcuts(dashboard: DashboardUi, onOpen: () -> Unit) {
+private fun Shortcuts(dashboard: DashboardUi, onOpenHistory: () -> Unit, onOpenExercises: () -> Unit) {
     Row(Modifier.fillMaxWidth().height(IntrinsicSize.Min), horizontalArrangement = Arrangement.spacedBy(12.dp)) {
         ShortcutTile(
             icon = R.drawable.ic_history,
@@ -337,7 +342,7 @@ private fun Shortcuts(dashboard: DashboardUi, onOpen: () -> Unit) {
             } else {
                 stringResource(R.string.dashboard_history_none)
             },
-            onClick = onOpen,
+            onClick = onOpenHistory,
             modifier = Modifier.weight(1f)
         )
         ShortcutTile(
@@ -352,7 +357,7 @@ private fun Shortcuts(dashboard: DashboardUi, onOpen: () -> Unit) {
             } else {
                 stringResource(R.string.dashboard_exercises_count, dashboard.exerciseCount)
             },
-            onClick = onOpen,
+            onClick = onOpenExercises,
             modifier = Modifier.weight(1f)
         )
     }
@@ -432,7 +437,7 @@ internal fun dayLabelStyle(isToday: Boolean): TextStyle = MaterialTheme.typograp
     fontWeight = if (isToday) FontWeight.Bold else FontWeight.Medium
 )
 
-private val previewCallbacks = DashboardCallbacks({}, {}, {}, {}, {})
+private val previewCallbacks = DashboardCallbacks({}, {}, {}, {}, {}, {})
 
 @ScreenPreviews
 @Composable

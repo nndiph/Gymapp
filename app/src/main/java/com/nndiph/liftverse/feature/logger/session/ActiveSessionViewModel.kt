@@ -20,6 +20,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.receiveAsFlow
@@ -44,6 +45,9 @@ class ActiveSessionViewModel @Inject constructor(
     private val expandedOverrides = MutableStateFlow<Map<String, Boolean>>(emptyMap())
     private val contexts = MutableStateFlow<Map<String, ExerciseContext>>(emptyMap())
     private val pendingValues = MutableStateFlow<Map<String, SetValues>>(emptyMap())
+
+    /** An exercise just added from the picker; its first open set becomes active once the session shows it. */
+    private val focusExerciseId = MutableStateFlow<String?>(null)
     private val requestedContexts = mutableSetOf<String>()
     private var contextSessionId: String? = null
     private val writeLock = Mutex()
@@ -61,6 +65,7 @@ class ActiveSessionViewModel @Inject constructor(
         .onEach { session ->
             if (session != null) loadContexts(session)
             dropSettledEdits(session)
+            focusAddedExercise(session)
         }
         .map<Session?, SessionLoad> { SessionLoad.Loaded(it) }
         .stateIn(viewModelScope, SharingStarted.WhileSubscribed(STOP_TIMEOUT_MS), SessionLoad.Loading)
@@ -87,6 +92,14 @@ class ActiveSessionViewModel @Inject constructor(
 
     fun startEmptySession(name: String) {
         write { sessions.startEmptySession(name) }
+    }
+
+    /** An exercise picked in "Tambah gerakan": added with sets prefilled from its last session, then opened. */
+    fun addExercise(exerciseKey: String) {
+        write {
+            val sessionId = sessions.observeRunningSession().first()?.id ?: return@write
+            sessions.addExercise(sessionId, exerciseKey)?.let { focusExerciseId.value = it }
+        }
     }
 
     fun undo(message: SessionMessage) {
@@ -207,6 +220,14 @@ class ActiveSessionViewModel @Inject constructor(
                 if (contextSessionId == session.id) contexts.update { it + (key to context) }
             }
         }
+    }
+
+    private fun focusAddedExercise(session: Session?) {
+        val exerciseId = focusExerciseId.value ?: return
+        val exercise = session?.exercises?.firstOrNull { it.id == exerciseId } ?: return
+        focusExerciseId.value = null
+        expandedOverrides.value = emptyMap()
+        selectedSetId.value = exercise.sets.firstOrNull { !it.isCompleted }?.id ?: exercise.sets.firstOrNull()?.id
     }
 
     /** Forgets optimistic values once the database shows them (or the set is gone). */

@@ -1,5 +1,6 @@
 package com.nndiph.liftverse
 
+import androidx.compose.foundation.layout.consumeWindowInsets
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Icon
 import androidx.compose.material3.NavigationBar
@@ -37,7 +38,7 @@ fun LiftverseApp(navController: NavHostController = rememberNavController()) {
     ) { innerPadding ->
         LiftverseNavHost(
             navController = navController,
-            modifier = Modifier.padding(innerPadding)
+            modifier = Modifier.padding(innerPadding).consumeWindowInsets(innerPadding)
         )
     }
 }
