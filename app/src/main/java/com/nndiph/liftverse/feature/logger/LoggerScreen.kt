@@ -28,12 +28,22 @@ import com.nndiph.liftverse.feature.logger.session.ActiveSessionViewModel
 @Composable
 fun LoggerScreen(
     onSessionFinished: (sessionId: String) -> Unit,
+    onAddExercise: () -> Unit,
+    /** The exercise picked in "Tambah gerakan", until [onPickedExerciseHandled] clears it. */
+    pickedExerciseKey: String?,
+    onPickedExerciseHandled: () -> Unit,
     modifier: Modifier = Modifier,
     viewModel: ActiveSessionViewModel = hiltViewModel()
 ) {
     val state by viewModel.uiState.collectAsStateWithLifecycle()
     val sessionFinished by rememberUpdatedState(onSessionFinished)
     LaunchedEffect(viewModel) { viewModel.finishedSessions.collect { sessionFinished(it) } }
+    LaunchedEffect(pickedExerciseKey) {
+        if (pickedExerciseKey != null) {
+            viewModel.addExercise(pickedExerciseKey)
+            onPickedExerciseHandled()
+        }
+    }
     when (val current = state) {
         ActiveSessionUiState.Loading -> Box(modifier.fillMaxSize())
         ActiveSessionUiState.NoSession -> {
@@ -51,6 +61,6 @@ fun LoggerScreen(
                 )
             }
         }
-        is ActiveSessionUiState.Running -> ActiveSessionRoute(current.session, viewModel, modifier)
+        is ActiveSessionUiState.Running -> ActiveSessionRoute(current.session, viewModel, onAddExercise, modifier)
     }
 }

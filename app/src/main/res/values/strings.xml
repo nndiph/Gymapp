@@ -16,7 +16,6 @@
     <!-- Catat tab without a running session (temporary until the Catat screen is built) -->
     <string name="logger_start_empty">Mulai sesi kosong</string>
     <string name="session_default_name">Sesi bebas</string>
-    <string name="session_add_exercise_unavailable">Pemilih gerakan belum dibuat.</string>
 
     <!-- Active session: header -->
     <string name="session_set_progress">· %1$d dari %2$d set</string>
@@ -242,4 +241,36 @@
     <string name="dashboard_exercises">Gerakan</string>
     <string name="dashboard_exercises_count">%1$d gerakan</string>
     <string name="dashboard_exercises_count_custom">%1$d gerakan · %2$d custom</string>
+
+    <!-- Exercise labels (design filter chips) -->
+    <string name="muscle_chest">Dada</string>
+    <string name="muscle_back">Punggung</string>
+    <string name="muscle_shoulders">Bahu</string>
+    <string name="muscle_legs">Kaki</string>
+    <string name="muscle_arms">Lengan</string>
+    <string name="muscle_core">Core</string>
+    <string name="muscle_cardio">Kardio</string>
+    <string name="equipment_barbell">Barbell</string>
+    <string name="equipment_dumbbell">Dumbbell</string>
+    <string name="equipment_machine">Mesin</string>
+    <string name="equipment_cable">Kabel</string>
+    <string name="equipment_bodyweight">Bodyweight</string>
+    <string name="equipment_other">Lainnya</string>
+
+    <!-- Exercise picker (Pemilih gerakan) -->
+    <string name="action_back">Kembali</string>
+    <string name="picker_title_browse">Gerakan</string>
+    <string name="picker_search_hint">Cari gerakan</string>
+    <string name="picker_clear_search">Hapus pencarian</string>
+    <string name="picker_filter_muscle">Otot</string>
+    <string name="picker_filter_equipment">Alat</string>
+    <string name="picker_count">%1$d gerakan · bawaan dan custom dalam satu daftar</string>
+    <string name="picker_count_custom">%1$d gerakan · %2$d custom · bawaan dan custom dalam satu daftar</string>
+    <string name="picker_item_meta">%1$s · %2$s · %3$s</string>
+    <string name="picker_add_label">tambahkan ke sesi</string>
+    <string name="picker_open_label">buka</string>
+    <string name="picker_empty_title">Tidak ada “%1$s”</string>
+    <string name="picker_empty_body">Belum ada di daftar bawaan maupun gerakan custom-mu. Buat sendiri lewat tombol di bawah, namanya sudah terisi.</string>
+    <string name="picker_create">Buat gerakan custom</string>
+    <string name="picker_create_named">Buat “%1$s”</string>
 </resources>

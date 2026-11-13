@@ -81,10 +81,14 @@ import kotlinx.coroutines.withTimeoutOrNull
 
 /** Stateful entry of the running session: ticking clock, undo snackbars, view model actions. */
 @Composable
-fun ActiveSessionRoute(session: ActiveSessionUi, viewModel: ActiveSessionViewModel, modifier: Modifier = Modifier) {
+fun ActiveSessionRoute(
+    session: ActiveSessionUi,
+    viewModel: ActiveSessionViewModel,
+    onAddExercise: () -> Unit,
+    modifier: Modifier = Modifier
+) {
     val snackbarHostState = remember { SnackbarHostState() }
     val resources = LocalResources.current
-    val scope = rememberCoroutineScope()
     LaunchedEffect(viewModel) {
         // A newer deletion replaces the snackbar of an older one, as in the prototype.
         viewModel.messages.collectLatest { message ->
@@ -112,12 +116,7 @@ fun ActiveSessionRoute(session: ActiveSessionUi, viewModel: ActiveSessionViewMod
         session = session,
         now = rememberTickingNow(),
         actions = viewModel,
-        onAddExercise = {
-            // The exercise picker is the next screen in the handoff order; until then say so.
-            scope.launch {
-                snackbarHostState.showSnackbar(resources.getString(R.string.session_add_exercise_unavailable))
-            }
-        },
+        onAddExercise = onAddExercise,
         snackbarHostState = snackbarHostState,
         modifier = modifier
     )
