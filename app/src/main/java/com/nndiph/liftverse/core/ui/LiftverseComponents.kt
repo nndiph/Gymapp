@@ -86,22 +86,29 @@ fun SyncChip(modifier: Modifier = Modifier) {
     }
 }
 
-/** Main action button: primaryFill with the onPrimaryFill label (graphite + volt light, volt dark). */
+/**
+ * Main action button: primaryFill with the onPrimaryFill label (graphite + volt light, volt dark). Disabled it
+ * turns surfaceContainerHighest with onSurfaceVariant, as the prototype's forms do.
+ */
 @Composable
 fun PrimaryFillButton(
     text: String,
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
     @DrawableRes icon: Int? = null,
-    iconSize: Dp = 20.dp
+    iconSize: Dp = 20.dp,
+    enabled: Boolean = true
 ) {
     Button(
         onClick = onClick,
         modifier = modifier,
+        enabled = enabled,
         shape = MaterialTheme.shapes.medium,
         colors = ButtonDefaults.buttonColors(
             containerColor = LiftverseTheme.colors.primaryFill,
-            contentColor = LiftverseTheme.colors.onPrimaryFill
+            contentColor = LiftverseTheme.colors.onPrimaryFill,
+            disabledContainerColor = MaterialTheme.colorScheme.surfaceContainerHighest,
+            disabledContentColor = MaterialTheme.colorScheme.onSurfaceVariant
         ),
         contentPadding = PaddingValues(horizontal = 16.dp)
     ) {

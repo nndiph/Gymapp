@@ -280,8 +280,9 @@ private fun nextWorkout(routines: List<Routine>, today: LocalDate): NextWorkoutU
     }
 }
 
-/** Volume of an exercise from the 1st to [today] vs the same days of last month. */
+/** Volume of an exercise from the 1st to [today] vs the same days of last month; null without any history. */
 private fun monthChange(volumes: List<ExerciseVolume>, today: LocalDate): Int? {
+    if (volumes.isEmpty()) return null
     val span = PeriodSpan.monthToDate(today)
     val current = volumes.filter { it.day in span.current }.sumOf { it.volumeKg }
     val previous = volumes.filter { it.day in span.previous }.sumOf { it.volumeKg }

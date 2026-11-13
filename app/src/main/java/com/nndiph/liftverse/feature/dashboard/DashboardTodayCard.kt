@@ -72,7 +72,7 @@ internal fun TodayCard(card: TodayCardUi, isSessionRunning: Boolean, callbacks: 
             title = stringResource(R.string.dashboard_new_title),
             body = stringResource(R.string.dashboard_new_body),
             secondaryLabel = stringResource(R.string.dashboard_create_routine),
-            onSecondary = callbacks.onUnavailable,
+            onSecondary = callbacks.onCreateRoutine,
             isSessionRunning = isSessionRunning,
             callbacks = callbacks
         )

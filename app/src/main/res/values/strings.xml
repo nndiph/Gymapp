@@ -273,4 +273,66 @@
     <string name="picker_empty_body">Belum ada di daftar bawaan maupun gerakan custom-mu. Buat sendiri lewat tombol di bawah, namanya sudah terisi.</string>
     <string name="picker_create">Buat gerakan custom</string>
     <string name="picker_create_named">Buat “%1$s”</string>
+
+    <!-- Custom exercise form (gerakan-form) -->
+    <string name="action_cancel">Batal</string>
+    <string name="exercise_form_title_new">Gerakan custom baru</string>
+    <string name="exercise_form_title_edit">Ubah gerakan</string>
+    <string name="exercise_form_name">Nama gerakan</string>
+    <string name="exercise_form_muscle">Otot utama</string>
+    <string name="exercise_form_tracking">Tipe pencatatan</string>
+    <string name="tracking_example_weight_reps">Contoh 80 kg × 8</string>
+    <string name="tracking_example_bodyweight_reps">Contoh 12 reps, beban tambahan opsional</string>
+    <string name="tracking_example_duration">Contoh plank 1:30</string>
+    <string name="tracking_example_distance_duration">Contoh 3,0 km dalam 20:00</string>
+    <string name="exercise_form_tracking_locked">Tipe pencatatan tidak bisa diubah karena gerakan ini sudah ada di riwayat.</string>
+    <string name="exercise_form_parent">Variasi dari (opsional)</string>
+    <string name="exercise_form_parent_hint">Progress dan PR tetap terpisah. Gerakan ini tampil di bawah gerakan induknya.</string>
+    <string name="exercise_form_parent_clear">Hapus variasi</string>
+    <string name="exercise_form_notes">Catatan</string>
+    <string name="exercise_form_notes_hint">Posisi, setting mesin, atau cue teknik</string>
+    <string name="exercise_form_archive">Arsipkan gerakan</string>
+    <string name="exercise_form_archive_hint">Riwayat dan PR tetap tersimpan. Gerakan tidak muncul lagi di pemilih gerakan.</string>
+    <string name="exercise_form_save_new">Simpan gerakan</string>
+    <string name="exercise_form_incomplete">Isi nama, otot utama, dan alat dulu.</string>
+    <string name="picker_title_parent">Variasi dari</string>
+
+    <!-- Routine form (routine-form) -->
+    <string name="routine_form_title_new">Routine baru</string>
+    <string name="routine_form_title_edit">Ubah routine</string>
+    <string name="routine_form_name">Nama routine</string>
+    <string name="routine_form_name_hint">Contoh: Upper A</string>
+    <string name="routine_form_exercises">Gerakan</string>
+    <string name="routine_form_meta">%1$d gerakan · %2$d set</string>
+    <string name="routine_form_meta_empty">Belum ada gerakan</string>
+    <string name="unit_set">set</string>
+    <string name="action_decrease_sets">Kurangi set</string>
+    <string name="action_increase_sets">Tambah set</string>
+    <string name="action_decrease_reps">Kurangi reps</string>
+    <string name="action_increase_reps">Tambah reps</string>
+    <string name="routine_form_remove">Hapus %1$s dari routine</string>
+    <string name="routine_form_removed">%1$s dihapus dari routine</string>
+    <string name="routine_form_move_up">Pindah ke atas</string>
+    <string name="routine_form_move_down">Pindah ke bawah</string>
+    <string name="routine_form_days">Hari pelaksanaan</string>
+    <string name="routine_form_days_text">Muncul di Dashboard setiap %1$s.</string>
+    <string name="routine_form_days_none">Pilih minimal satu hari supaya routine muncul di Dashboard.</string>
+    <string name="list_and">%1$s dan %2$s</string>
+    <string name="routine_form_reminder">Pengingat</string>
+    <string name="routine_form_reminder_body">Notifikasi di hari pelaksanaan</string>
+    <string name="routine_form_reminder_time">Jam pengingat</string>
+    <string name="action_choose">Pilih</string>
+    <string name="routine_form_delete">Hapus routine</string>
+    <string name="routine_form_delete_hint">Riwayat sesi dari routine ini tetap tersimpan.</string>
+    <string name="routine_form_delete_title">Hapus routine %1$s?</string>
+    <string name="routine_form_delete_body">Routine hilang dari Dashboard dan daftar routine. Riwayat sesinya tetap tersimpan.</string>
+    <string name="action_delete">Hapus</string>
+    <string name="routine_form_save_new">Simpan routine</string>
+    <string name="routine_form_incomplete">Isi nama dan tambahkan minimal satu gerakan dulu.</string>
+
+    <!-- Catat tab, until the Catat screen is built -->
+    <string name="logger_create_routine">Buat routine</string>
+    <string name="logger_routines">Routine</string>
+    <string name="logger_routine_no_days">Tanpa hari tetap</string>
+    <string name="logger_edit_routine">ubah routine</string>
 </resources>
