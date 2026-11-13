@@ -124,3 +124,6 @@ data class CompletedSetRow(
     val isWarmup: Boolean,
     val isPr: Boolean
 )
+
+/** Query row: volume of one exercise in one finished session. */
+data class ExerciseVolumeRow(val day: LocalDate, val volumeKg: Double)

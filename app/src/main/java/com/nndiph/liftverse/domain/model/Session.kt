@@ -80,6 +80,9 @@ data class SessionSummary(
     val activeSec: Long get() = (durationSec - restSec).coerceAtLeast(0)
 }
 
+/** Volume of one exercise in one finished session (dashboard sparkline and month comparison). */
+data class ExerciseVolume(val day: LocalDate, val volumeKg: Double)
+
 /** Totals of the finished sessions on one calendar day, for the heatmap and progress screens. */
 data class DayStats(
     val day: LocalDate,
