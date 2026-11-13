@@ -23,5 +23,7 @@ data class ExerciseEntity(
     val archived: Boolean,
     /** Null for seed rows. */
     val createdAt: Instant?,
-    val updatedAt: Instant?
+    val updatedAt: Instant?,
+    /** Load step; null uses the default for [equipment]. Added in schema version 2. */
+    val weightStepKg: Double? = null
 )

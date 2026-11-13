@@ -1,5 +1,6 @@
 package com.nndiph.liftverse.data.local
 
+import androidx.room.AutoMigration
 import androidx.room.Database
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
@@ -32,8 +33,12 @@ import com.nndiph.liftverse.data.local.entity.StreakScheduleEntity
         StreakScheduleEntity::class,
         PendingSyncEntity::class
     ],
-    version = 1,
-    exportSchema = true
+    version = 2,
+    exportSchema = true,
+    autoMigrations = [
+        // 2: exercises.weightStepKg (per-exercise load step, e.g. kettlebells 4 kg).
+        AutoMigration(from = 1, to = 2)
+    ]
 )
 @TypeConverters(Converters::class)
 abstract class LiftverseDatabase : RoomDatabase() {

@@ -33,7 +33,8 @@ internal fun ExerciseEntity.toDomain() = Exercise(
     aliases = aliases,
     basedOn = basedOn,
     notes = notes,
-    archived = archived
+    archived = archived,
+    weightStepKg = weightStepKg
 )
 
 internal fun RoutineWithExercises.toDomain() = Routine(

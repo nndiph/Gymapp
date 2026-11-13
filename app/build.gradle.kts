@@ -43,6 +43,11 @@ android {
     buildFeatures {
         compose = true
     }
+
+    // Robolectric tests read app assets (the bundled exercise library).
+    testOptions {
+        unitTests.isIncludeAndroidResources = true
+    }
 }
 
 ktlint {

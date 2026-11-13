@@ -42,7 +42,7 @@ Alasan memilih Firebase dibanding Supabase ada di `docs/ARCHITECTURE.md` (ringka
 
 1. ~~Nama final app dan `applicationId`~~ — **terjawab 2026-11-11:** Liftverse, `com.nndiph.liftverse`. `applicationId` tidak bisa diganti setelah upload pertama ke Play Console.
 2. ~~Nama akun/organisasi GitHub dan nama repo~~ — **terjawab 2026-11-11:** `nndiph/Gymapp`.
-3. **Lisensi dataset gerakan seed.** Kandidat: `free-exercise-db` dan `wger`. Verifikasi lisensi sebenarnya di repo/situs resminya sebelum mengimpor; jangan berasumsi.
+3. ~~Lisensi dataset gerakan seed~~ — **terjawab 2026-11-13:** `free-exercise-db` (Unlicense, dicek di repo resmi). `dist/exercises.json` commit `f00c92c` dibundel di `app/src/main/assets/seed/`, tanpa gambar; kategori stretching dan strongman tidak diimpor. Pemetaan ke filter desain ada di `data/seed/FreeExerciseDb.kt`.
 4. **Region Firestore** (disarankan region Asia terdekat; tidak bisa diganti setelah dibuat).
 5. Apakah kamu punya kartu untuk paket Blaze (dibutuhkan saat rilis). Jika belum, MVP tetap bisa jalan di Spark.
 
