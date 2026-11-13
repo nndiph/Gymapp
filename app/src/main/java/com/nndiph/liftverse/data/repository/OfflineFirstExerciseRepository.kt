@@ -111,7 +111,8 @@ class OfflineFirstExerciseRepository @Inject constructor(
                     notes = it.notes,
                     archived = it.archived,
                     createdAt = null,
-                    updatedAt = null
+                    updatedAt = null,
+                    weightStepKg = it.weightStepKg
                 )
             }
         )

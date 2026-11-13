@@ -35,7 +35,9 @@ data class Exercise(
     /** Key of the exercise this one is a variation of ("Variasi dari"). */
     val basedOn: String? = null,
     val notes: String? = null,
-    val archived: Boolean = false
+    val archived: Boolean = false,
+    /** Load step of the stepper ("±2,5"). Null uses the default for [equipment] (`weightStepOf`). */
+    val weightStepKg: Double? = null
 ) {
     val isCustom: Boolean get() = key.startsWith(ExerciseKeys.CUSTOM_PREFIX)
 }

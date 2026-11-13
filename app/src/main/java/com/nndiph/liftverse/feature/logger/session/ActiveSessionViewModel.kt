@@ -4,7 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.nndiph.liftverse.domain.formula.defaultRestSec
 import com.nndiph.liftverse.domain.formula.setsFollowingWeightChange
-import com.nndiph.liftverse.domain.formula.weightStepKg
+import com.nndiph.liftverse.domain.formula.weightStepOf
 import com.nndiph.liftverse.domain.model.Equipment
 import com.nndiph.liftverse.domain.model.Session
 import com.nndiph.liftverse.domain.model.SessionExercise
@@ -109,7 +109,7 @@ class ActiveSessionViewModel @Inject constructor(
 
     override fun onStep(setId: String, field: SetField, direction: Int) {
         val (exercise, set) = findSet(setId) ?: return
-        val step = stepFor(field, exercise.trackingType, weightStepKg(equipmentOf(exercise)))
+        val step = stepFor(field, exercise.trackingType, weightStepOf(contexts.value[exercise.exerciseKey]?.exercise))
         updateValues(exercise, set, set.values.withValue(field, set.values.valueOf(field) + direction * step))
     }
 

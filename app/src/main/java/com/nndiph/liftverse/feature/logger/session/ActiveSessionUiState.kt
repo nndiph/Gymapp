@@ -7,7 +7,7 @@ import com.nndiph.liftverse.domain.formula.bestOneRepMaxKg
 import com.nndiph.liftverse.domain.formula.improvementOver
 import com.nndiph.liftverse.domain.formula.liveAchievement
 import com.nndiph.liftverse.domain.formula.setVolumeKg
-import com.nndiph.liftverse.domain.formula.weightStepKg
+import com.nndiph.liftverse.domain.formula.weightStepOf
 import com.nndiph.liftverse.domain.model.Equipment
 import com.nndiph.liftverse.domain.model.Exercise
 import com.nndiph.liftverse.domain.model.RestTimer
@@ -49,9 +49,10 @@ data class ExerciseUi(
     val isExpanded: Boolean,
     val sets: List<SetUi>,
     /** The sets of this exercise in the previous session, for the collapsed card summary. */
-    val previousSets: List<SetValues>
+    val previousSets: List<SetValues>,
+    /** Load step of the stepper. */
+    val weightStep: Double
 ) {
-    val weightStep: Double get() = weightStepKg(equipment)
     val completedSets: Int get() = sets.count { it.isCompleted }
     val isDone: Boolean get() = sets.isNotEmpty() && completedSets == sets.size
     val completedVolumeKg: Double
@@ -138,7 +139,8 @@ fun buildActiveSessionUi(
             equipment = context?.exercise?.equipment,
             isExpanded = expandedOverrides[exercise.id] ?: (exercise.id == activeExerciseId),
             sets = sets,
-            previousSets = previous
+            previousSets = previous,
+            weightStep = weightStepOf(context?.exercise)
         )
     }
     return ActiveSessionUi(

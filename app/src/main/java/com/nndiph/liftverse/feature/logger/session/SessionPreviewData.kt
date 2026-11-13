@@ -73,7 +73,8 @@ internal object SessionPreviewData {
         equipment = Equipment.BARBELL,
         isExpanded = true,
         sets = listOf(warmupDone, firstDone, activeSet, pendingSet),
-        previousSets = listOf(SetValues(60.0, 10), SetValues(80.0, 8), SetValues(80.0, 8), SetValues(80.0, 7))
+        previousSets = listOf(SetValues(60.0, 10), SetValues(80.0, 8), SetValues(80.0, 8), SetValues(80.0, 7)),
+        weightStep = 2.5
     )
 
     val overheadPress = ExerciseUi(
@@ -84,7 +85,8 @@ internal object SessionPreviewData {
         equipment = Equipment.BARBELL,
         isExpanded = false,
         sets = List(3) { index -> set("o$index", index + 1, 40.0, if (index == 2) 7 else 8, done = false) },
-        previousSets = listOf(SetValues(40.0, 8), SetValues(40.0, 8), SetValues(40.0, 7))
+        previousSets = listOf(SetValues(40.0, 8), SetValues(40.0, 8), SetValues(40.0, 7)),
+        weightStep = 2.5
     )
 
     val pushDay = ActiveSessionUi(

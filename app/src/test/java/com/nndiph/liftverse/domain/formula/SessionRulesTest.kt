@@ -1,6 +1,8 @@
 package com.nndiph.liftverse.domain.formula
 
 import com.nndiph.liftverse.domain.model.Equipment
+import com.nndiph.liftverse.domain.model.Exercise
+import com.nndiph.liftverse.domain.model.MuscleGroup
 import com.nndiph.liftverse.domain.model.SetEntry
 import com.nndiph.liftverse.domain.model.SetValues
 import com.nndiph.liftverse.domain.model.TrackingType
@@ -14,6 +16,18 @@ class SessionRulesTest {
         assertEquals(2.5, weightStepKg(Equipment.BARBELL), 0.0)
         assertEquals(2.0, weightStepKg(Equipment.DUMBBELL), 0.0)
         assertEquals(2.5, weightStepKg(Equipment.CABLE), 0.0)
+        val kettlebell =
+            Exercise(
+                "seed:k",
+                "Kettlebell Swing",
+                MuscleGroup.LEGS,
+                Equipment.DUMBBELL,
+                TrackingType.WEIGHT_REPS,
+                weightStepKg = 4.0
+            )
+        assertEquals(4.0, weightStepOf(kettlebell), 0.0)
+        assertEquals(2.0, weightStepOf(kettlebell.copy(weightStepKg = null)), 0.0)
+        assertEquals(2.5, weightStepOf(null), 0.0)
         assertEquals(15, durationStepSec(TrackingType.DURATION))
         assertEquals(30, durationStepSec(TrackingType.DISTANCE_DURATION))
     }

@@ -1,6 +1,7 @@
 package com.nndiph.liftverse.domain.formula
 
 import com.nndiph.liftverse.domain.model.Equipment
+import com.nndiph.liftverse.domain.model.Exercise
 import com.nndiph.liftverse.domain.model.SetEntry
 import com.nndiph.liftverse.domain.model.TrackingType
 
@@ -8,6 +9,9 @@ import com.nndiph.liftverse.domain.model.TrackingType
 
 /** Load step: dumbbell 2 kg; barbell, cable and everything else 2,5 kg. */
 fun weightStepKg(equipment: Equipment?): Double = if (equipment == Equipment.DUMBBELL) 2.0 else 2.5
+
+/** The exercise's own load step (kettlebells: 4 kg), else the default for its equipment. */
+fun weightStepOf(exercise: Exercise?): Double = exercise?.weightStepKg ?: weightStepKg(exercise?.equipment)
 
 const val REPS_STEP = 1
 
