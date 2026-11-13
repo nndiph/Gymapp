@@ -11,14 +11,15 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
-import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.nndiph.liftverse.core.navigation.LiftverseNavHost
 import com.nndiph.liftverse.core.navigation.TopLevelDestination
+import com.nndiph.liftverse.core.navigation.navigateTopLevel
+import com.nndiph.liftverse.core.navigation.showsBottomBar
 
-/** Root of the UI: bottom navigation (Dashboard · Catat · Profil) hosting the nav graph. */
+/** Root of the UI: bottom navigation (Dashboard · Catat · Profil) hosting the nav graph; hidden on "Selesai sesi". */
 @Composable
 fun LiftverseApp(navController: NavHostController = rememberNavController()) {
     val backStackEntry by navController.currentBackStackEntryAsState()
@@ -26,10 +27,12 @@ fun LiftverseApp(navController: NavHostController = rememberNavController()) {
 
     Scaffold(
         bottomBar = {
-            LiftverseBottomBar(
-                current = currentDestination,
-                onNavigate = { destination -> navController.navigateTopLevel(destination) }
-            )
+            if (showsBottomBar(backStackEntry?.destination?.route)) {
+                LiftverseBottomBar(
+                    current = currentDestination,
+                    onNavigate = { destination -> navController.navigateTopLevel(destination) }
+                )
+            }
         }
     ) { innerPadding ->
         LiftverseNavHost(
@@ -58,14 +61,5 @@ private fun LiftverseBottomBar(current: TopLevelDestination?, onNavigate: (TopLe
                 label = { Text(stringResource(destination.labelRes)) }
             )
         }
-    }
-}
-
-/** Standard bottom-nav behaviour: one copy of each tab, state saved and restored when switching. */
-private fun NavHostController.navigateTopLevel(destination: TopLevelDestination) {
-    navigate(destination.route) {
-        popUpTo(graph.findStartDestination().id) { saveState = true }
-        launchSingleTop = true
-        restoreState = true
     }
 }

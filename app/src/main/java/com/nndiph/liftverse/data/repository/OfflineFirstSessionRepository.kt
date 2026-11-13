@@ -18,6 +18,7 @@ import com.nndiph.liftverse.domain.formula.loggedRestSec
 import com.nndiph.liftverse.domain.formula.personalRecordSetIds
 import com.nndiph.liftverse.domain.formula.prefillSets
 import com.nndiph.liftverse.domain.model.DayStats
+import com.nndiph.liftverse.domain.model.ExerciseVolume
 import com.nndiph.liftverse.domain.model.PlannedExercise
 import com.nndiph.liftverse.domain.model.PlannedSet
 import com.nndiph.liftverse.domain.model.RemovedExercise
@@ -64,6 +65,13 @@ class OfflineFirstSessionRepository @Inject constructor(
             .filter { it.sessionFinished && it.sessionStartedAt < before }
             .recordCandidates()
     )
+
+    override suspend fun exerciseVolumes(exerciseKey: String, limit: Int): List<ExerciseVolume> =
+        sessionDao.exerciseVolumes(exerciseKey, limit).map { ExerciseVolume(it.day, it.volumeKg) }
+
+    override suspend fun lastSessionDay(routineId: String): LocalDate? = sessionDao.lastFinishedDay(routineId)
+
+    override fun observeFinishedSessionCount(): Flow<Int> = sessionDao.observeFinishedCount()
 
     override suspend fun startEmptySession(name: String): String = database.withTransaction {
         sessionDao.getRunning()?.id ?: insertSession(name, routineId = null, snapshot = emptyList()).id

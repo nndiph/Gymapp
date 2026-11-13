@@ -7,6 +7,7 @@ import androidx.room.Transaction
 import androidx.room.Update
 import com.nndiph.liftverse.data.local.entity.CompletedSetRow
 import com.nndiph.liftverse.data.local.entity.DayStatsRow
+import com.nndiph.liftverse.data.local.entity.ExerciseVolumeRow
 import com.nndiph.liftverse.data.local.entity.SessionEntity
 import com.nndiph.liftverse.data.local.entity.SessionExerciseEntity
 import com.nndiph.liftverse.data.local.entity.SessionSummaryRow
@@ -166,4 +167,27 @@ interface SessionDao {
         """
     )
     fun observeDayStats(from: LocalDate, to: LocalDate): Flow<List<DayStatsRow>>
+
+    /** Volume of [exerciseKey] in each of its newest [limit] finished sessions, newest first. */
+    @Query(
+        """
+        SELECT s.day AS day, COALESCE(SUM($SET_VOLUME_SQL), 0) AS volumeKg
+        FROM sessions s
+        JOIN session_exercises e ON e.sessionId = s.id AND e.exerciseKey = :exerciseKey
+        LEFT JOIN set_entries st ON st.sessionExerciseId = e.id AND st.completedAt IS NOT NULL
+        WHERE s.endedAt IS NOT NULL
+        GROUP BY s.id
+        ORDER BY s.startedAt DESC
+        LIMIT :limit
+        """
+    )
+    suspend fun exerciseVolumes(exerciseKey: String, limit: Int): List<ExerciseVolumeRow>
+
+    @Query(
+        "SELECT day FROM sessions WHERE routineId = :routineId AND endedAt IS NOT NULL ORDER BY startedAt DESC LIMIT 1"
+    )
+    suspend fun lastFinishedDay(routineId: String): LocalDate?
+
+    @Query("SELECT COUNT(*) FROM sessions WHERE endedAt IS NOT NULL")
+    fun observeFinishedCount(): Flow<Int>
 }

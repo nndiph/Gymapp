@@ -1,6 +1,7 @@
 package com.nndiph.liftverse.domain.repository
 
 import com.nndiph.liftverse.domain.model.DayStats
+import com.nndiph.liftverse.domain.model.ExerciseVolume
 import com.nndiph.liftverse.domain.model.RemovedExercise
 import com.nndiph.liftverse.domain.model.RemovedSet
 import com.nndiph.liftverse.domain.model.Session
@@ -34,6 +35,15 @@ interface SessionRepository {
      * none yet. The first session of an exercise only sets this record, so it cannot hold a "Calon PR".
      */
     suspend fun recordBefore(exerciseKey: String, before: Instant): Double?
+
+    /** Volume of [exerciseKey] in its newest [limit] finished sessions, newest first. */
+    suspend fun exerciseVolumes(exerciseKey: String, limit: Int): List<ExerciseVolume>
+
+    /** Day of the newest finished session started from [routineId] ("terakhir Senin, 9 November"). */
+    suspend fun lastSessionDay(routineId: String): LocalDate?
+
+    /** Number of finished sessions, for the history shortcut. */
+    fun observeFinishedSessionCount(): Flow<Int>
 
     /** Starts a session without a routine. Returns the running session instead if there is one. */
     suspend fun startEmptySession(name: String): String

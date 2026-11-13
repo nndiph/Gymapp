@@ -17,6 +17,7 @@ import com.nndiph.liftverse.testing.inMemoryDatabase
 import java.time.DayOfWeek
 import java.time.Duration
 import java.time.Instant
+import java.time.LocalDate
 import java.time.LocalTime
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.test.runTest
@@ -212,6 +213,37 @@ class SessionRepositoryTest {
         // 100 × 5 → 116,7; the running session and later sessions do not count
         assertEquals(116.67, sessions.recordBefore(BENCH.key, clock.instant())!!, 0.01)
         assertNull(sessions.recordBefore(BENCH.key, Instant.EPOCH))
+    }
+
+    @Test
+    fun `dashboard queries read finished sessions only`() = runTest {
+        val routineId = routines.createRoutine(
+            RoutineDraft(
+                name = "Push Day",
+                weekdays = setOf(DayOfWeek.MONDAY),
+                reminderEnabled = false,
+                reminderTime = null,
+                exercises = listOf(RoutineExercise(BENCH.key, BENCH.name, targetSets = 1, targetReps = 8))
+            )
+        )
+        assertNull(sessions.lastSessionDay(routineId))
+        val routineSessionId = sessions.startRoutineSession(routineId)!!
+        sessions.completeSet(setsOf(routineSessionId).single().id, restTargetSec = 150)
+        assertTrue(sessions.finishSession(routineSessionId))
+        assertEquals(LocalDate.now(clock), sessions.lastSessionDay(routineId))
+
+        logBenchSession(SetValues(80.0, 8), SetValues(80.0, 6))
+        logBenchSession(SetValues(85.0, 5))
+        val runningId = sessions.startEmptySession("Sesi bebas")
+        sessions.addExercise(runningId, BENCH.key)
+        sessions.completeSet(setsOf(runningId).first().id, restTargetSec = 150)
+
+        // Newest first; the routine session logged 1 × 20 kg × 8 from the design defaults.
+        val volumes = sessions.exerciseVolumes(BENCH.key, limit = 6)
+        assertEquals(listOf(425.0, 1_120.0, 160.0), volumes.map { it.volumeKg })
+        assertEquals(LocalDate.now(clock), volumes.first().day)
+        assertEquals(listOf(425.0), sessions.exerciseVolumes(BENCH.key, limit = 1).map { it.volumeKg })
+        assertEquals(3, sessions.observeFinishedSessionCount().first())
     }
 
     private suspend fun logBenchSession(vararg values: SetValues): String = logSession(BENCH.key, *values)
