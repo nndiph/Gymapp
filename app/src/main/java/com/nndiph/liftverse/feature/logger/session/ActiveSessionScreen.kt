@@ -66,8 +66,11 @@ import androidx.compose.ui.unit.sp
 import com.nndiph.liftverse.R
 import com.nndiph.liftverse.core.format.formatClock
 import com.nndiph.liftverse.core.theme.LiftverseTheme
+import com.nndiph.liftverse.core.ui.CustomTag
 import com.nndiph.liftverse.core.ui.LiftversePreview
+import com.nndiph.liftverse.core.ui.PrimaryFillButton
 import com.nndiph.liftverse.core.ui.ScreenPreviews
+import com.nndiph.liftverse.core.ui.SyncChip
 import com.nndiph.liftverse.domain.model.RestTimer
 import java.time.Duration
 import java.time.Instant

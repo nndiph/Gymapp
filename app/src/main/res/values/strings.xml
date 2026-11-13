@@ -10,7 +10,6 @@
     <string name="nav_profile">Profil</string>
 
     <!-- M0 placeholder screens -->
-    <string name="placeholder_dashboard">Latihan hari ini akan muncul di sini.</string>
     <string name="placeholder_logger">Mulai mencatat sesi latihan dari sini.</string>
     <string name="placeholder_profile">Heatmap dan progress-mu akan muncul di sini.</string>
 
@@ -145,4 +144,102 @@
     <string name="deleted_warmup_set">Set warm-up dihapus</string>
     <string name="deleted_exercise">%1$s dihapus</string>
     <string name="action_undo">Urungkan</string>
+
+    <!-- Shared -->
+    <string name="screen_unavailable">Layar ini belum dibuat.</string>
+    <string name="action_close">Tutup</string>
+    <string-array name="weekday_short">
+        <item>Sen</item>
+        <item>Sel</item>
+        <item>Rab</item>
+        <item>Kam</item>
+        <item>Jum</item>
+        <item>Sab</item>
+        <item>Min</item>
+    </string-array>
+
+    <!-- Session summary (Selesai sesi) -->
+    <string name="summary_title">Sesi selesai</string>
+    <string name="summary_date_range">%1$s · %2$s–%3$s</string>
+    <string name="summary_saved">%1$s tersimpan di riwayat.</string>
+    <string name="summary_duration">durasi</string>
+    <string name="summary_sets">set selesai</string>
+    <string name="summary_volume">kg volume</string>
+    <string name="summary_exercises">gerakan</string>
+    <string name="summary_time_title">Waktu sesi</string>
+    <string name="summary_average_rest">istirahat rata-rata %1$s per set</string>
+    <string name="summary_active">Latihan aktif</string>
+    <string name="summary_rest">Istirahat</string>
+    <string name="summary_improved">%1$d set naik dari sesi lalu</string>
+    <string name="summary_improved_sets">%1$d set</string>
+    <string name="summary_records">PR baru</string>
+    <string name="summary_record_detail">Estimasi 1RM %1$s kg · sebelumnya %2$s kg</string>
+    <string name="summary_record_estimate">Estimasi 1RM %1$s kg</string>
+    <string name="summary_no_records">Tidak ada PR baru kali ini. Set yang selesai tetap menambah volume dan konsistensimu.</string>
+    <string name="summary_heatmap_title">Kotak hari ini terisi</string>
+    <string name="summary_heatmap_sessions">Sesi ke-%1$d minggu ini dan ke-%2$d bulan ini.</string>
+    <string name="summary_streak_days">Streak naik jadi %1$d hari latihan.</string>
+    <string name="summary_target_reached">Target %1$d sesi minggu ini tercapai, streak %2$d minggu.</string>
+    <string name="summary_target_left">Kurang %1$d sesi lagi untuk target minggu ini.</string>
+    <string name="summary_heatmap_description">Heatmap lima minggu terakhir</string>
+    <string name="summary_open_profile">Lihat profil</string>
+    <string name="summary_back_dashboard">Kembali ke dashboard</string>
+
+    <!-- Dashboard -->
+    <string name="dashboard_greeting">Halo</string>
+    <string name="dashboard_streak_days">hari latihan beruntun</string>
+    <string name="dashboard_streak_weeks">minggu beruntun</string>
+    <string name="dashboard_streak_new">streak dimulai dari sesi pertama</string>
+    <string name="dashboard_streak_action">Streak, atur jadwal</string>
+    <string name="dashboard_week_sessions">sesi minggu ini</string>
+    <string name="dashboard_week_target">dari target %1$d sesi</string>
+    <string name="dashboard_today">Hari ini</string>
+    <string name="dashboard_day_done">%1$s, sudah latihan</string>
+    <string name="dashboard_day_planned">%1$s, terjadwal</string>
+    <string name="dashboard_today_title">Latihan hari ini</string>
+    <string name="dashboard_routine_meta">%1$d gerakan · %2$d set · sekitar %3$d menit</string>
+    <string name="dashboard_column_target">Target · sesi lalu</string>
+    <string name="dashboard_column_volume">Volume vs bulan lalu</string>
+    <string name="dashboard_target_sets_reps">%1$d × %2$d</string>
+    <string name="dashboard_target_sets">%1$d set</string>
+    <string name="dashboard_last">lalu %1$s</string>
+    <string name="dashboard_last_none">belum pernah dicatat</string>
+    <string name="dashboard_last_weight">%1$s kg × %2$s</string>
+    <string name="dashboard_last_bodyweight">BW × %1$s</string>
+    <string name="dashboard_last_added_weight">+%1$s kg × %2$s</string>
+    <string name="dashboard_more_exercises">+%1$d gerakan lainnya</string>
+    <string name="dashboard_last_done">terakhir %1$s</string>
+    <string name="dashboard_start">Mulai</string>
+    <string name="dashboard_continue">Lanjutkan sesi</string>
+    <string name="dashboard_rest_title">Tidak ada jadwal</string>
+    <string name="dashboard_rest_body">Hari istirahat juga bagian dari program. Kalau tetap ingin latihan, mulai sesi kosong atau pilih salah satu routine.</string>
+    <string name="dashboard_next">Berikutnya %1$s, %2$s</string>
+    <string name="dashboard_next_time">%1$s · %2$s</string>
+    <string name="dashboard_choose_routine">Pilih routine</string>
+    <string name="dashboard_new_title">Belum ada routine</string>
+    <string name="dashboard_new_body">Mulai sesi kosong dan catat gerakan apa saja. Kalau kamu menyusun routine dengan hari latihan, jadwal hari ini akan muncul di sini.</string>
+    <string name="dashboard_create_routine">Buat routine</string>
+    <string name="dashboard_done_title">%1$s selesai</string>
+    <string name="dashboard_done_meta">%1$d set · %2$s kg · %3$d menit</string>
+    <string name="dashboard_done_profile">Lihat heatmap di profil</string>
+    <string name="dashboard_week_title">Minggu ini vs minggu lalu</string>
+    <string name="dashboard_progress">Progress</string>
+    <string name="dashboard_stat_volume">kg volume</string>
+    <string name="dashboard_stat_sets">set</string>
+    <string name="dashboard_delta_week">%1$s dari minggu lalu</string>
+    <string name="dashboard_delta_week_same">Sama dengan minggu lalu</string>
+    <string name="dashboard_delta_sets">%1$s set</string>
+    <string name="dashboard_delta_same">Sama</string>
+    <string name="dashboard_legend_this_week">Minggu ini</string>
+    <string name="dashboard_legend_last_week">Minggu lalu</string>
+    <string name="dashboard_legend_planned">Terjadwal</string>
+    <string name="dashboard_bar_description">%1$s: %2$s kg, minggu lalu %3$s kg</string>
+    <string name="dashboard_month_title">%1$s · %2$d sesi · %3$s kg</string>
+    <string name="dashboard_month_compare">Dibanding 1–%1$d %2$s</string>
+    <string name="dashboard_history">Riwayat</string>
+    <string name="dashboard_history_count">%1$d sesi</string>
+    <string name="dashboard_history_none">Belum ada sesi</string>
+    <string name="dashboard_exercises">Gerakan</string>
+    <string name="dashboard_exercises_count">%1$d gerakan</string>
+    <string name="dashboard_exercises_count_custom">%1$d gerakan · %2$d custom</string>
 </resources>

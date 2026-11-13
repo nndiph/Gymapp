@@ -5,7 +5,9 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.rememberUpdatedState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
@@ -13,19 +15,25 @@ import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.nndiph.liftverse.R
 import com.nndiph.liftverse.core.ui.PlaceholderScreen
+import com.nndiph.liftverse.core.ui.PrimaryFillButton
 import com.nndiph.liftverse.feature.logger.session.ActiveSessionRoute
 import com.nndiph.liftverse.feature.logger.session.ActiveSessionUiState
 import com.nndiph.liftverse.feature.logger.session.ActiveSessionViewModel
-import com.nndiph.liftverse.feature.logger.session.PrimaryFillButton
 
 /**
  * Catat tab. With a running session it opens the session straight away (handoff README: "Bila ada sesi aktif,
  * tab langsung membuka Sesi"). Without one it shows a placeholder with "Mulai sesi kosong" until the Catat screen
- * (routines, start buttons) is built.
+ * (routines, start buttons) is built. A saved session opens its summary through [onSessionFinished].
  */
 @Composable
-fun LoggerScreen(modifier: Modifier = Modifier, viewModel: ActiveSessionViewModel = hiltViewModel()) {
+fun LoggerScreen(
+    onSessionFinished: (sessionId: String) -> Unit,
+    modifier: Modifier = Modifier,
+    viewModel: ActiveSessionViewModel = hiltViewModel()
+) {
     val state by viewModel.uiState.collectAsStateWithLifecycle()
+    val sessionFinished by rememberUpdatedState(onSessionFinished)
+    LaunchedEffect(viewModel) { viewModel.finishedSessions.collect { sessionFinished(it) } }
     when (val current = state) {
         ActiveSessionUiState.Loading -> Box(modifier.fillMaxSize())
         ActiveSessionUiState.NoSession -> {

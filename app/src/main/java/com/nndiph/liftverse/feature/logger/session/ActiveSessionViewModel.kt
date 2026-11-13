@@ -52,6 +52,11 @@ class ActiveSessionViewModel @Inject constructor(
     /** "Set 2 dihapus" and similar, each with what [undo] needs. */
     val messages: Flow<SessionMessage> = messageChannel.receiveAsFlow()
 
+    private val finishedChannel = Channel<String>(Channel.BUFFERED)
+
+    /** Ids of sessions just saved by "Selesaikan sesi", to open their summary. Discarded sessions send nothing. */
+    val finishedSessions: Flow<String> = finishedChannel.receiveAsFlow()
+
     private val runningSession: StateFlow<SessionLoad> = sessions.observeRunningSession()
         .onEach { session ->
             if (session != null) loadContexts(session)
@@ -159,7 +164,7 @@ class ActiveSessionViewModel @Inject constructor(
         val sessionId = currentSession()?.id ?: return
         selectedSetId.value = null
         expandedOverrides.value = emptyMap()
-        write { sessions.finishSession(sessionId) }
+        write { if (sessions.finishSession(sessionId)) finishedChannel.send(sessionId) }
     }
 
     private fun complete(setId: String) {

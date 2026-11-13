@@ -1,22 +1,17 @@
 package com.nndiph.liftverse.feature.logger.session
 
-import androidx.annotation.DrawableRes
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.RowScope
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.selection.toggleable
 import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.material3.Button
-import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.LocalContentColor
 import androidx.compose.material3.MaterialTheme
@@ -152,31 +147,6 @@ internal fun SetTagChip(tag: SetTag, modifier: Modifier = Modifier) {
     }
 }
 
-/** "Custom" tag beside the name of a user-made exercise. */
-@Composable
-internal fun CustomTag(modifier: Modifier = Modifier) {
-    Row(
-        modifier = modifier
-            .height(22.dp)
-            .border(1.dp, MaterialTheme.colorScheme.outline, MaterialTheme.shapes.extraSmall)
-            .padding(horizontal = 6.dp),
-        verticalAlignment = Alignment.CenterVertically,
-        horizontalArrangement = Arrangement.spacedBy(4.dp)
-    ) {
-        Icon(
-            painter = painterResource(R.drawable.ic_edit),
-            contentDescription = null,
-            tint = MaterialTheme.colorScheme.onSurfaceVariant,
-            modifier = Modifier.size(12.dp)
-        )
-        Text(
-            text = stringResource(R.string.tag_custom),
-            style = tagTextStyle(),
-            color = MaterialTheme.colorScheme.onSurface
-        )
-    }
-}
-
 @Composable
 private fun Tag(
     container: Color,
@@ -251,60 +221,5 @@ internal fun AchievementChip(achievement: LiveAchievement, modifier: Modifier = 
                 Text(stringResource(R.string.achievement_pr), style = textStyle)
             }
         }
-    }
-}
-
-/**
- * Sync indicator (28 dp chip). Sync to the cloud is not built yet, so the honest state is
- * "Tersimpan di perangkat"; "Tersinkron" and "Menyinkronkan" come with the sync worker.
- */
-@Composable
-internal fun SyncChip(modifier: Modifier = Modifier) {
-    Row(
-        modifier = modifier
-            .height(28.dp)
-            .clip(CircleShape)
-            .background(MaterialTheme.colorScheme.surfaceContainer)
-            .padding(horizontal = 10.dp),
-        verticalAlignment = Alignment.CenterVertically
-    ) {
-        Icon(
-            painter = painterResource(R.drawable.ic_smartphone),
-            contentDescription = null,
-            tint = MaterialTheme.colorScheme.onSurfaceVariant,
-            modifier = Modifier.size(16.dp)
-        )
-        Spacer(Modifier.width(4.dp))
-        Text(
-            text = stringResource(R.string.sync_saved_on_device),
-            style = MaterialTheme.typography.labelMedium,
-            color = MaterialTheme.colorScheme.onSurfaceVariant
-        )
-    }
-}
-
-/** Main action button: primaryFill with the onPrimaryFill label (graphite + volt light, volt dark). */
-@Composable
-internal fun PrimaryFillButton(
-    text: String,
-    onClick: () -> Unit,
-    modifier: Modifier = Modifier,
-    @DrawableRes icon: Int? = null
-) {
-    Button(
-        onClick = onClick,
-        modifier = modifier,
-        shape = MaterialTheme.shapes.medium,
-        colors = ButtonDefaults.buttonColors(
-            containerColor = LiftverseTheme.colors.primaryFill,
-            contentColor = LiftverseTheme.colors.onPrimaryFill
-        ),
-        contentPadding = PaddingValues(horizontal = 16.dp)
-    ) {
-        if (icon != null) {
-            Icon(painterResource(icon), contentDescription = null, modifier = Modifier.size(20.dp))
-            Spacer(Modifier.width(8.dp))
-        }
-        Text(text = text, style = MaterialTheme.typography.labelLarge)
     }
 }
