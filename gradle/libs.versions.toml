@@ -28,7 +28,7 @@ turbine = "1.2.1"
 mockk = "1.14.12"
 coroutines = "1.11.0"
 # Robolectric runs Room tests on the JVM. Tests pin sdk=35 (src/test/resources) because SDK 36+ needs JDK 21.
-robolectric = "4.17"
+robolectric = "4.18"
 androidxTestJunit = "1.3.0"
 espresso = "3.7.0"
 
