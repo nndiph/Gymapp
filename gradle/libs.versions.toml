@@ -19,7 +19,7 @@ work = "2.12.0"
 # Room 2.8.5 checked against the official release notes on 2026-11-12 (room-ktx is merged into room-runtime).
 room = "2.8.5"
 credentials = "1.6.0"
-firebaseBom = "35.1.0"
+firebaseBom = "35.2.0"
 googleServices = "4.5.0"
 crashlyticsPlugin = "3.0.8"
 ktlintPlugin = "14.2.0"
